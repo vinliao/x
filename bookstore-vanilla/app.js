@@ -1,11 +1,9 @@
-class User {
-  constructor(token, name){
-    this.token = token
-    this.name = name
+if(localStorage.getItem('name')){
+  const greetings = document.getElementById('greetings')
+  if(greetings){
+    greetings.innerHTML = ' Welcome back, ' + localStorage.getItem('name')
   }
 }
-
-let user
 
 const registerForm = document.getElementById('register-form')
 if(registerForm){
@@ -67,9 +65,9 @@ if(loginForm){
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response)
-        user = new User(response.data.token, response.data.name)
-        alert('Welcome back ' + user.name)
+        localStorage.setItem('name', response.data.name)
+        localStorage.setItem('token', response.data.token)
+        alert('Welcome back ' + response.data.name)
         window.location.href = '/'
       })
       .catch(err => console.log(err))
