@@ -1,3 +1,4 @@
+// handle the greetings at "navbar"
 if(localStorage.getItem('name')){
   const greetings = document.getElementById('greetings')
   if(greetings){
@@ -5,6 +6,7 @@ if(localStorage.getItem('name')){
   }
 }
 
+// handle registration form
 const registerForm = document.getElementById('register-form')
 if(registerForm){
   registerForm.addEventListener('submit', evt => {
@@ -43,6 +45,7 @@ if(registerForm){
   })
 }
 
+// handle login form
 const loginForm = document.getElementById('login-form')
 if(loginForm){
   loginForm.addEventListener('submit', evt => {
@@ -65,13 +68,53 @@ if(loginForm){
     })
       .then(response => response.json())
       .then(response => {
+        console.log(response)
         localStorage.setItem('name', response.data.name)
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('isAdmin', response.data.isAdmin)
         alert('Welcome back ' + response.data.name)
         window.location.href = '/'
       })
       .catch(err => console.log(err))
 
     evt.preventDefault()
+  })
+}
+
+// insert book to table
+const bookTable = document.getElementById('book-table')
+if(bookTable){
+  const url = 'http://localhost:3000'
+  fetch(url)
+    .then(response => response.json())
+    .then(response => {
+      response.data.forEach(book => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+          <td>${book.title}</td>
+          <td>${book.author}</td>
+          <td>${book.isbn}</td>
+          <td><button id="buy-button">Buy</button></td>
+        `
+        bookTable.appendChild(row)
+      });
+    })
+    .catch(err => console.log(err))
+
+  bookTable.addEventListener('click', evt => {
+    if(evt.target.id == 'buy-button'){
+      const btn = evt.target
+      const token = localStorage.getItem('token')
+
+      // first parent element is the td of buton, second is the tr
+      const row = btn.parentElement.parentElement
+
+      // [2] is because isbn is the third column
+      const isbn = row.children[2].innerHTML
+
+
+      // TODO: do some fetch with isbn and token here
+      console.log(isbn)
+    }
   })
 }
