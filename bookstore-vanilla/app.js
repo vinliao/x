@@ -140,18 +140,26 @@ const bookTable = document.getElementById('book-table')
 if (bookTable) {
   const url = 'http://localhost:3000'
   const buyUrl = 'http://localhost:3000/buy'
+  const isAdmin = localStorage.getItem('isAdmin')
 
   fetch(url)
     .then(response => response.json())
     .then(response => {
       response.data.forEach(book => {
         const row = document.createElement('tr')
-        row.innerHTML = `
+        let tableHtml = `
           <td>${book.title}</td>
           <td>${book.author}</td>
           <td>${book.isbn}</td>
-          <td><button id="buy-button">Buy</button></td>
         `
+        // remember, local storage can only store string
+        // if customer, then add the buy button
+        if(isAdmin == 'false'){
+          tableHtml += `<td><button id="buy-button">Buy</button></td>`
+        }
+
+        row.innerHTML = tableHtml
+
         bookTable.appendChild(row)
       });
     })
