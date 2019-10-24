@@ -1,0 +1,14 @@
+{
+  "name": "dummy-heroku",
+  "version": "1.0.0",
+  "description": "A dummy heroku app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Vincent Liao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
