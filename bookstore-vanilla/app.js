@@ -6,6 +6,14 @@ if (localStorage.getItem('name')) {
   }
 }
 
+const addBook = document.getElementById('add-book')
+if (addBook) {
+  // localstorage can only store string!
+  if (localStorage.getItem('isAdmin') == 'true') {
+    addBook.innerHTML = '<a href="/add.html">Add new book</a>'
+  }
+}
+
 // handle registration form
 const registerForm = document.getElementById('register-form')
 if (registerForm) {
@@ -76,12 +84,50 @@ if (loginForm) {
         }
       })
       .then(response => {
-        console.log(response)
+        console.log(typeof response.data.isAdmin)
         localStorage.setItem('name', response.data.name)
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('isAdmin', response.data.isAdmin)
         alert('Welcome back ' + response.data.name)
         window.location.href = '/'
+      })
+      .catch(err => console.log(err))
+
+    evt.preventDefault()
+  })
+}
+
+// add book as admin
+const addBookForm = document.getElementById('add-book-form')
+if (addBookForm) {
+  addBookForm.addEventListener('submit', evt => {
+    const token = localStorage.getItem('token')
+    const url = 'http://localhost:3000/new'
+
+    const data = {
+      title: addBookForm.title.value,
+      author: addBookForm.author.value,
+      isbn: addBookForm.isbn.value,
+    }
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'content-type': 'application/json',
+        'Authorization': 'Bearer: ' + token
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        console.log(response)
+        if (response.ok) {
+          alert('Book created')
+          window.location.href = '/'
+        } else {
+          throw new Error(String(response.status) + ' ' + response.statusText)
+        }
       })
       .catch(err => console.log(err))
 
@@ -137,7 +183,10 @@ if (bookTable) {
         body: JSON.stringify(data)
       })
         .then(response => {
-          if(response.ok){
+          if (response.status == 403) {
+            alert('You are not authorized!')
+          }
+          else if (response.ok) {
             alert('Order successful!')
           }
         })
