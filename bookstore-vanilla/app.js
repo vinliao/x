@@ -1,21 +1,21 @@
 // handle the greetings at "navbar"
-if(localStorage.getItem('name')){
+if (localStorage.getItem('name')) {
   const greetings = document.getElementById('greetings')
-  if(greetings){
+  if (greetings) {
     greetings.innerHTML = ' Welcome back, ' + localStorage.getItem('name')
   }
 }
 
 // handle registration form
 const registerForm = document.getElementById('register-form')
-if(registerForm){
+if (registerForm) {
   registerForm.addEventListener('submit', evt => {
     const isAdmin = registerForm.admin.checked
     let url
-    if(isAdmin){
+    if (isAdmin) {
       url = 'http://localhost:3000/users/signup/admin'
     }
-    else{
+    else {
       url = 'http://localhost:3000/users/signup/'
     }
     const data = {
@@ -23,7 +23,7 @@ if(registerForm){
       email: registerForm.email.value,
       password: registerForm.password.value
     }
-  
+
     // This fetch needs cors to be allowed for it to do any put/post op
     fetch(url, {
       method: 'PUT',
@@ -47,15 +47,15 @@ if(registerForm){
 
 // handle login form
 const loginForm = document.getElementById('login-form')
-if(loginForm){
+if (loginForm) {
   loginForm.addEventListener('submit', evt => {
     const url = 'http://localhost:3000/users/login'
-    
+
     const data = {
       email: loginForm.email.value,
       password: loginForm.password.value
     }
-  
+
     // This fetch needs cors to be allowed for it to do any put/post op
     fetch(url, {
       method: 'POST',
@@ -66,7 +66,15 @@ if(loginForm){
       },
       body: JSON.stringify(data)
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+        if (response.ok) {
+          return response.json()
+        } else {
+          alert('Wrong email or password')
+          throw new Error(String(response.status) + ' ' + response.statusText)
+        }
+      })
       .then(response => {
         console.log(response)
         localStorage.setItem('name', response.data.name)
@@ -83,8 +91,10 @@ if(loginForm){
 
 // insert book to table
 const bookTable = document.getElementById('book-table')
-if(bookTable){
+if (bookTable) {
   const url = 'http://localhost:3000'
+  const buyUrl = 'http://localhost:3000/buy'
+
   fetch(url)
     .then(response => response.json())
     .then(response => {
@@ -102,7 +112,7 @@ if(bookTable){
     .catch(err => console.log(err))
 
   bookTable.addEventListener('click', evt => {
-    if(evt.target.id == 'buy-button'){
+    if (evt.target.id == 'buy-button') {
       const btn = evt.target
       const token = localStorage.getItem('token')
 
@@ -112,9 +122,26 @@ if(bookTable){
       // [2] is because isbn is the third column
       const isbn = row.children[2].innerHTML
 
-
       // TODO: do some fetch with isbn and token here
       console.log(isbn)
+      const data = { isbn: isbn }
+
+      fetch(buyUrl, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'content-type': 'application/json',
+          'Authorization': 'Bearer: ' + token
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => {
+          if(response.ok){
+            alert('Order successful!')
+          }
+        })
+        .catch(err => console.log(err))
     }
   })
 }
