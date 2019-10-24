@@ -175,9 +175,6 @@ if (bookTable) {
 
       // [2] is because isbn is the third column
       const isbn = row.children[2].innerHTML
-
-      // TODO: do some fetch with isbn and token here
-      console.log(isbn)
       const data = { isbn: isbn }
 
       fetch(buyUrl, {
