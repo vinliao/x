@@ -47,11 +47,8 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
           </li> -->
         </ul>
         <ul class="navbar-nav navbar-right">
@@ -61,6 +58,9 @@
           <li class="nav-item">
             <a class="nav-link" href="./register.html">Register</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cart.html">Cart</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -69,10 +69,19 @@
   <header id="header" class="py-3">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1><i class="fas fa-book"></i> Cool Bookstore <small>Buy your books here!</small></h1>
+        <div class="col-md-11">
+          <h1>
+            <i class="fas fa-book"></i> Cool Bookstore 
+            <small class="text-muted">Buy your books here!</small>
+          </h1>
         </div>
-        <!-- <div class="col-md-4"></div> -->
+        <div class="col-md-1">
+          <a href="/add.html">
+            <button class="btn btn-secondary main-color-bg">
+              <i class="fas fa-plus"></i>
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -95,7 +104,10 @@
               <td>Super cool author 2</td>
               <td>123321</td>
               <td>
-                <button class="btn btn-sm btn-secondary main-color-bg">Buy</button>
+                <button type="button" class="btn btn-sm btn-secondary main-color-bg" data-toggle="modal"
+                  data-target="#buyModal">
+                  Buy
+                </button>
               </td>
             </tr>
             <tr>
@@ -103,7 +115,10 @@
               <td>Super cool author 2</td>
               <td>321321321</td>
               <td>
-                <button class="btn btn-sm btn-secondary main-color-bg">Buy</button>
+                <button type="button" class="btn btn-sm btn-secondary main-color-bg" data-toggle="modal"
+                  data-target="#buyModal">
+                  Buy
+                </button>
               </td>
             </tr>
             <tr>
@@ -111,7 +126,10 @@
               <td>Super cool author 3</td>
               <td>3333910</td>
               <td>
-                <button class="btn btn-sm btn-secondary main-color-bg">Buy</button>
+                <button type="button" class="btn btn-sm btn-secondary main-color-bg" data-toggle="modal"
+                  data-target="#buyModal">
+                  Buy
+                </button>
               </td>
             </tr>
           </tbody>
@@ -119,6 +137,21 @@
       </div>
     </div>
   </section>
+
+  <!-- Successful buy modal -->
+  <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          Order successful!
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary main-color-bg" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
