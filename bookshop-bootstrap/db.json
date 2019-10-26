@@ -1,44 +1,37 @@
 {
-  "posts": [
+  "books": [
     {
-      "id": 1,
-      "title": "working",
-      "author": "typicode"
+      "title": "f",
+      "author": "f",
+      "isbn": "f",
+      "id": 1
+    },
+    {
+      "title": "super",
+      "author": "cool",
+      "isbn": "123",
+      "id": 2
+    },
+    {
+      "title": "anoether",
+      "author": "cool",
+      "isbn": "book!",
+      "id": 3
+    },
+    {
+      "title": "super duper",
+      "author": "awesome",
+      "isbn": "123",
+      "id": 4
+    },
+    {
+      "title": "fea",
+      "author": "fea",
+      "isbn": "efef",
+      "id": 5
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "books": {
-    "data": [
-      {
-        "id": 1,
-        "title": "cool title",
-        "author": "super cool author",
-        "isbn": "12332113"
-      },
-      {
-        "id": 2,
-        "title": "cool title2",
-        "author": "super cool author2",
-        "isbn": "42151360"
-      },
-      {
-        "id": 3,
-        "title": "cool title3",
-        "author": "super cool author3",
-        "isbn": "09612941"
-      }
-    ]
-  },
-  "user": [
+  "users": [
     {
       "email": "register@email.com",
       "password": "coolstuff",
@@ -62,6 +55,24 @@
       "password": "aa",
       "isAdmin": true,
       "id": 4
+    },
+    {
+      "email": "new@user.com",
+      "password": "ww",
+      "isAdmin": false,
+      "id": 5
+    }
+  ],
+  "orders": [
+    {
+      "bookId": 1,
+      "userId": 3,
+      "quantity": 1
+    },
+    {
+      "bookId": 2,
+      "userId": 2,
+      "quantity": 3
     }
   ]
 }

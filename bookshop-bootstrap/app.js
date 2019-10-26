@@ -6,6 +6,8 @@ if (localStorage.getItem('name')) {
   }
 }
 
+console.log(localStorage.getItem('userId'))
+
 const addBook = document.getElementById('add-book')
 if (addBook) {
   // localstorage can only store string!
@@ -18,8 +20,7 @@ if (addBook) {
 const registerForm = document.querySelector('#register-form')
 if (registerForm) {
   registerForm.addEventListener('submit', evt => {
-    evt.preventDefault()
-    const url = 'http://localhost:3000/user'
+    const url = 'http://localhost:3000/users'
 
     const data = {
       email: document.querySelector('#register-email').value,
@@ -38,30 +39,22 @@ if (registerForm) {
     }).then(response => {
       window.location.href = '/'
     })
+
+    evt.preventDefault()
   })
 }
 
-// handle login form
+// Impelement login form using simple search, don't do this in real app!
 const loginForm = document.querySelector('#login-form')
 if (loginForm) {
   loginForm.addEventListener('submit', evt => {
-    const url = 'http://localhost:3000/user'
 
-    const data = {
-      email: document.querySelector('#login-email').value,
-      password: document.querySelector('#login-password').value
-    }
+    let url = 'http://localhost:3000/users'
+    const email = document.querySelector('#login-email').value
+    const password = document.querySelector('#login-password').value
+    url = url + '?password=' + password + '&email=' + email
 
-    // This fetch needs cors to be allowed for it to do any put/post op
-    fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
+    fetch(url)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -71,13 +64,9 @@ if (loginForm) {
         }
       })
       .then(response => {
-        // localStorage.setItem('name', response.data.name)
-        // localStorage.setItem('token', response.data.token)
-        // localStorage.setItem('isAdmin', response.data.isAdmin)
-        // alert('Welcome back ' + response.data.name)
-        console.log(response)
-        alert('welcome!')
-        alert('successfully login')
+        // the response returns a list, because we're doing a search to the backend
+        localStorage.setItem('userId', response[0].id)
+        window.location.href = '/'
       })
       .catch(err => console.log(err))
 
@@ -90,12 +79,12 @@ const addBookForm = document.getElementById('add-book-form')
 if (addBookForm) {
   addBookForm.addEventListener('submit', evt => {
     const token = localStorage.getItem('token')
-    const url = 'http://localhost:3000/new'
+    const url = 'http://localhost:3000/books'
 
     const data = {
-      title: addBookForm.title.value,
-      author: addBookForm.author.value,
-      isbn: addBookForm.isbn.value,
+      title: document.querySelector('#add-book-title').value,
+      author: document.querySelector('#add-book-author').value,
+      isbn: document.querySelector('#add-book-isbn').value
     }
 
     fetch(url, {
@@ -109,13 +98,7 @@ if (addBookForm) {
       body: JSON.stringify(data)
     })
       .then(response => {
-        console.log(response)
-        if (response.ok) {
-          alert('Book created')
-          window.location.href = '/'
-        } else {
-          throw new Error(String(response.status) + ' ' + response.statusText)
-        }
+        window.location.href = '/'
       })
       .catch(err => console.log(err))
 
@@ -132,7 +115,7 @@ if (bookTable) {
   fetch(url)
     .then(response => response.json())
     .then(response => {
-      response.data.forEach(book => {
+      response.forEach(book => {
         const row = document.createElement('tr')
         let tableHtml = `
           <td>${book.title}</td>
