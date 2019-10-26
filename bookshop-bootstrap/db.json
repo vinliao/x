@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "working",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "books": {
+    "data": [
+      {
+        "id": 1,
+        "title": "cool title",
+        "author": "super cool author",
+        "isbn": "12332113"
+      },
+      {
+        "id": 2,
+        "title": "cool title2",
+        "author": "super cool author2",
+        "isbn": "42151360"
+      },
+      {
+        "id": 3,
+        "title": "cool title3",
+        "author": "super cool author3",
+        "isbn": "09612941"
+      }
+    ]
+  },
+  "user": [
+    {
+      "email": "register@email.com",
+      "password": "coolstuff",
+      "isAdmin": false,
+      "id": 1
+    },
+    {
+      "email": "",
+      "password": "",
+      "isAdmin": false,
+      "id": 2
+    },
+    {
+      "email": "",
+      "password": "",
+      "isAdmin": false,
+      "id": 3
+    },
+    {
+      "email": "supercool@email.com",
+      "password": "aa",
+      "isAdmin": true,
+      "id": 4
+    }
+  ]
+}

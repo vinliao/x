@@ -41,18 +41,18 @@
     <div class="row">
       <div class="col-md-4 offset-md-4">
         <p class="h1 pb-3">Register</p>
-        <form action="/">
+        <form id="register-form" action="/">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <label for="register-email">Email address</label>
+            <input type="email" class="form-control" id="register-email" aria-describedby="emailHelp"
               placeholder="Enter email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="register-password">Password</label>
+            <input type="password" class="form-control" id="register-password" placeholder="Password">
           </div>
           <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input type="checkbox" class="form-check-input" id="admin-checkbox">
               <label class="form-check-label" for="exampleCheck1">admin?</label>
             </div>
           <div class="text-center">
@@ -62,6 +62,7 @@
       </div>
     </div>
   </div>
+  <script src="./app.js"></script>
 </body>
 
 </html>
