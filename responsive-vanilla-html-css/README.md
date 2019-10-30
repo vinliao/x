@@ -71,3 +71,6 @@ One of the core features of bootstrap is being able to create a row and how much
 
 1. The row class is basically `display: flex;`
 2. The col classes (e.g., `col-md-8`) uses media query and the flex size. The middle part (xs, sm, md, lg) controls how the layout looks like when it hit certain breakpoints. The number is how much part / 12 that it's occupying, which uses `flex: [insert value here]`
+
+### On alignment
+Bootstrap can't align or justify content if the child is a column, it only can align and justify if the items are html elements or another row. To apply alignment to a column, wrap it in a row.
