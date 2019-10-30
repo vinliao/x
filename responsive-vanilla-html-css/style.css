@@ -1,0 +1,29 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #f4f4f4
+}
+
+.d-flex {
+    display: flex;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    /* remove this later */
+    border: 2px #ccc solid;
+}
+
+header ul {
+    margin: auto 0 auto 0;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header li {
+    display: inline;
+}
