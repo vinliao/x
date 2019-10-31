@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* for debugging purposes */
+  border: 1px red solid;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline;
+}
+
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  height: 6vh;
+}
+
+.flex {
+  display: flex;
+}

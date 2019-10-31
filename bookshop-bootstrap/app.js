@@ -6,8 +6,6 @@ if (localStorage.getItem('name')) {
   }
 }
 
-console.log(localStorage.getItem('userId'))
-
 const addBook = document.getElementById('add-book')
 if (addBook) {
   // localstorage can only store string!
@@ -134,3 +132,8 @@ if (bookTable) {
     })
     .catch(err => console.log(err))
 }
+
+// TODO: buy book by clikcing the buy on the home page
+
+// TODO: order functionality
+// http://localhost:3000/orders?userId=2
