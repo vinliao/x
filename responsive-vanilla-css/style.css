@@ -2,11 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* for debugging purposes */
+  border: 1px red solid;
+
 }
 
 body {
   /* for debugging purposes */
-  border: 1px red solid;
+  /* border: 1px red solid; */
 }
 
 .container {
@@ -30,4 +33,41 @@ nav li {
 
 .flex {
   display: flex;
+}
+
+.hero-box {
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-text-main {
+  display: block;
+}
+
+.hero-text-sub {
+  display: block;
+}
+
+.benefit-box-lower {
+  justify-content: space-around;
+}
+
+.benefit-card {
+  text-align: center;
+  flex-basis: 33%;
+  padding: 10px;
+}
+
+.newsletter {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.footer {
+  height: 6vh;
+  align-items: center;
+  justify-content: center;
 }
