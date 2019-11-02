@@ -3,96 +3,77 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   /* for debugging purposes */
-  border: 1px red solid;
-}
+  border: 1px red solid; }
 
 .container {
   width: 80%;
-  margin: auto;
-}
+  margin: auto; }
 
 .nav-link ul {
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 .nav-link li {
-  display: inline;
-}
+  display: inline; }
 
 .navbar {
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
-}
+  padding: 5px 0; }
 
 .flex {
   display: flex;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
 
 .footer {
   align-items: center;
   justify-content: center;
-  padding: 50px;
-}
+  padding: 50px; }
 
 /* Home page */
 .hero-box {
   height: 70vh;
   justify-content: center;
   align-items: center;
-  text-align: center;
-}
+  text-align: center; }
 
 .hero-text-main {
-  display: block;
-}
+  display: block; }
 
 .hero-text-sub {
-  display: block;
-}
+  display: block; }
 
 .benefit-box-upper {
-  justify-content: space-around;
-}
+  justify-content: space-around; }
 
 .benefit-box-lower {
-  justify-content: space-around;
-}
+  justify-content: space-around; }
 
 .benefit-card {
   text-align: center;
   flex-basis: 30%;
-  padding: 10px 10px 120px 10px;
-}
+  padding: 10px 10px 120px 10px; }
 
 .newsletter {
   justify-content: space-around;
   align-items: center;
-  padding: 30px 0;
-}
+  padding: 30px 0; }
 
 /* Services page */
 .services {
   justify-content: space-between;
-  padding: 50px;
-}
+  padding: 50px; }
 
 .services-description {
-  flex: 1;
-}
+  flex: 1; }
 
 .services-form {
   flex: 1;
   text-align: center;
-  padding-top: 30px;
-}
+  padding-top: 30px; }
 
 .services-card {
-  padding: 30px;
-}
+  padding: 30px; }
 
 /* Forms page */
 .form {
@@ -100,74 +81,49 @@
   padding: 30px;
   width: 400px;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .form-name-email {
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .form-name,
 .form-email,
 .form-radio,
 .form-select,
 .form-textarea {
-  margin-bottom: 15px;
-}
+  margin-bottom: 15px; }
 
 .form-submit {
-  width: 30%;
-}
+  width: 30%; }
 
 /* not working */
 .form-radio input[type='radio'] {
   /* background: blue; */
-  padding: 10px;
-}
+  padding: 10px; }
 
 /* The value 720px is arbitrary, it's the point
 where my design breaks */
 @media only screen and (max-width: 720px) {
   * {
-    border: 1px purple solid;
-  }
-
+    border: 1px purple solid; }
   .brand {
     flex-basis: 100%;
     text-align: center;
-    padding: 10px;
-  }
-
+    padding: 10px; }
   .nav-link {
     flex-basis: 100%;
-    justify-content: center;
-  }
-
+    justify-content: center; }
   .benefit-card {
-    flex-basis: 70%;
-  }
-
+    flex-basis: 70%; }
   .benefit-box-lower {
-    display: none;
-  }
-
+    display: none; }
   .footer {
-    padding: 20px;
-  }
-
+    padding: 20px; }
   .newsletter-input {
-    padding-top: 10px;
-  }
-
+    padding-top: 10px; }
   .services-card {
-    padding: 10px;
-  }
-
+    padding: 10px; }
   .services {
-    padding: 20px;
-  }
-
+    padding: 20px; }
   .services-description {
-    flex-basis: 100%;
-  }
-}
+    flex-basis: 100%; } }

@@ -1,0 +1,16 @@
+{
+  "name": "responsive-vanilla-css",
+  "version": "1.0.0",
+  "description": "Just trying things out using vanilla css and sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass ./sass/main.scss ./css/style.css -w"
+  },
+  "keywords": [],
+  "author": "Vincent Liao",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
