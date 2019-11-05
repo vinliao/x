@@ -61,4 +61,45 @@ body {
 
 .header__hero-text--sub-text {
   font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.newsletter {
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.newsletter--bigger-text {
+  font-size: 2rem;
+}
+
+.newsletter__subscribe-button {
+  // todo
+  text-decoration: none;
+}
+
+.benefit {
+  justify-content: center;
+  text-align: center;
+}
+
+.benefit__benefit-box {
+  width: 100%;
+  padding: 3rem;
+}
+
+.benefit__main-text {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.benefit__sub-text {
+  font-size: $default-font-size;
+}
+
+.footer {
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
