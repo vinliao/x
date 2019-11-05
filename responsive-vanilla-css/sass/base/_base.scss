@@ -5,10 +5,19 @@
 
   // for testing purpose
   border: 1px red solid;
+
+  @include respond(first) {
+    border: 1px blue solid;
+  }
 }
 
 html {
   font-size: 62.5%;
+  
+  @include respond(first) {
+    font-size: 50%;
+  }
+
 }
 
 body {

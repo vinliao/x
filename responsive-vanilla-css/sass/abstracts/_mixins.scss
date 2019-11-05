@@ -1,0 +1,5 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == first {
+    @media (max-width: 400px) { @content };
+  } 
+}
