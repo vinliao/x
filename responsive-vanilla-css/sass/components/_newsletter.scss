@@ -1,0 +1,14 @@
+.newsletter {
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rem 0;
+
+  &__text {
+    font-size: 2rem;
+  }
+
+  &__subscribe-button {
+    // todo
+    text-decoration: none;
+  }
+}
