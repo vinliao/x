@@ -6,20 +6,21 @@
   /* for debugging purposes */
   border: 1px red solid; }
 
+html {
+  font-size: 62.5%; }
+
 .container {
   width: 80%;
   margin: auto; }
 
-.nav-link ul {
-  list-style-type: none; }
-
-.nav-link li {
-  display: inline; }
-
 .navbar {
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0; }
+  padding: 0.5rem 0; }
+  .navbar .nav-link ul {
+    list-style-type: none; }
+  .navbar .nav-link li {
+    display: inline; }
 
 .flex {
   display: flex;
@@ -28,7 +29,7 @@
 .footer {
   align-items: center;
   justify-content: center;
-  padding: 50px; }
+  padding: 5rem; }
 
 /* Home page */
 .hero-box {
@@ -52,17 +53,17 @@
 .benefit-card {
   text-align: center;
   flex-basis: 30%;
-  padding: 10px 10px 120px 10px; }
+  padding: 1rem 1rem 12rem 1rem; }
 
 .newsletter {
   justify-content: space-around;
   align-items: center;
-  padding: 30px 0; }
+  padding: 3rem 0; }
 
 /* Services page */
 .services {
   justify-content: space-between;
-  padding: 50px; }
+  padding: 5rem; }
 
 .services-description {
   flex: 1; }
@@ -70,16 +71,16 @@
 .services-form {
   flex: 1;
   text-align: center;
-  padding-top: 30px; }
+  padding-top: 3rem; }
 
 .services-card {
-  padding: 30px; }
+  padding: 3rem; }
 
 /* Forms page */
 .form {
   flex-direction: column;
-  padding: 30px;
-  width: 400px;
+  padding: 3rem;
+  width: 40rem;
   align-items: center;
   justify-content: center; }
 
@@ -91,15 +92,15 @@
 .form-radio,
 .form-select,
 .form-textarea {
-  margin-bottom: 15px; }
+  margin-bottom: 1.5rem; }
 
 .form-submit {
   width: 30%; }
 
 /* not working */
-.form-radio input[type='radio'] {
+.form-radio input[type="radio"] {
   /* background: blue; */
-  padding: 10px; }
+  padding: 1rem; }
 
 /* The value 720px is arbitrary, it's the point
 where my design breaks */
@@ -109,7 +110,7 @@ where my design breaks */
   .brand {
     flex-basis: 100%;
     text-align: center;
-    padding: 10px; }
+    padding: 1rem; }
   .nav-link {
     flex-basis: 100%;
     justify-content: center; }
@@ -118,9 +119,9 @@ where my design breaks */
   .benefit-box-lower {
     display: none; }
   .footer {
-    padding: 20px; }
+    padding: 2rem; }
   .newsletter-input {
-    padding-top: 10px; }
+    padding-top: 1rem; }
   .services-card {
     padding: 10px; }
   .services {
