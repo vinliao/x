@@ -1,10 +1,12 @@
 .newsletter {
   justify-content: space-around;
   align-items: center;
-  padding: 5rem 0;
+  padding: 2rem 0;
+  text-align: center;
 
   &__text {
-    font-size: 2rem;
+    font-size: $default-font-size;
+    padding-bottom: 1rem;
   }
 
   &__subscribe-button {

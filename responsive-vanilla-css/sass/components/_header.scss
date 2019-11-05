@@ -1,5 +1,23 @@
 .header {
+  &__navbar {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.2rem 0;
+    
+    @include respond(first) {
+      justify-content: space-between;
+    }
+  }
+
+  &__brand {
+    display: block;
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   &__nav-links {
+    display: block;
     list-style: none;
   }
 
@@ -7,27 +25,21 @@
     display: inline-block;
   }
 
-  &__navbar {
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-  }
-
   &__hero-box {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30rem 5rem;
+    padding: 25rem 5rem;
   }
 
   &__main-hero-text {
     display: block;
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
 
   &__sub-hero-text {
     display: block;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 }

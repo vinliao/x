@@ -4,11 +4,11 @@
 
   &__benefit-box {
     width: 100%;
-    padding: 3rem;
+    padding: 2rem 0;
   }
 
   &__main-text {
-    font-size: 2rem;
+    font-size: $default-font-size;
     font-weight: 700;
   }
 

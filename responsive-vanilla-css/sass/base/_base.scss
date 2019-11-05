@@ -4,18 +4,22 @@
   box-sizing: border-box;
 
   // for testing purpose
-  border: 1px red solid;
+  // border: 1px red solid;
 
-  @include respond(first) {
-    border: 1px blue solid;
-  }
+  // @include respond(first) {
+  //   border: 1px blue solid;
+  // }
 }
 
 html {
   font-size: 62.5%;
   
   @include respond(first) {
-    font-size: 50%;
+    font-size: 68.75%; // 11px
+  }
+
+  @include respond(second) {
+    font-size: 75%; // 12px
   }
 
 }
@@ -27,6 +31,10 @@ body {
 .container {
   width: 80%;
   margin: auto;
+
+  @include respond(third) {
+    width: 80rem; // completely arbitrary, but the transition is smooth and it looks good!
+  }
 }
 
 .flex {
