@@ -1,0 +1,29 @@
+.header__nav-links {
+  list-style: none;
+}
+
+.header__nav-links-item {
+  display: inline-block;
+}
+
+.header__navbar {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.header__hero-box {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30rem 5rem;
+}
+
+.header__main-hero-text {
+  font-size: 4rem;
+}
+
+.header__sub-hero-text {
+  font-size: 2.5rem;
+  font-weight: 500;
+}

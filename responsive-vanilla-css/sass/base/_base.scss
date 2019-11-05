@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  // for testing purpose
+  border: 1px red solid;
 }
 
 html {
@@ -9,7 +12,7 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: $default-font-size
 }
 
 .container {

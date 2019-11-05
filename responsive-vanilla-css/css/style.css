@@ -35,10 +35,10 @@ body {
   text-align: center;
   padding: 30rem 5rem; }
 
-.header__hero-text--main-text {
+.header__main-hero-text {
   font-size: 4rem; }
 
-.header__hero-text--sub-text {
+.header__sub-hero-text {
   font-size: 2.5rem;
   font-weight: 500; }
 
@@ -46,27 +46,22 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 5rem 0; }
-
-.newsletter--bigger-text {
-  font-size: 2rem; }
-
-.newsletter__subscribe-button {
-  text-decoration: none; }
+  .newsletter__text {
+    font-size: 2rem; }
+  .newsletter__subscribe-button {
+    text-decoration: none; }
 
 .benefit {
   justify-content: center;
   text-align: center; }
-
-.benefit__benefit-box {
-  width: 100%;
-  padding: 3rem; }
-
-.benefit__main-text {
-  font-size: 2rem;
-  font-weight: 700; }
-
-.benefit__sub-text {
-  font-size: 1.6rem; }
+  .benefit__benefit-box {
+    width: 100%;
+    padding: 3rem; }
+  .benefit__main-text {
+    font-size: 2rem;
+    font-weight: 700; }
+  .benefit__sub-text {
+    font-size: 1.6rem; }
 
 .footer {
   justify-content: center;

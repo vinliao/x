@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-size: $default-font-size
+  font-size: $default-font-size;
 }
 
 .container {
@@ -34,68 +34,70 @@ body {
   flex-wrap: wrap;
 }
 
-.header__nav-links {
-  list-style: none;
-}
+.header {
+  &__nav-links {
+    list-style: none;
+  }
 
-.header__nav-links-item {
-  display: inline-block;
-}
+  &__nav-links-item {
+    display: inline-block;
+  }
 
-.header__navbar {
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-}
+  &__navbar {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
 
-.header__hero-box {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 30rem 5rem;
-}
+  &__hero-box {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30rem 5rem;
+  }
 
-.header__hero-text--main-text {
-  font-size: 4rem;
-}
+  &__main-hero-text {
+    font-size: 4rem;
+  }
 
-.header__hero-text--sub-text {
-  font-size: 2.5rem;
-  font-weight: 500;
+  &__sub-hero-text {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
 }
 
 .newsletter {
   justify-content: space-around;
   align-items: center;
   padding: 5rem 0;
-}
 
-.newsletter--bigger-text {
-  font-size: 2rem;
-}
+  &__text {
+    font-size: 2rem;
+  }
 
-.newsletter__subscribe-button {
-  // todo
-  text-decoration: none;
+  &__subscribe-button {
+    // todo
+    text-decoration: none;
+  }
 }
 
 .benefit {
   justify-content: center;
   text-align: center;
-}
 
-.benefit__benefit-box {
-  width: 100%;
-  padding: 3rem;
-}
+  &__benefit-box {
+    width: 100%;
+    padding: 3rem;
+  }
 
-.benefit__main-text {
-  font-size: 2rem;
-  font-weight: 700;
-}
+  &__main-text {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 
-.benefit__sub-text {
-  font-size: $default-font-size;
+  &__sub-text {
+    font-size: $default-font-size;
+  }
 }
 
 .footer {
