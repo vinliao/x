@@ -10,13 +10,6 @@ html {
   font-size: 62.5%
 }
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .input-form {
   flex-direction: column;
   justify-content: center;
@@ -29,7 +22,8 @@ html {
   margin: auto;
 }
 
-.input-form__title {
+.input-form__title,
+.result__title {
   padding: 30px;
   background: black;
   color: white;
@@ -40,11 +34,10 @@ html {
 
 .flex {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 }
 
 .input-form__form-item {
-  /* width: 100%; */
   margin-top: 2rem;
 }
 
@@ -68,4 +61,44 @@ html {
 .input-form__submit:hover {
   color: white;
   background: black;
+}
+
+/* .result {
+  height: 100vh;
+  align-items: stretch;
+  border: 1px red solid;
+} */
+
+.result {
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result__optimize-text-block {
+  padding-top: 5rem;
+  justify-content: space-between;
+}
+
+.result__optimize-before,
+.result__optimize-after {
+  font-size: 2rem;
+}
+
+
+.result__gas-used-left,
+.result__gas-used-right {
+  font-size: 2rem;
+}
+
+.result__optimize-number-left,
+.result__optimize-number-right {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.result__optimize-after,
+.result__optimize-number-right,
+.result__gas-used-right {
+  text-align: right;
 }
