@@ -6,40 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <link rel="stylesheet" href="./style2.css">
 </head>
 
 <body>
 
 
-  <div class="center input-form">
-    <h1 class="input-form__title">EIP-780 Optimized</h1>
+  <div class="container">
 
-    <form action="./result.html">
+    <div class="input-form flex">
+      <h1 class="input-form__title">EIP-780 Optimized</h1>
 
-      <div class="input-form__form-item flex">
-        <label for="name-input" class="input-form__label">Name: </label>
-        <input class="input-form__text-input" type="text" id="name-input">
-      </div>
+      <form action="./result.html">
 
-      <div class="input-form__form-item flex">
-        <label for="age-input" class="input-form__label">Age: </label>
-        <input class="input-form__text-input" type="text" id="age-input">
-      </div>
+        <!-- <input class="input-form__text-input" type="text" id="name-input" placeholder="Name">
+        <input class="input-form__text-input" type="text" id="age-input" placeholder="Age">
+        <input class="input-form__text-input" type="text" id="Address-input" placeholder="Address">
+        <input class="input-form__text-input" type="text" id="email-input" placeholder="Email"> -->
+        <div class="input-form__form-item">
+            <label for="name-input" class="input-form__label">Name: </label><br>
+            <input class="input-form__text-input" type="text" id="name-input">
+          </div>
+    
+          <div class="input-form__form-item">
+            <label for="age-input" class="input-form__label">Age: </label>
+            <input class="input-form__text-input" type="text" id="age-input">
+          </div>
+    
+          <div class="input-form__form-item">
+            <label for="address-input" class="input-form__label">Address: </label>
+            <input class="input-form__text-input" type="text" id="address-input">
+          </div>
+    
+          <div class="input-form__form-item">
+            <label for="phone-input" class="input-form__label">Phone: </label>
+            <input class="input-form__text-input" type="text" id="phone-input">
+          </div>
 
-      <div class="input-form__form-item flex">
-        <label for="address-input" class="input-form__label">Address: </label>
-        <input class="input-form__text-input" type="text" id="address-input">
-      </div>
-
-      <div class="input-form__form-item flex">
-        <label for="phone-input" class="input-form__label">Phone: </label>
-        <input class="input-form__text-input" type="text" id="phone-input">
-      </div>
-
-
-      <input class="input-form__submit" type="submit" value="Submit!">
-    </form>
+        <input class="input-form__submit" type="submit" value="Submit!">
+      </form>
+    </div>
   </div>
 
 </body>
