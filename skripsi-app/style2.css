@@ -6,8 +6,25 @@
   /* border: 1px red solid; */
 }
 
+html,
+input[type=submit] {
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Merriweather", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-family: "Merriweather", serif; */
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+}
+
 html {
-  font-size: 62.5%
+  font-size: 62.5%;
 }
 
 .input-form {
@@ -24,12 +41,13 @@ html {
 
 .input-form__title,
 .result__title {
-  padding: 30px;
-  background: black;
+  padding: 25px;
+  background: #333;
   color: white;
   text-align: center;
   width: 100%;
-  font-size: 3rem;
+  /* font-weight: 700; */
+  font-size: 3.5rem;
 }
 
 .flex {
@@ -41,9 +59,7 @@ html {
   margin-top: 2rem;
 }
 
-.input-form__label,
 .input-form__text-input {
-  font-size: 2rem;
   width: 100%;
 }
 
@@ -60,14 +76,8 @@ html {
 
 .input-form__submit:hover {
   color: white;
-  background: black;
+  background: #333;
 }
-
-/* .result {
-  height: 100vh;
-  align-items: stretch;
-  border: 1px red solid;
-} */
 
 .result {
   height: 100vh;
@@ -81,20 +91,19 @@ html {
 }
 
 .result__optimize-before,
-.result__optimize-after {
-  font-size: 2rem;
-}
-
-
+.result__optimize-after,
 .result__gas-used-left,
-.result__gas-used-right {
-  font-size: 2rem;
+.result__gas-used-right,
+.input-form__label {
+  font-size: 1.75rem;
+  color: hsl(44, 0%, 50%);
 }
 
 .result__optimize-number-left,
 .result__optimize-number-right {
   font-size: 5rem;
   font-weight: 700;
+  color: #333;
 }
 
 .result__optimize-after,
