@@ -6,8 +6,14 @@
   /* border: 1px red solid; */
 }
 
+/*
+black: hsl(0, 0%, 15%);
+white: #fff
+yellow: hsl(53, 100%, 50%);
+*/
+
 html,
-input[type=submit] {
+input[type="submit"] {
   /* font-family: "Lato", sans-serif; */
   font-family: "Merriweather", serif;
 }
@@ -42,7 +48,7 @@ html {
 .input-form__title,
 .result__title {
   padding: 25px;
-  background: #333;
+  background: hsl(0, 0%, 15%);
   color: white;
   text-align: center;
   width: 100%;
@@ -67,16 +73,21 @@ html {
   padding: 0.5rem 0;
 }
 
-.input-form__submit {
+.input-form__submit,
+.result__back-button {
   margin-top: 3rem;
   width: 100%;
   font-size: 2rem;
   padding: 1rem 0;
+
+  background: hsl(0, 0%, 15%);
+  color: white;
+  text-decoration: none;
 }
 
 .input-form__submit:hover {
-  color: white;
-  background: #333;
+  color: hsl(53, 100%, 50%);
+  background: hsl(0, 0%, 15%);
 }
 
 .result {
@@ -103,11 +114,23 @@ html {
 .result__optimize-number-right {
   font-size: 5rem;
   font-weight: 700;
-  color: #333;
+  color: hsl(0, 0%, 15%);
 }
 
 .result__optimize-after,
 .result__optimize-number-right,
 .result__gas-used-right {
   text-align: right;
+}
+
+.result__back-button {
+  margin-top: 5rem;
+  color: hsl(0, 0%, 15%);
+  background: white;
+  border: 1px hsl(0, 0%, 15%) solid;
+  text-align: center;
+}
+
+.result__back-button:hover {
+  border: 1px hsl(53, 100%, 50%) solid;
 }
