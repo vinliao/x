@@ -9,5 +9,5 @@ else
     # Using quotation mark will treat the variable as a whole
     # instead of splitting it into an "array of texts"
     echo "$EPUB"
-    mv ~/Downloads/"$EPUB" ~/Dropbox/epubs
+    mv ~/Downloads/"$EPUB" ~/Dropbox/Documents/Epubs
 fi
