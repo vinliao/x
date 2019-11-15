@@ -14,7 +14,6 @@ yellow: hsl(53, 100%, 50%);
 
 html,
 input[type="submit"] {
-  /* font-family: "Lato", sans-serif; */
   font-family: "Merriweather", serif;
 }
 
@@ -24,7 +23,6 @@ h3,
 h4,
 h5,
 h6 {
-  /* font-family: "Merriweather", serif; */
   font-family: "Lato", sans-serif;
   font-weight: 900;
 }
@@ -38,6 +36,13 @@ html {
   justify-content: center;
   height: 100vh;
   align-items: stretch;
+}
+
+.input-form__form {
+  border: 1px hsl(0, 0%, 15%) solid;
+  padding: 0 2rem 2rem 2rem;
+  margin-top: 2rem;
+  border-radius: 5px;
 }
 
 .container {
@@ -54,6 +59,7 @@ html {
   width: 100%;
   /* font-weight: 700; */
   font-size: 3.5rem;
+  border-radius: 5px;
 }
 
 .flex {
@@ -66,12 +72,21 @@ html {
 }
 
 .input-form__text-input {
+  margin-top: 0.5rem;
   width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px grey solid;
 }
 
-.input-form__text-input {
-  padding: 0.5rem 0;
+.input-form__text-input:focus {
+  border: 1px hsl(0, 0%, 15%) solid;
+  box-shadow: 0px 0px 3px 0px hsl(53, 100%, 50%);
 }
+
+/* input[type=text]{
+  border-radius: 4px;
+} */
 
 .input-form__submit,
 .result__back-button {
@@ -84,6 +99,8 @@ html {
   background: hsl(0, 0%, 15%);
   color: white;
   text-decoration: none;
+
+  border-radius: 5px;
 }
 
 .input-form__submit:hover {
