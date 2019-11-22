@@ -1,29 +1,37 @@
 <template>
   <div id="app">
-
-    <example></example>
+    <landing-page></landing-page>
   </div>
 </template>
 
 <script>
-import Example from './components/Example.vue'
+import LandingPage from './pages/LandingPage'
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Example
-
+    LandingPage
   }
-}
+};
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800|Playfair+Display&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: $grey-800;
 }
 </style>
