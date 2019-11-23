@@ -3,7 +3,16 @@
   margin: auto;
 }
 
+.container-small {
+  width: 60%;
+  margin: auto;
+}
+
 .flex {
   display: flex;
   flex-wrap: wrap;
+}
+
+.red-border {
+  border: 1px red solid;
 }

@@ -1,3 +1,4 @@
-@mixin mixin-example {
-  background: pink; 
+@mixin anchor-button {
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
 }
