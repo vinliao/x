@@ -1,159 +1,201 @@
 <template>
   <div>
-    <landing-page-navbar></landing-page-navbar>
-    <div class="hero container flex">
-      <div class="hero__content">
-        <h1 class="hero__main-text">Super cool heading</h1>
-        <h2 class="hero__sub-text">super cool subheading</h2>
-        <CTAButton></CTAButton>
-      </div>
-      <img
-        src="https://picsum.photos/600/400"
-        alt="Cool picture"
-        class="hero__image"
-      >
+    <!-- navbar -->
+    <div class="container">
+      <section class="hero flex">
+        <div class="flex-one"></div>
+        <div class="flex-four">
+          <div class="hero__content flex">
+            <h1 class="hero__main-text">Your best value propostion</h1>
+            <!-- <h2 class="hero__sub-text">this is my friend</h2> -->
+            <a
+              href="#"
+              class="hero__cta"
+            >Try now</a>
+            <img
+              src="http://via.placeholder.com/2000x1000"
+              alt="hero image"
+              class="hero__image"
+            >
+          </div>
+        </div>
+        <div class="flex-one"></div>
+      </section>
     </div>
 
-    <div class="benefit">
-      <div class="container flex benefit__content">
-        <landing-page-benefit-card class="benefit__card"></landing-page-benefit-card>
-        <landing-page-benefit-card class="benefit__card"></landing-page-benefit-card>
-        <landing-page-benefit-card class="benefit__card"></landing-page-benefit-card>
-      </div>
+    <div class="container">
+      <section class="benefit flex">
+        <div class="flex-one"></div>
+        <div class="flex-two">
+          <p class="benefit__title">
+            Super cool title
+          </p>
+
+          <p class="benefit__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt delectus ut optio officia distinctio, harum quo veritatis.
+            Ipsam labore fuga maxime enim, iusto eos aperiam perferendis corrupti architecto et cumque?
+          </p>
+        </div>
+        <div class="flex-two">
+          <img
+            src="http://via.placeholder.com/2000x500"
+            alt=""
+            class="benefit__image"
+          >
+        </div>
+        <div class="flex-one"></div>
+      </section>
     </div>
 
-    <div class="testimonial container-small flex">
-      <p class="testimonial__content">lorem lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Non labore quis iure eius! Dolores placeat tempora sit.</p>
+    <div class="container">
+      <section class="testimonial flex">
+        <div class="flex-one"></div>
+        <div class="flex-four">
+          <div class="testimonial__content flex">
 
-      <div class="testimonial__person">
-        <img
-          src="https://picsum.photos/500/500"
-          alt="Person picture"
-          class="testimonial__person-picture"
-        >
-        <p class="testimonial__person-name">-John Doe, owner of Hello world</p>
-      </div>
+            <p class="testimonial__title">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi optio vitae quisquam deleniti suscipit cupiditate illo
+            </p>
 
+            <p class="testimonial__identity">
+              FirstName LastName - CEO of Company X
+            </p>
+          </div>
+        </div>
+        <div class="flex-one"></div>
+      </section>
     </div>
 
-    <div class="second-hero">
-      <div class="container">
-      <p class="second-hero__main-text">
-        Super cool text
-      </p>
+    <div class="container">
+      <section class="bottom-cta flex">
+        <div class="flex-one"></div>
+        <div class="flex-four">
+          <div class="bottom-cta__content flex">
+            <p class="bottom-cta__main-text">
+              Your best value proposition
+            </p>
 
-      <CTAButton></CTAButton>
-      </div>
+            <a href="#" class="bottom-cta__cta">
+              Super cool
+            </a>
+          </div>
+        </div>
+        <div class="flex-one"></div>
+      </section>
     </div>
 
-    <div class="footer">
-      <p class="container footer__text">Footer text</p>
-    </div>
+    <!-- <div class="container">
+      <section class="footer flex">
+        <div class="flex-one"></div>
+        <div class="flex-four">Copyright Nistris</div>
+        <div class="flex-one"></div>
+      </section>
+    </div> -->
+    
   </div>
+
 
 </template>
 
 <script>
-import LandingPageNavbar from "../components/LandingPageNavbar";
-import LandingPageBenefitCard from "../components/LandingPageBenefitCard";
-import CTAButton from "../components/CTAButton";
-
-export default {
-  components: {
-    LandingPageNavbar,
-    LandingPageBenefitCard,
-    CTAButton
-  }
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
 .hero {
-  padding: 12rem 0;
-  align-items: center;
-  justify-content: space-between;
+  padding: 3rem 0;
 
   &__content {
-    width: 50%;
-  }
-
-  &__main-text {
-    font-size: 6rem;
-    font-weight: 800;
-  }
-
-  &__sub-text {
-    font-size: 3rem;
-    font-weight: 400;
-    margin-bottom: 3rem;
+    align-items: center;
+    flex-direction: column;
   }
 
   &__image {
-    width: 50%;
+    width: 100%;
+  }
+
+  &__main-text {
+    font-size: 3rem;
+  }
+
+  &__cta {
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background: $grey-900;
+    margin: 3rem 0;
+    text-decoration: none;
   }
 }
 
 .benefit {
-  background: $grey-100;
-  padding: 6rem 0;
-  &__card {
-    width: 25%;
+  padding: 3rem 0;
+  &__title {
+    font-size: 2rem;
+    padding: 3rem 0 1rem 0;
   }
 
-  &__content {
-    align-items: center;
-    justify-content: space-between;
+  &__title,
+  &__description {
+    width: 80%;
+  }
+
+  &__image {
+    // TODO: move this to middle
+    width: 100%;
+    height: 100%;
   }
 }
 
 .testimonial {
-  justify-content: space-between;
-  padding: 5rem 0;
+  padding: 3rem 0;
+  text-align: center;
 
   &__content {
+    border: 1px $grey-500 solid;
+    border-radius: 5px;
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
     font-size: 2rem;
-    width: 50%;
+    width: 70%;
 
     &::before {
       content: open-quote;
-      display: block;
-      font-family: "Playfair Display", serif;
-      font-size: 3rem;
+      // font-size: 1rem;
     }
   }
 
-  &__person {
-    width: 50%;
-    text-align: center;
-  }
-
-  &__person-picture {
-    width: 80%;
-    border-radius: 50%;
-  }
-
-  &__person-name {
+  &__identity {
+    color: $grey-600;
     font-style: italic;
+    padding-top: 2rem;
   }
 }
 
-.second-hero {
-  background: $grey-100;
-  padding: 6rem 0;
+.bottom-cta {
+  text-align: center;
+  padding: 4rem 0;
+
+  &__content {
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__main-text {
-    font-size: 6rem;
-    font-weight: 800;
+    font-size: 3rem;
   }
-}
 
-.footer {
-  background: $grey-900;
-  padding: 1rem 0;
-
-  &__text {
+  &__cta {
     color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background: $grey-900;
+    margin: 2rem 0;
+    text-decoration: none;
   }
 }
 </style>
