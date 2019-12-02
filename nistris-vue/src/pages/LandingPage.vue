@@ -9,7 +9,7 @@
             <h1 class="hero__main-text">Your best value propostion</h1>
             <!-- <h2 class="hero__sub-text">this is my friend</h2> -->
             <a
-              href="#"
+              href="/app"
               class="hero__cta"
             >Try now</a>
             <img
@@ -75,7 +75,7 @@
               Your best value proposition
             </p>
 
-            <a href="#" class="bottom-cta__cta">
+            <a href="/app" class="bottom-cta__cta">
               Super cool
             </a>
           </div>
@@ -120,8 +120,9 @@ export default {
   }
 
   &__cta {
-    @include button;
+    @include button-cta;
     margin: 3rem 0;
+    display: inline-block;
   }
 }
 
@@ -138,7 +139,7 @@ export default {
   }
 
   &__image {
-    // TODO: move this to middle
+    // TODO: move this to middle vertically
     width: 100%;
     height: 100%;
   }
@@ -186,12 +187,9 @@ export default {
   }
 
   &__cta {
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    background: $grey-900;
-    margin: 2rem 0;
-    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    @include button-cta;
   }
 }
 </style>

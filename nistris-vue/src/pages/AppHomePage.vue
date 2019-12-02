@@ -19,12 +19,11 @@
       </section>
     </div>
 
-    <!-- TODO: add new button -->
-
     <div class="container">
       <section class="table flex">
         <div class="flex-one"></div>
         <div class="flex-four">
+          <a href="choose" class="table__add-button">Add new</a>
           <table class="table__content">
             <tr>
               <th>one</th>
@@ -82,6 +81,12 @@ export default {};
 
 .table {
   margin-top: 5rem;
+
+  &__add-button {
+    @include button;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
 
   &__content {
     width: 100%;

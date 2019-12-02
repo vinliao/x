@@ -3,9 +3,17 @@
   padding: 0.5rem 0.75rem;
 }
 
-@mixin button {
+@mixin button-cta {
   color: white;
   padding: 1rem 2rem;
+  border-radius: 5px;
+  background: $grey-900;
+  text-decoration: none;
+}
+
+@mixin button {
+  color: white;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   background: $grey-900;
   text-decoration: none;
@@ -19,4 +27,10 @@
 // for debugging purposes!
 @mixin red-border {
   border: 1px red solid;
+}
+
+@mixin center-flex {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }

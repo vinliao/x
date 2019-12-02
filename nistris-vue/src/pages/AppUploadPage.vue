@@ -18,11 +18,11 @@
 
           <!-- button -->
           <a
-            href="#"
+            href="/app"
             class="upload__upload-button"
           >Upload</a>
 
-          <a href="#" class="upload__help-link">
+          <a href="upload/help" class="upload__help-link">
             Need help?
           </a>
         </div>

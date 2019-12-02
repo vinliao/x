@@ -16,18 +16,30 @@
             <span class="choose__description-space"></span>
             <span class="choose__description--grey-out">Upload</span>
           </div>
-          
+
           <!-- marketplace images -->
           <div class="choose__marketplace-images flex">
-            <img src="https://via.placeholder.com/100" alt="">
-            <img src="https://via.placeholder.com/100" alt="">
-            <img src="https://via.placeholder.com/100" alt="">
-            <img src="https://via.placeholder.com/100" alt="">
+            <img
+              src="https://via.placeholder.com/100"
+              alt=""
+            >
+            <img
+              src="https://via.placeholder.com/100"
+              alt=""
+            >
+            <img
+              src="https://via.placeholder.com/100"
+              alt=""
+            >
+            <img
+              src="https://via.placeholder.com/100"
+              alt=""
+            >
           </div>
 
           <!-- button -->
           <a
-            href="#"
+            href="upload"
             class="choose__next-button"
           >Next</a>
         </div>
@@ -45,9 +57,7 @@ export default {};
 
 <style lang="scss" scoped>
 .choose {
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
+  @include center-flex;
 
   &__content {
     @include grey-border;
