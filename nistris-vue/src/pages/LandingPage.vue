@@ -98,7 +98,8 @@
 </template>
 
 <script>
-export default {};
+export default {
+};
 </script>
 
 <style lang="scss" scoped>
@@ -119,12 +120,8 @@ export default {};
   }
 
   &__cta {
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    background: $grey-900;
+    @include button;
     margin: 3rem 0;
-    text-decoration: none;
   }
 }
 

@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueRouter from 'vue-router'
 
-library.add(faCoffee)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+import { routes } from '@/routes'
 
 Vue.config.productionTip = false
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
 
 new Vue({
   render: h => h(App),
+  router,
 }).$mount('#app')
