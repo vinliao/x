@@ -149,8 +149,7 @@ export default {
   text-align: center;
 
   &__content {
-    border: 1px $grey-500 solid;
-    border-radius: 5px;
+    @include grey-border;
     padding: 1.5rem;
     flex-direction: column;
     align-items: center;

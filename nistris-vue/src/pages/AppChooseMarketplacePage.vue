@@ -50,8 +50,7 @@ export default {};
   align-items: center;
 
   &__content {
-    border: 1px $grey-400 solid;
-    border-radius: 5px;
+    @include grey-border;
     text-align: center;
   }
 
@@ -68,8 +67,7 @@ export default {};
   }
 
   &__marketplace-images {
-    border: 1px $grey-400 solid;
-    border-radius: 5px;
+    @include grey-border;
     padding: 1rem;
     justify-content: space-between;
 

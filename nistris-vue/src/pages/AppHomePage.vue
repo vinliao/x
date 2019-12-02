@@ -55,7 +55,7 @@ export default {};
 
   &__revenue,
   &__items {
-    border: 1px $grey-500 solid;
+    border: 1px $grey-400 solid;
   }
 
   &__revenue {
