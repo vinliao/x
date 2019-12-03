@@ -2,24 +2,20 @@
   <div>
     <!-- navbar -->
     <div class="container">
-      <section class="hero flex">
-        <div class="flex-one"></div>
-        <div class="flex-four">
-          <div class="hero__content flex">
-            <h1 class="hero__main-text">Your best value propostion</h1>
-            <!-- <h2 class="hero__sub-text">this is my friend</h2> -->
-            <a
-              href="/app"
-              class="hero__cta"
-            >Try now</a>
-            <img
-              src="http://via.placeholder.com/2000x1000"
-              alt="hero image"
-              class="hero__image"
-            >
-          </div>
+      <section class="hero">
+        <div class="hero__content flex">
+          <h1 class="hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
+          <!-- <h2 class="hero__sub-text">this is my friend</h2> -->
+          <a
+            href="/app"
+            class="hero__cta"
+          >Coba Gratis</a>
+          <img
+            src="http://via.placeholder.com/2000x1000"
+            alt="hero image"
+            class="hero__image"
+          >
         </div>
-        <div class="flex-one"></div>
       </section>
     </div>
 
@@ -27,21 +23,12 @@
       <section class="benefit flex">
         <div class="flex-one"></div>
         <div class="flex-two">
-          <p class="benefit__title">
-            Super cool title
-          </p>
-
-          <p class="benefit__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt delectus ut optio officia distinctio, harum quo veritatis.
-            Ipsam labore fuga maxime enim, iusto eos aperiam perferendis corrupti architecto et cumque?
-          </p>
-        </div>
-        <div class="flex-two">
-          <img
-            src="http://via.placeholder.com/2000x500"
-            alt=""
-            class="benefit__image"
-          >
+          <h2 class="benefit__main-text">Hitung omzet anda dalam satu klik</h2>
+          <p class="benefit__description">Jangan takut lagi untuk menghitung omzet dari semua toko online anda karena anda dapat lakukan semua dengan mudah dan cepat</p>
+          <a
+            href="#"
+            class="benefit__link"
+          >Lihat fitur dari aplikasi</a>
         </div>
         <div class="flex-one"></div>
       </section>
@@ -50,15 +37,17 @@
     <div class="container">
       <section class="testimonial flex">
         <div class="flex-one"></div>
-        <div class="flex-four">
+        <div class="flex-two">
           <div class="testimonial__content flex">
 
             <p class="testimonial__title">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi optio vitae quisquam deleniti suscipit cupiditate illo
+              Dulu saya pas tutup toko butuh 30 menit buat
+              rekapin orderan saya, sekarang mah cuma butuh 5 menit,
+              tanpa pusing pake Excel lagi
             </p>
 
             <p class="testimonial__identity">
-              FirstName LastName - CEO of Company X
+              Edward Edditya, pemilik Toko Kue Maknyus
             </p>
           </div>
         </div>
@@ -69,14 +58,21 @@
     <div class="container">
       <section class="bottom-cta flex">
         <div class="flex-one"></div>
-        <div class="flex-four">
+        <div class="flex-two">
           <div class="bottom-cta__content flex">
             <p class="bottom-cta__main-text">
-              Your best value proposition
+              Waktu anda berharga
             </p>
 
-            <a href="/app" class="bottom-cta__cta">
-              Super cool
+            <p class="bottom-cta__description">
+              Gunakan waktu anda untuk bernisnis <br> bukan rekap order
+            </p>
+
+            <a
+              href="/app"
+              class="bottom-cta__cta"
+            >
+              Coba Gratis
             </a>
           </div>
         </div>
@@ -91,15 +87,13 @@
         <div class="flex-one"></div>
       </section>
     </div> -->
-    
-  </div>
 
+  </div>
 
 </template>
 
 <script>
-export default {
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -117,6 +111,8 @@ export default {
 
   &__main-text {
     font-size: 3rem;
+    text-align: center;
+    font-weight: 700;
   }
 
   &__cta {
@@ -128,20 +124,29 @@ export default {
 
 .benefit {
   padding: 3rem 0;
-  &__title {
-    font-size: 2rem;
-    padding: 3rem 0 1rem 0;
+  text-align: center;
+
+  &__main-text {
+    font-size: 3rem;
+    font-weight: 500;
   }
 
-  &__title,
   &__description {
-    width: 80%;
+    font-size: 1.5rem;
+    margin: 1rem 0;
   }
 
-  &__image {
-    // TODO: move this to middle vertically
-    width: 100%;
-    height: 100%;
+  &__link {
+    // text-decoration: underline;
+    font-size: 1.5rem;
+    color: $grey-900;
+    text-decoration: none;
+    border-bottom: 3px solid $grey-900;
+
+    &:hover {
+      background: $primary-400;
+      transition: 300ms;
+    }
   }
 }
 
@@ -151,18 +156,19 @@ export default {
 
   &__content {
     @include grey-border;
-    padding: 1.5rem;
+    padding: 2rem 0;
     flex-direction: column;
     align-items: center;
   }
 
   &__title {
     font-size: 2rem;
+    line-height: 120%;
     width: 70%;
 
     &::before {
       content: open-quote;
-      // font-size: 1rem;
+      font-size: 4rem;
     }
   }
 
@@ -184,6 +190,12 @@ export default {
 
   &__main-text {
     font-size: 3rem;
+    font-weight: 700;
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    margin: 1rem 0;
   }
 
   &__cta {
