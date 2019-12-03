@@ -7,10 +7,10 @@
         <div class="flex-four">
           <div class="hero__content flex">
             <h1 class="hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
-            <a
-              href="/app"
+            <router-link
+              to="/app"
               class="hero__cta"
-            >Coba Gratis</a>
+            >Coba Gratis</router-link>
             <img
               src="../assets/hero-table.png"
               alt="hero image"
@@ -29,10 +29,10 @@
         <div class="flex-two">
           <h2 class="benefit__main-text">Hitung omzet anda dalam satu klik</h2>
           <p class="benefit__description">Jangan takut lagi untuk menghitung omzet dari semua toko online anda karena anda dapat lakukan semua dengan mudah dan cepat</p>
-          <a
-            href="#"
+          <router-link
+            to="#"
             class="benefit__link"
-          >Lihat fitur dari aplikasi</a>
+          >Lihat fitur dari aplikasi</router-link>
         </div>
         <div class="flex-one"></div>
       </section>
@@ -72,12 +72,10 @@
               Gunakan waktu anda untuk bernisnis <br> bukan rekap order
             </p>
 
-            <a
-              href="/app"
+            <router-link
+              to="/app"
               class="bottom-cta__cta"
-            >
-              Coba Gratis
-            </a>
+            >Coba Gratis</router-link>
           </div>
         </div>
         <div class="flex-one"></div>
@@ -133,16 +131,8 @@ export default {};
   }
 
   &__link {
-    // text-decoration: underline;
     font-size: 1.5rem;
-    color: $grey-900;
-    text-decoration: none;
-    border-bottom: 3px solid $grey-900;
-
-    &:hover {
-      background: $primary-400;
-      transition: 300ms;
-    }
+    @include underline-link;
   }
 }
 

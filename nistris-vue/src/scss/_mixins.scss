@@ -10,20 +10,27 @@
   background: $primary-400;
   text-decoration: none;
   font-weight: 900;
+  transition: 300ms;
 
   &:hover {
     color: $primary-400;
     background: $grey-900;
-    transition: 300ms;
   }
 }
 
 @mixin button {
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 5px;
   background: $grey-900;
   text-decoration: none;
+  font-weight: 500;
+  transition: 300ms;
+
+  &:hover {
+    color: $primary-400;
+    background: $grey-950;
+  }
 }
 
 @mixin grey-border {
@@ -40,4 +47,15 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+}
+
+@mixin underline-link {
+  color: $grey-900;
+  text-decoration: none;
+  border-bottom: 3px solid $grey-900;
+  transition: 300ms;
+
+  &:hover {
+    background: $primary-400;
+  }
 }

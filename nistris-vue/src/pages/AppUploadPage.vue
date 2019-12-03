@@ -71,9 +71,9 @@ export default {
   }
 
   &__help-link {
-    display: block;
-    color: $grey-900;
+    display: inline-block;
     margin: 1rem 0 5rem 0;
+    @include underline-link;
   }
 }
 
