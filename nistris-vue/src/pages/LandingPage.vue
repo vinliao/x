@@ -2,20 +2,24 @@
   <div>
     <!-- navbar -->
     <div class="container">
-      <section class="hero">
-        <div class="hero__content flex">
-          <h1 class="hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
-          <!-- <h2 class="hero__sub-text">this is my friend</h2> -->
-          <a
-            href="/app"
-            class="hero__cta"
-          >Coba Gratis</a>
-          <img
-            src="http://via.placeholder.com/2000x1000"
-            alt="hero image"
-            class="hero__image"
-          >
+      <section class="hero flex">
+        <div class="flex-one"></div>
+        <div class="flex-four">
+          <div class="hero__content flex">
+            <h1 class="hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
+            <a
+              href="/app"
+              class="hero__cta"
+            >Coba Gratis</a>
+            <img
+              src="../assets/hero-table.png"
+              alt="hero image"
+              class="hero__image"
+            >
+          </div>
         </div>
+        <div class="flex-one"></div>
+
       </section>
     </div>
 
@@ -79,14 +83,6 @@
         <div class="flex-one"></div>
       </section>
     </div>
-
-    <!-- <div class="container">
-      <section class="footer flex">
-        <div class="flex-one"></div>
-        <div class="flex-four">Copyright Nistris</div>
-        <div class="flex-one"></div>
-      </section>
-    </div> -->
 
   </div>
 
