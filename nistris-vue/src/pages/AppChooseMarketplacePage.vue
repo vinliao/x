@@ -19,7 +19,7 @@
           <!-- marketplace images -->
           <div class="choose__marketplace-images flex">
             <img
-              v-for="(item, index) in imageData"
+              v-for="(item, index) in marketplaceData"
               :src="getSrc(index)"
               alt=""
               @click="toggleColor(index)"
@@ -48,8 +48,7 @@ export default {
   data() {
     return {
       // start with everything inactive (greyed out)
-      imageData1: [true, true, true, true],
-      imageData: [
+      marketplaceData: [
         {
           marketplaceName: "tokopedia",
           // to be completely honest, I don't understand why require here
@@ -68,17 +67,27 @@ export default {
           src: require("@/assets/lazada-logo.png")
         }
       ],
+
+      // the default is all active (colored)
+      // I set all them to be inactive
+
+      // when the image is clicked, then the item will be active (colored)
+      // only one item can be active at a time
       isInactive: [true, true, true, true]
     };
   },
   methods: {
     toggleColor(index) {
-      // only one item can be active
       this.isInactive = [true, true, true, true];
       this.isInactive.splice(index, 1, !this.isInactive[index]);
     },
-    getSrc(index){
-      return this.imageData[index].src
+    getSrc(index) {
+      // for some reason, binding src needs to be a function
+      return this.marketplaceData[index].src;
+    },
+    getActiveMarketplace() {
+      const activeIndex = this.isInactive.indexOf(false);
+      return marketplaceData[activeIndex].marketplaceName;
     }
   },
   computed: {}
