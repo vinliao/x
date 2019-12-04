@@ -19,29 +19,13 @@
           <!-- marketplace images -->
           <div class="choose__marketplace-images flex">
             <img
-              src="@/assets/shopee-logo.png"
+              v-for="(item, index) in imageData"
+              :src="getSrc(index)"
               alt=""
-              @click="image0Grey = !image0Grey"
-              :class="{ 'grey-color': image0Grey }"
+              @click="toggleColor(index)"
+              :class="{ inactive: isInactive[index] }"
             >
-            <img
-              src="@/assets/shopee-logo.png"
-              alt=""
-              @click="image1Grey = !image1Grey"
-              :class="{ 'grey-color': image1Grey }"
-            >
-            <img
-              src="@/assets/shopee-logo.png"
-              alt=""
-              @click="image2Grey = !image2Grey"
-              :class="{ 'grey-color': image2Grey }"
-            >
-            <img
-              src="@/assets/shopee-logo.png"
-              alt=""
-              @click="image3Grey = !image3Grey"
-              :class="{ 'grey-color': image3Grey }"
-            >
+
           </div>
 
           <!-- button -->
@@ -63,16 +47,41 @@
 export default {
   data() {
     return {
-      image0Grey: true,
-      image1Grey: true,
-      image2Grey: true,
-      image3Grey: true,
-    }
+      // start with everything inactive (greyed out)
+      imageData1: [true, true, true, true],
+      imageData: [
+        {
+          marketplaceName: "tokopedia",
+          // to be completely honest, I don't understand why require here
+          src: require("../assets/tokopedia-logo.png")
+        },
+        {
+          marketplaceName: "shopee",
+          src: require("@/assets/shopee-logo.png")
+        },
+        {
+          marketplaceName: "bukalapak",
+          src: require("@/assets/bukalapak-logo.svg")
+        },
+        {
+          marketplaceName: "lazada",
+          src: require("@/assets/lazada-logo.png")
+        }
+      ],
+      isInactive: [true, true, true, true]
+    };
   },
   methods: {
+    toggleColor(index) {
+      // only one item can be active
+      this.isInactive = [true, true, true, true];
+      this.isInactive.splice(index, 1, !this.isInactive[index]);
+    },
+    getSrc(index){
+      return this.imageData[index].src
+    }
   },
-  computed: {
-  }
+  computed: {}
 };
 </script>
 
@@ -111,12 +120,14 @@ export default {
     justify-content: space-between;
 
     img {
-      border-radius: 50%;
+      // border-radius: 50%;
       width: 25%;
       transition: 300ms;
+      // filter: grayscale(100%);
 
       &:hover {
         filter: grayscale(0%);
+        cursor: pointer;
       }
     }
   }
@@ -128,9 +139,7 @@ export default {
   }
 }
 
-.grey-color{
+.inactive {
   filter: grayscale(100%);
-  // background: blue;
 }
-
 </style>
