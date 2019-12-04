@@ -17,10 +17,11 @@
           <p class="help__steps">3. Download the file</p>
 
           <!-- button -->
-          <a
-            href="/app"
+          <router-link
+            to="/app/upload"
             class="help__back-button"
-          >Back</a>
+          >Back</router-link>
+
         </div>
 
         <div class="flex-one"></div>

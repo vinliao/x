@@ -11,37 +11,45 @@
 
         <!-- inside the card -->
         <div class="flex-four">
-          <div class="choose__description">
-            <span>Choose</span>
-            <span class="choose__description-space"></span>
-            <span class="choose__description--grey-out">Upload</span>
+          <div class="choose__description flex">
+            <p class="choose__description-choose">Choose</p>
+            <p class="choose__description-upload choose__description--grey-out">Upload</p>
           </div>
 
           <!-- marketplace images -->
           <div class="choose__marketplace-images flex">
             <img
-              src="https://via.placeholder.com/100"
+              src="@/assets/shopee-logo.png"
               alt=""
+              @click="image0Grey = !image0Grey"
+              :class="{ 'grey-color': image0Grey }"
             >
             <img
-              src="https://via.placeholder.com/100"
+              src="@/assets/shopee-logo.png"
               alt=""
+              @click="image1Grey = !image1Grey"
+              :class="{ 'grey-color': image1Grey }"
             >
             <img
-              src="https://via.placeholder.com/100"
+              src="@/assets/shopee-logo.png"
               alt=""
+              @click="image2Grey = !image2Grey"
+              :class="{ 'grey-color': image2Grey }"
             >
             <img
-              src="https://via.placeholder.com/100"
+              src="@/assets/shopee-logo.png"
               alt=""
+              @click="image3Grey = !image3Grey"
+              :class="{ 'grey-color': image3Grey }"
             >
           </div>
 
           <!-- button -->
-          <a
-            href="upload"
+          <router-link
+            to="upload"
             class="choose__next-button"
-          >Next</a>
+          >Next</router-link>
+
         </div>
 
         <div class="flex-one"></div>
@@ -52,7 +60,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      image0Grey: true,
+      image1Grey: true,
+      image2Grey: true,
+      image3Grey: true,
+    }
+  },
+  methods: {
+  },
+  computed: {
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -71,8 +92,16 @@ export default {};
   &__description {
     margin: 3rem 0 4rem 0;
 
+    &-choose,
+    &-upload {
+      width: 50%;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.5px $grey-900 solid;
+    }
+
     &--grey-out {
       color: $grey-300;
+      border-bottom: 0.5px $grey-300 solid;
     }
   }
 
@@ -83,6 +112,12 @@ export default {};
 
     img {
       border-radius: 50%;
+      width: 25%;
+      transition: 300ms;
+
+      &:hover {
+        filter: grayscale(0%);
+      }
     }
   }
 
@@ -92,4 +127,10 @@ export default {};
     margin: 3rem 0;
   }
 }
+
+.grey-color{
+  filter: grayscale(100%);
+  // background: blue;
+}
+
 </style>

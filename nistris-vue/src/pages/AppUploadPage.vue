@@ -9,37 +9,36 @@
         <div class="flex-one"></div>
 
         <!-- inside the card -->
-        <div class="flex-one">
-          <div class="upload__description">
-            <span class="upload__description--grey-out">Choose</span>
-            <span class="upload__description-space"></span>
-            <span>Upload</span>
+        <div class="flex-four">
+          <div class="upload__description flex">
+            <p class="upload__description-choose upload__description--grey-out">Choose</p>
+            <p class="upload__description-upload">Upload</p>
           </div>
 
           <!-- button -->
-          <a
-            href="/app"
+          <router-link
+            to="/app"
             class="upload__upload-button"
-          >Upload</a>
+          >Upload</router-link>
 
-          <a href="upload/help" class="upload__help-link">
+          <router-link
+            to="#"
+            class="upload__help-link"
+          >
             Need help?
-          </a>
+          </router-link>
         </div>
-
 
         <div class="flex-one"></div>
       </div>
       <div class="flex-one"></div>
-      
+
     </section>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -55,8 +54,16 @@ export default {
   &__description {
     margin: 3rem 0 4rem 0;
 
+    &-choose,
+    &-upload {
+      width: 50%;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.5px $grey-900 solid;
+    }
+
     &--grey-out {
       color: $grey-300;
+      border-bottom: 0.5px $grey-300 solid;
     }
   }
 
@@ -76,5 +83,4 @@ export default {
     @include underline-link;
   }
 }
-
 </style>

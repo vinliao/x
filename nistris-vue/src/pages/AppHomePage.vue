@@ -95,15 +95,13 @@ export default {
   },
 
   methods: {
-      sumReducer(acc, curr) {
-        return acc += curr
-      },
+    sumReducer(acc, curr) {
+      return (acc += curr);
+    },
 
-      multiplyReducer(acc, curr){
-        return acc *= curr
-      },
-
-    
+    multiplyReducer(acc, curr) {
+      return (acc *= curr);
+    },
 
     toRupiah(number) {
       const numberReverse = number
@@ -126,16 +124,16 @@ export default {
     },
 
     calculateRevenue() {
-      const subtotalArr = []
+      const subtotalArr = [];
 
       // the sales data will be an array, first index is qty, second the price
-      const salesData = this.tableData.map(item => [item.qty, item.price])
+      const salesData = this.tableData.map(item => [item.qty, item.price]);
 
       salesData.forEach(item => {
-        subtotalArr.push(item.reduce(this.multiplyReducer))
+        subtotalArr.push(item.reduce(this.multiplyReducer));
       });
 
-      return this.toRupiah(subtotalArr.reduce(this.sumReducer))
+      return this.toRupiah(subtotalArr.reduce(this.sumReducer));
     },
 
     calculateItemsSold() {
