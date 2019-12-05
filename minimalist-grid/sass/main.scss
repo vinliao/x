@@ -1,0 +1,78 @@
+// number of column in a row
+$column: 12;
+
+@mixin respond($size) {
+  @if $size == sm {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (max-width: 900px) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@for $i from 1 through $column {
+  .col-#{$i} {
+    flex-basis: 100% / $column * $i;
+  }
+
+  .col-offset-#{$i} {
+    margin-left: 100% / $column * $i;
+  }
+
+  // use mixin for sm, md, lg, xl
+  .col-xl-#{$i} {
+    @include respond(xl) {
+      flex-basis: 100% / $column * $i;
+      border: 1px solid green;
+    }
+  }
+
+  .col-lg-#{$i} {
+    @include respond(lg) {
+      flex-basis: 100% / $column * $i;
+      border: 1px solid purple;
+    }
+  }
+
+  .col-md-#{$i} {
+    @include respond(md) {
+      flex-basis: 100% / $column * $i;
+      border: 1px solid red;
+    }
+  }
+
+  .col-sm-#{$i} {
+    @include respond(sm) {
+      flex-basis: 100% / $column * $i;
+      border: 1px solid blue;
+    }
+  }
+}
