@@ -38,7 +38,10 @@ $column: 12;
   flex-wrap: wrap;
 }
 
-@for $i from 1 through $column {
+// reverse
+@for $negativeI from ($column * -1) through -1 {
+  $i: $negativeI * -1;
+  
   .col-offset-#{$i} {
     margin-left: 100% / $column * $i;
   }
