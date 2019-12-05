@@ -2,16 +2,20 @@
 $column: 12;
 
 @mixin respond($size) {
-  @if $size == sm {
-    @media (max-width: 600px) {
+  @if $size == xs {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (min-width: 576px) {
       @content;
     }
   } @else if $size == md {
-    @media (max-width: 900px) {
+    @media (min-width: 768px) {
       @content;
     }
   } @else if $size == lg {
-    @media (max-width: 1200px) {
+    @media (min-width: 992px) {
       @content;
     }
   } @else if $size == xl {
@@ -39,22 +43,57 @@ $column: 12;
 }
 
 @for $i from 1 through $column {
-  .col-#{$i} {
-    flex-basis: 100% / $column * $i;
-  }
+  // .col-#{$i},
+  // .col-xs-#{$i} {
+  //   flex-basis: 100% / $column * $i;
+  //   border: 1px solid blue;
+  // }
 
   .col-offset-#{$i} {
     margin-left: 100% / $column * $i;
   }
 
   // use mixin for sm, md, lg, xl
+  // .col-xl-#{$i} {
+  //   @include respond(xl) {
+  //     flex-basis: 100% / $column * $i;
+  //     border: 1px solid green;
+  //   }
+  // }
+
+  // .col-lg-#{$i} {
+  //   @include respond(lg) {
+  //     flex-basis: 100% / $column * $i;
+  //     border: 1px solid purple;
+  //   }
+  // }
+
+  // .col-md-#{$i} {
+  //   @include respond(md) {
+  //     flex-basis: 100% / $column * $i;
+  //     border: 1px solid red;
+  //   }
+  // }
+
+  // .col-sm-#{$i} {
+  //   @include respond(sm) {
+  //     flex-basis: 100% / $column * $i;
+  //     border: 1px solid blue;
+  //   }
+  // }
+  // .col-md-#{$i} {
+  //   @include respond(md) {
+  //     flex-basis: 100% / $column * $i;
+  //     border: 1px solid blue;
+  //   }
+  // }
+
   .col-xl-#{$i} {
     @include respond(xl) {
       flex-basis: 100% / $column * $i;
-      border: 1px solid green;
+      border: 1px solid red;
     }
   }
-
   .col-lg-#{$i} {
     @include respond(lg) {
       flex-basis: 100% / $column * $i;
@@ -65,14 +104,22 @@ $column: 12;
   .col-md-#{$i} {
     @include respond(md) {
       flex-basis: 100% / $column * $i;
-      border: 1px solid red;
+      border: 1px solid pink;
     }
   }
 
   .col-sm-#{$i} {
     @include respond(sm) {
       flex-basis: 100% / $column * $i;
-      border: 1px solid blue;
+      border: 1px solid red;
+    }
+  }
+
+  .col-#{$i},
+  .col-xs-#{$i} {
+    @include respond(xs) {
+      flex-basis: 100% / $column * $i;
+      border: 1px solid pink;
     }
   }
 }
