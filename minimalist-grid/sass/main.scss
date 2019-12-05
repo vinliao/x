@@ -2,7 +2,11 @@
 $column: 12;
 
 @mixin respond($size) {
-  @if $size == sm {
+  @if $size == xs {
+    @media (min-width: 0px) {
+      @content;
+    }
+  } @else if $size == sm {
     @media (min-width: 576px) {
       @content;
     }
@@ -38,99 +42,15 @@ $column: 12;
   flex-wrap: wrap;
 }
 
-// reverse
-// @for $negativeI from ($column * -1) through -1 {
-//   $i: $negativeI * -1;
+// TODO: implement offset and the raw '.col'
 
-//   .col-offset-#{$i} {
-//     margin-left: 100% / $column * $i;
-//   }
-
-//   .col-#{$i},
-//   .col-xs-#{$i} {
-//     flex-basis: 100% / $column * $i;
-//     border: 1px solid yellow;
-//   }
-
-//   .col-sm-#{$i} {
-//     @include respond(sm) {
-//       flex-basis: 100% / $column * $i;
-//       border: 1px solid blue;
-//     }
-//   }
-
-//   .col-md-#{$i} {
-//     @include respond(md) {
-//       flex-basis: 100% / $column * $i;
-//       border: 1px solid pink;
-//     }
-//   }
-
-//   .col-lg-#{$i} {
-//     @include respond(lg) {
-//       flex-basis: 100% / $column * $i;
-//       border: 1px solid purple;
-//     }
-//   }
-
-//   .col-xl-#{$i} {
-//     @include respond(xl) {
-//       flex-basis: 100% / $column * $i;
-//       border: 1px solid red;
-//     }
-//   }
-// }
-
-// .col-offset-#{$i} {
-//   margin-left: 100% / $column * $i;
-// }
-
-$sizes-down: xl, lg, md, sm, xs;
 $sizes-up: xs, sm, md, lg, xl;
-@each $size-down in $sizes-down {
-  // @include respond(#{$size}) {
-  //   .col-#{$size}-1 {
-  //     flex-basis: 100% / $column * 1;
-  //   }
-
-  //   .col-#{$size}-2 {
-  //     flex-basis: 100% / $column * 2;
-  //   }
-  // }
-
-  @include respond(#{$size-down}) {
+@each $size-up in $sizes-up {
+  @include respond(#{$size-up}) {
     @for $i from 1 through $column {
-      @each $size-up in $sizes-up {
-        .col-#{$size-up}-#{$i} {
-          flex-basis: 100% / $column * $i;
-        }
+      .col-#{$size-up}-#{$i} {
+        flex-basis: 100% / $column * $i;
       }
-
-      // .col-#{$i},
-      // .col-xs-#{$i} {
-      //   flex-basis: 100% / $column * $i;
-      //   border: 1px solid yellow;
-      // }
-
-      // .col-sm-#{$i} {
-      //     flex-basis: 100% / $column * $i;
-      //     border: 1px solid blue;
-      // }
-
-      // .col-md-#{$i} {
-      //     flex-basis: 100% / $column * $i;
-      //     border: 1px solid pink;
-      // }
-
-      // .col-lg-#{$i} {
-      //     flex-basis: 100% / $column * $i;
-      //     border: 1px solid purple;
-      // }
-
-      // .col-xl-#{$i} {
-      //     flex-basis: 100% / $column * $i;
-      //     border: 1px solid red;
-      // }
     }
   }
 }
