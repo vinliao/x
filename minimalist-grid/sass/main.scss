@@ -2,11 +2,7 @@
 $column: 12;
 
 @mixin respond($size) {
-  @if $size == xs {
-    @media (max-width: 576px) {
-      @content;
-    }
-  } @else if $size == sm {
+  @if $size == sm {
     @media (min-width: 576px) {
       @content;
     }
@@ -43,61 +39,20 @@ $column: 12;
 }
 
 @for $i from 1 through $column {
-  // .col-#{$i},
-  // .col-xs-#{$i} {
-  //   flex-basis: 100% / $column * $i;
-  //   border: 1px solid blue;
-  // }
-
   .col-offset-#{$i} {
     margin-left: 100% / $column * $i;
   }
 
-  // use mixin for sm, md, lg, xl
-  // .col-xl-#{$i} {
-  //   @include respond(xl) {
-  //     flex-basis: 100% / $column * $i;
-  //     border: 1px solid green;
-  //   }
-  // }
-
-  // .col-lg-#{$i} {
-  //   @include respond(lg) {
-  //     flex-basis: 100% / $column * $i;
-  //     border: 1px solid purple;
-  //   }
-  // }
-
-  // .col-md-#{$i} {
-  //   @include respond(md) {
-  //     flex-basis: 100% / $column * $i;
-  //     border: 1px solid red;
-  //   }
-  // }
-
-  // .col-sm-#{$i} {
-  //   @include respond(sm) {
-  //     flex-basis: 100% / $column * $i;
-  //     border: 1px solid blue;
-  //   }
-  // }
-  // .col-md-#{$i} {
-  //   @include respond(md) {
-  //     flex-basis: 100% / $column * $i;
-  //     border: 1px solid blue;
-  //   }
-  // }
-
-  .col-xl-#{$i} {
-    @include respond(xl) {
-      flex-basis: 100% / $column * $i;
-      border: 1px solid red;
-    }
+  .col-#{$i},
+  .col-xs-#{$i} {
+    flex-basis: 100% / $column * $i;
+    border: 1px solid yellow;
   }
-  .col-lg-#{$i} {
-    @include respond(lg) {
+
+  .col-sm-#{$i} {
+    @include respond(sm) {
       flex-basis: 100% / $column * $i;
-      border: 1px solid purple;
+      border: 1px solid blue;
     }
   }
 
@@ -108,18 +63,17 @@ $column: 12;
     }
   }
 
-  .col-sm-#{$i} {
-    @include respond(sm) {
+  .col-lg-#{$i} {
+    @include respond(lg) {
       flex-basis: 100% / $column * $i;
-      border: 1px solid red;
+      border: 1px solid purple;
     }
   }
 
-  .col-#{$i},
-  .col-xs-#{$i} {
-    @include respond(xs) {
+  .col-xl-#{$i} {
+    @include respond(xl) {
       flex-basis: 100% / $column * $i;
-      border: 1px solid pink;
+      border: 1px solid red;
     }
   }
 }

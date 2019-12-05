@@ -15,347 +15,335 @@
 .col-offset-1 {
   margin-left: 8.33333%; }
 
-@media (min-width: 1200px) {
-  .col-xl-1 {
-    flex-basis: 8.33333%;
-    border: 1px solid red; } }
+.col-1,
+.col-xs-1 {
+  flex-basis: 8.33333%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-1 {
+@media (min-width: 576px) {
+  .col-sm-1 {
     flex-basis: 8.33333%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-1 {
     flex-basis: 8.33333%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-1 {
+@media (min-width: 992px) {
+  .col-lg-1 {
+    flex-basis: 8.33333%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-1 {
     flex-basis: 8.33333%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-1,
-  .col-xs-1 {
-    flex-basis: 8.33333%;
-    border: 1px solid pink; } }
 
 .col-offset-2 {
   margin-left: 16.66667%; }
 
-@media (min-width: 1200px) {
-  .col-xl-2 {
-    flex-basis: 16.66667%;
-    border: 1px solid red; } }
+.col-2,
+.col-xs-2 {
+  flex-basis: 16.66667%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-2 {
+@media (min-width: 576px) {
+  .col-sm-2 {
     flex-basis: 16.66667%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-2 {
     flex-basis: 16.66667%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-2 {
+@media (min-width: 992px) {
+  .col-lg-2 {
+    flex-basis: 16.66667%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-2 {
     flex-basis: 16.66667%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-2,
-  .col-xs-2 {
-    flex-basis: 16.66667%;
-    border: 1px solid pink; } }
 
 .col-offset-3 {
   margin-left: 25%; }
 
-@media (min-width: 1200px) {
-  .col-xl-3 {
-    flex-basis: 25%;
-    border: 1px solid red; } }
+.col-3,
+.col-xs-3 {
+  flex-basis: 25%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-3 {
+@media (min-width: 576px) {
+  .col-sm-3 {
     flex-basis: 25%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-3 {
     flex-basis: 25%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-3 {
+@media (min-width: 992px) {
+  .col-lg-3 {
+    flex-basis: 25%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-3 {
     flex-basis: 25%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-3,
-  .col-xs-3 {
-    flex-basis: 25%;
-    border: 1px solid pink; } }
 
 .col-offset-4 {
   margin-left: 33.33333%; }
 
-@media (min-width: 1200px) {
-  .col-xl-4 {
-    flex-basis: 33.33333%;
-    border: 1px solid red; } }
+.col-4,
+.col-xs-4 {
+  flex-basis: 33.33333%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-4 {
+@media (min-width: 576px) {
+  .col-sm-4 {
     flex-basis: 33.33333%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-4 {
     flex-basis: 33.33333%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-4 {
+@media (min-width: 992px) {
+  .col-lg-4 {
+    flex-basis: 33.33333%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-4 {
     flex-basis: 33.33333%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-4,
-  .col-xs-4 {
-    flex-basis: 33.33333%;
-    border: 1px solid pink; } }
 
 .col-offset-5 {
   margin-left: 41.66667%; }
 
-@media (min-width: 1200px) {
-  .col-xl-5 {
-    flex-basis: 41.66667%;
-    border: 1px solid red; } }
+.col-5,
+.col-xs-5 {
+  flex-basis: 41.66667%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-5 {
+@media (min-width: 576px) {
+  .col-sm-5 {
     flex-basis: 41.66667%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-5 {
     flex-basis: 41.66667%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-5 {
+@media (min-width: 992px) {
+  .col-lg-5 {
+    flex-basis: 41.66667%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-5 {
     flex-basis: 41.66667%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-5,
-  .col-xs-5 {
-    flex-basis: 41.66667%;
-    border: 1px solid pink; } }
 
 .col-offset-6 {
   margin-left: 50%; }
 
-@media (min-width: 1200px) {
-  .col-xl-6 {
-    flex-basis: 50%;
-    border: 1px solid red; } }
+.col-6,
+.col-xs-6 {
+  flex-basis: 50%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-6 {
+@media (min-width: 576px) {
+  .col-sm-6 {
     flex-basis: 50%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-6 {
     flex-basis: 50%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-6 {
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex-basis: 50%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-6 {
     flex-basis: 50%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-6,
-  .col-xs-6 {
-    flex-basis: 50%;
-    border: 1px solid pink; } }
 
 .col-offset-7 {
   margin-left: 58.33333%; }
 
-@media (min-width: 1200px) {
-  .col-xl-7 {
-    flex-basis: 58.33333%;
-    border: 1px solid red; } }
+.col-7,
+.col-xs-7 {
+  flex-basis: 58.33333%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-7 {
+@media (min-width: 576px) {
+  .col-sm-7 {
     flex-basis: 58.33333%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-7 {
     flex-basis: 58.33333%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-7 {
+@media (min-width: 992px) {
+  .col-lg-7 {
+    flex-basis: 58.33333%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-7 {
     flex-basis: 58.33333%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-7,
-  .col-xs-7 {
-    flex-basis: 58.33333%;
-    border: 1px solid pink; } }
 
 .col-offset-8 {
   margin-left: 66.66667%; }
 
-@media (min-width: 1200px) {
-  .col-xl-8 {
-    flex-basis: 66.66667%;
-    border: 1px solid red; } }
+.col-8,
+.col-xs-8 {
+  flex-basis: 66.66667%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-8 {
+@media (min-width: 576px) {
+  .col-sm-8 {
     flex-basis: 66.66667%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-8 {
     flex-basis: 66.66667%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-8 {
+@media (min-width: 992px) {
+  .col-lg-8 {
+    flex-basis: 66.66667%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-8 {
     flex-basis: 66.66667%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-8,
-  .col-xs-8 {
-    flex-basis: 66.66667%;
-    border: 1px solid pink; } }
 
 .col-offset-9 {
   margin-left: 75%; }
 
-@media (min-width: 1200px) {
-  .col-xl-9 {
-    flex-basis: 75%;
-    border: 1px solid red; } }
+.col-9,
+.col-xs-9 {
+  flex-basis: 75%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-9 {
+@media (min-width: 576px) {
+  .col-sm-9 {
     flex-basis: 75%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-9 {
     flex-basis: 75%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-9 {
+@media (min-width: 992px) {
+  .col-lg-9 {
+    flex-basis: 75%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-9 {
     flex-basis: 75%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-9,
-  .col-xs-9 {
-    flex-basis: 75%;
-    border: 1px solid pink; } }
 
 .col-offset-10 {
   margin-left: 83.33333%; }
 
-@media (min-width: 1200px) {
-  .col-xl-10 {
-    flex-basis: 83.33333%;
-    border: 1px solid red; } }
+.col-10,
+.col-xs-10 {
+  flex-basis: 83.33333%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-10 {
+@media (min-width: 576px) {
+  .col-sm-10 {
     flex-basis: 83.33333%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-10 {
     flex-basis: 83.33333%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-10 {
+@media (min-width: 992px) {
+  .col-lg-10 {
+    flex-basis: 83.33333%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-10 {
     flex-basis: 83.33333%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-10,
-  .col-xs-10 {
-    flex-basis: 83.33333%;
-    border: 1px solid pink; } }
 
 .col-offset-11 {
   margin-left: 91.66667%; }
 
-@media (min-width: 1200px) {
-  .col-xl-11 {
-    flex-basis: 91.66667%;
-    border: 1px solid red; } }
+.col-11,
+.col-xs-11 {
+  flex-basis: 91.66667%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-11 {
+@media (min-width: 576px) {
+  .col-sm-11 {
     flex-basis: 91.66667%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-11 {
     flex-basis: 91.66667%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-11 {
+@media (min-width: 992px) {
+  .col-lg-11 {
+    flex-basis: 91.66667%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-11 {
     flex-basis: 91.66667%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-11,
-  .col-xs-11 {
-    flex-basis: 91.66667%;
-    border: 1px solid pink; } }
 
 .col-offset-12 {
   margin-left: 100%; }
 
-@media (min-width: 1200px) {
-  .col-xl-12 {
-    flex-basis: 100%;
-    border: 1px solid red; } }
+.col-12,
+.col-xs-12 {
+  flex-basis: 100%;
+  border: 1px solid yellow; }
 
-@media (min-width: 992px) {
-  .col-lg-12 {
+@media (min-width: 576px) {
+  .col-sm-12 {
     flex-basis: 100%;
-    border: 1px solid purple; } }
+    border: 1px solid blue; } }
 
 @media (min-width: 768px) {
   .col-md-12 {
     flex-basis: 100%;
     border: 1px solid pink; } }
 
-@media (min-width: 576px) {
-  .col-sm-12 {
+@media (min-width: 992px) {
+  .col-lg-12 {
+    flex-basis: 100%;
+    border: 1px solid purple; } }
+
+@media (min-width: 1200px) {
+  .col-xl-12 {
     flex-basis: 100%;
     border: 1px solid red; } }
-
-@media (max-width: 576px) {
-  .col-12,
-  .col-xs-12 {
-    flex-basis: 100%;
-    border: 1px solid pink; } }
