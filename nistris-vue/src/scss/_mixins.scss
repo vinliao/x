@@ -1,3 +1,27 @@
+@mixin respond($size) {
+  @if $size == xs {
+    @media (min-width: 0px) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
 @mixin anchor-button {
   text-decoration: none;
   padding: 0.5rem 0.75rem;

@@ -25,7 +25,11 @@ export default {
 }
 
 html {
-  font-size: 100%;
+  font-size: 90%;
+
+  @include respond(lg) {
+    font-size: 100%;
+  }
 }
 
 #app {

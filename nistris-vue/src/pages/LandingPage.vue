@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- navbar -->
+
     <div class="container">
-      <section class="hero flex">
-        <div class="flex-one"></div>
-        <div class="flex-four">
-          <div class="hero__content flex">
-            <h1 class="offset-lg-1 hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
+      <section class="hero row">
+        <div class="col-xs-12 col-lg-8 offset-lg-2 offset-xl-2">
+          <div class="hero__content row">
+            <h1 class="hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
             <router-link
               to="/app"
               class="hero__cta"
@@ -18,15 +18,13 @@
             >
           </div>
         </div>
-        <div class="flex-one"></div>
-
       </section>
     </div>
 
     <div class="container">
-      <section class="benefit flex">
-        <div class="flex-one"></div>
-        <div class="flex-two">
+      <section class="benefit row">
+        <div class="col-lg-6 offset-lg-3 offset-xl-3 col-xs-12">
+
           <h2 class="benefit__main-text">Hitung omzet anda dalam satu klik</h2>
           <p class="benefit__description">Jangan takut lagi untuk menghitung omzet dari semua toko online anda karena anda dapat lakukan semua dengan mudah dan cepat</p>
           <router-link
@@ -34,14 +32,12 @@
             class="benefit__link"
           >Lihat fitur dari aplikasi</router-link>
         </div>
-        <div class="flex-one"></div>
       </section>
     </div>
 
     <div class="container">
-      <section class="testimonial flex">
-        <div class="flex-one"></div>
-        <div class="flex-two">
+      <section class="testimonial row">
+        <div class="col-lg-6 offset-lg-3 offset-xl-3 col-xs-12">
           <div class="testimonial__content flex">
 
             <p class="testimonial__title">
@@ -54,36 +50,30 @@
               Edward Edditya, pemilik Toko Kue Maknyus
             </p>
           </div>
+
         </div>
-        <div class="flex-one"></div>
       </section>
     </div>
 
     <div class="container">
-      <section class="bottom-cta flex">
-        <div class="flex-one"></div>
-        <div class="flex-two">
+      <section class="bottom-cta row">
+        <div class="col-lg-6 offset-lg-3 offset-xl-3 col-xs-12">
           <div class="bottom-cta__content flex">
             <p class="bottom-cta__main-text">
               Waktu anda berharga
             </p>
-
             <p class="bottom-cta__description">
               Gunakan waktu anda untuk bernisnis <br> bukan rekap order
             </p>
-
             <router-link
               to="/app"
               class="bottom-cta__cta"
             >Coba Gratis</router-link>
           </div>
         </div>
-        <div class="flex-one"></div>
       </section>
     </div>
-
   </div>
-
 </template>
 
 <script>
@@ -95,8 +85,13 @@ export default {};
   padding: 3rem 0;
 
   &__content {
-    align-items: center;
+
     flex-direction: column;
+    align-items: flex-start;
+
+    @include respond(lg) {
+      align-items: center;
+    }
   }
 
   &__image {
@@ -105,8 +100,12 @@ export default {};
 
   &__main-text {
     font-size: 3rem;
-    text-align: center;
+    text-align: left;
     font-weight: 700;
+
+    @include respond(lg) {
+      text-align: center;
+    }
   }
 
   &__cta {
@@ -118,7 +117,11 @@ export default {};
 
 .benefit {
   padding: 3rem 0;
-  text-align: center;
+  text-align: left;
+
+  @include respond(lg) {
+    text-align: center;
+  }
 
   &__main-text {
     font-size: 3rem;
@@ -138,7 +141,11 @@ export default {};
 
 .testimonial {
   padding: 3rem 0;
-  text-align: center;
+  text-align: left;
+
+  @include respond(lg) {
+    text-align: center;
+  }
 
   &__content {
     @include grey-border;
@@ -166,12 +173,21 @@ export default {};
 }
 
 .bottom-cta {
-  text-align: center;
   padding: 4rem 0;
+  text-align: left;
+
+  @include respond(lg) {
+    text-align: center;
+  }
 
   &__content {
+
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+
+    @include respond(lg) {
+      align-items: center;
+    }
   }
 
   &__main-text {
