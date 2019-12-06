@@ -1,6 +1,6 @@
 {
   "name": "minimalist-grid",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Minimal bootstrap style grid system",
   "main": "main.scss",
   "style": "css/minimal-grid.min.css",
@@ -24,5 +24,6 @@
     "css",
     "main.scss",
     "README.md"
-  ]
+  ],
+  "readme": "Hey 👋👋👋, this is a super minimal bootstrap grid system created in sass. I created this because I want to learn how the underlying flexbox works and the best way to do so is by building it from scratch. I'm not expecting you to use this, this is for experimenting purpose only. But if you're curious, you can `npm i minimalist-grid`"
 }

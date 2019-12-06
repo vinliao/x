@@ -1,3 +1,6 @@
+# General description
+Hey 👋👋👋, this is a super minimal bootstrap grid system created in sass. I created this because I want to learn how the underlying flexbox works and the best way to do so is by building it from scratch. I'm not expecting you to use this, this is for experimenting purpose only. But if you're curious, you can `npm i minimalist-grid`
+
 # Notes to self
 
 ## Cascading problem on ec22e4ab7585d4fe97ddad35ef5f59c3d65f4844
