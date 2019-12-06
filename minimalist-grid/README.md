@@ -31,10 +31,27 @@ The offset column can't be 0. If a smaller viewport has an offset and a bigger o
 CSS cascades down. Put a `margin-left: 0;` at the top so that empty margin is the default. Then the offset will be applied once there's a offset class reference from the html. Left margin is 0 until specified otherwise.
 
 1. ~~Every child of row should have a `margin-left: 0;` unless specified otherwise (with offset class). It should look like this `row > * { margin-left: 0 }`~~ Doesn't work, the margin left isn't applied.
-2. Put `margin-left: 0;` to each viewport on every child of the row. So each viewport defaults to 0 left margin unless specified otherwise.
-3. Each class that is prefixed by `col-` should be default to `margin-left: 0;`
-4. ~~Put `margin-left: 0;` on each .col class.~~ Doesn't work, class that is placed lower than the offset will win. This is because css cascades.
-5. ~~Put `margin-left: 0;` on each .col class, then have another groups of offset classes at the bottom. They should be in the same viewport. The .col and .offset should be grouped together and separated.~~ Doesn't work, specificity problem again.
+2. **This works!** Put `margin-left: 0;` to each viewport on every child of the row. So each viewport defaults to 0 left margin unless specified otherwise. Here's the pseudocode:
+```
+@media xs {
+    .row > * {
+        margin-left: 0;
+    }
+
+    .
+    .
+    .
+
+    .offset-xs-(some number) {
+        margin-left: (some calculation)
+    }
+}
+```
+
+CSS cascades down. When there's no offset specified, it will default to margin-left: 0. When an offset is specified, then it will prioritize the code below.
+
+3. ~~Put `margin-left: 0;` on each .col class.~~ Doesn't work, class that is placed lower than the offset will win. This is because css cascades.
+4. ~~Put `margin-left: 0;` on each .col class, then have another groups of offset classes at the bottom. They should be in the same viewport. The .col and .offset should be grouped together and separated.~~ Doesn't work, specificity problem again.
 
 ## Two difficult challenge when creating this
 There are two difficult challenge that I found when creating this: properly ordering the viewport size (xs, sm, md, lg, xl) and the column width (e.g., col-sm-**3**). Cascading applies, when those things aren't ordered properly, the grid won't work properly.

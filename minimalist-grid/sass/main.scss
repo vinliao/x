@@ -42,32 +42,28 @@ $column: 12;
   flex-wrap: wrap;
 }
 
-// TODO: implement offset
-
 $sizes-up: xs, sm, md, lg, xl;
 @each $size-up in $sizes-up {
   @include respond(#{$size-up}) {
+    .row > * {
+      margin-left: 0;
+    }
+
     @for $i from 1 through $column {
       @if $size-up == xs {
         .col-#{$i} {
-          margin-left: 0;
           flex-basis: 100% / $column * $i;
         }
       }
+
       .col-#{$size-up}-#{$i} {
-        margin-left: 0;
         flex-basis: 100% / $column * $i;
       }
-    }
-  }
-}
 
-@each $size-up in $sizes-up {
-  @include respond(#{$size-up}) {
-    @for $i from 1 through $column {
       .offset-#{$size-up}-#{$i} {
         margin-left: 100% / $column * $i;
       }
     }
+
   }
 }
