@@ -6,7 +6,7 @@
         <div class="flex-one"></div>
         <div class="flex-four">
           <div class="hero__content flex">
-            <h1 class="hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
+            <h1 class="offset-lg-1 hero__main-text">Software akuntansi <br> untuk pengusaha cerdas</h1>
             <router-link
               to="/app"
               class="hero__cta"
