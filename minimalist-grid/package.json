@@ -1,15 +1,16 @@
 {
   "name": "minimalist-grid",
   "version": "1.0.0",
-  "description": "Super minimal bootstrap style grid system",
+  "description": "Minimal bootstrap style grid system",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "sass:compile": "node-sass ./sass/main.scss ./css/main.css -w"
   },
   "author": "Vincent Liao",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-sass": "^4.13.0"
-  }
+  },
+  "files": ["./css", "main.css"]
 }
