@@ -1,8 +1,9 @@
 {
   "name": "minimalist-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimal bootstrap style grid system",
-  "main": "index.js",
+  "main": "main.scss",
+  "style": "css/main.css",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "sass:compile": "node-sass ./sass/main.scss ./css/main.css -w"
@@ -12,5 +13,5 @@
   "dependencies": {
     "node-sass": "^4.13.0"
   },
-  "files": ["./css", "main.css"]
+  "files": ["css", "main.scss", "README.md"]
 }
