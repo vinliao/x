@@ -45,6 +45,9 @@ $column: 12;
 $sizes-up: xs, sm, md, lg, xl;
 @each $size-up in $sizes-up {
   @include respond(#{$size-up}) {
+
+    // This will make all column default to margin-left: 0 unless
+    // specified otherwise. For .offset purposes
     .row > * {
       margin-left: 0;
     }
@@ -64,6 +67,5 @@ $sizes-up: xs, sm, md, lg, xl;
         margin-left: 100% / $column * $i;
       }
     }
-
   }
 }
