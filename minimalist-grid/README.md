@@ -54,4 +54,7 @@ CSS cascades down. When there's no offset specified, it will default to margin-l
 4. ~~Put `margin-left: 0;` on each .col class, then have another groups of offset classes at the bottom. They should be in the same viewport. The .col and .offset should be grouped together and separated.~~ Doesn't work, specificity problem again.
 
 ## Two difficult challenge when creating this
-There are two difficult challenge that I found when creating this: properly ordering the viewport size (xs, sm, md, lg, xl) and the column width (e.g., col-sm-**3**). Cascading applies, when those things aren't ordered properly, the grid won't work properly.
+There are two difficult challenge that I found when creating this: properly ordering the viewport size (xs, sm, md, lg, xl) and making the .offset classes work. Both of these are cascading problem. Classes that comes last will be prioritized, and I struggle a lot in figuring out ways to make the classes prioritize the right thing. I tried many potential solutions for this cascading problem, but in the end, here's how I did it:
+
+1. Every classes is grouped by their viewport width because what kind of classes should apply depends on the current viewport of the user.
+2. Define the offset value as `margin-left: 0;` unless specified otherwise to all column that is the child of row.
