@@ -1,17 +1,28 @@
 {
   "name": "minimalist-grid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Minimal bootstrap style grid system",
   "main": "main.scss",
-  "style": "css/main.css",
+  "style": "css/minimal-grid.min.css",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
-    "sass:compile": "node-sass ./sass/main.scss ./css/main.css -w"
+    "sass:compile": "node-sass ./sass/main.scss ./css/main.css -w",
+    "cleancss": "cleancss -o css/minimal-grid.min.css css/minimal-grid.css"
   },
+  "keywords": [
+    "css",
+    "sass",
+    "flexbox",
+    "responsive"
+  ],
   "author": "Vincent Liao",
   "license": "MIT",
   "dependencies": {
     "node-sass": "^4.13.0"
   },
-  "files": ["css", "main.scss", "README.md"]
+  "files": [
+    "css",
+    "main.scss",
+    "README.md"
+  ]
 }
