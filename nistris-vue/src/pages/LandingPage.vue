@@ -26,7 +26,7 @@
         <div class="col-lg-6 offset-lg-3 offset-xl-3 col-xs-12">
 
           <h2 class="benefit__main-text">Hitung omzet anda dalam satu klik</h2>
-          <p class="benefit__description">Jangan takut lagi untuk menghitung omzet dari semua toko online anda karena anda dapat lakukan semua dengan mudah dan cepat</p>
+          <p class="benefit__description">Sekarang anda dapat rekap order dari semua marketplace dalam 5 menit</p>
           <router-link
             to="#"
             class="benefit__link"
@@ -38,16 +38,15 @@
     <div class="container">
       <section class="testimonial row">
         <div class="col-lg-6 offset-lg-3 offset-xl-3 col-xs-12">
-          <div class="testimonial__content flex">
+          <div class="testimonial__content">
 
             <p class="testimonial__title">
-              Dulu saya pas tutup toko butuh 30 menit buat
-              rekapin orderan saya, sekarang mah cuma butuh 5 menit,
-              tanpa pusing pake Excel lagi
+              Dulu saya tutup toko butuh 30 menit buat rekapin order.
+              Dengan Nistris, saya bisa lakukan semuanya dalam 5 menit.
             </p>
 
             <p class="testimonial__identity">
-              Edward Edditya, pemilik Toko Kue Maknyus
+              Edward Edditya<br>pemilik Toko Kue Maknyus
             </p>
           </div>
 
@@ -82,10 +81,9 @@ export default {};
 
 <style lang="scss" scoped>
 .hero {
-  padding: 3rem 0;
+  padding: 2rem 0;
 
   &__content {
-
     flex-direction: column;
     align-items: flex-start;
 
@@ -99,7 +97,7 @@ export default {};
   }
 
   &__main-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: left;
     font-weight: 700;
 
@@ -110,13 +108,13 @@ export default {};
 
   &__cta {
     @include button-cta;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
     display: inline-block;
   }
 }
 
 .benefit {
-  padding: 3rem 0;
+  padding: 2rem 0;
   text-align: left;
 
   @include respond(lg) {
@@ -124,23 +122,23 @@ export default {};
   }
 
   &__main-text {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
   }
 
   &__description {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 1rem 0;
   }
 
   &__link {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     @include underline-link;
   }
 }
 
 .testimonial {
-  padding: 3rem 0;
+  padding: 2rem 0;
   text-align: left;
 
   @include respond(lg) {
@@ -149,31 +147,41 @@ export default {};
 
   &__content {
     @include grey-border;
-    padding: 2rem 0;
+    padding: 2rem;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
+
+    @include respond(lg){
+      border: none;
+      padding: 0;
+    }
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 1.25rem;
     line-height: 120%;
-    width: 70%;
+    // width: 70%;
 
     &::before {
       content: open-quote;
-      font-size: 4rem;
+      font-size: 2.5rem;
     }
   }
 
   &__identity {
     color: $grey-600;
     font-style: italic;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: left;
+
+    @include respond(lg) {
+      text-align: center;
+    }
   }
 }
 
 .bottom-cta {
-  padding: 4rem 0;
+  padding: 2rem 0;
   text-align: left;
 
   @include respond(lg) {
@@ -181,7 +189,6 @@ export default {};
   }
 
   &__content {
-
     flex-direction: column;
     align-items: flex-start;
 
@@ -191,12 +198,12 @@ export default {};
   }
 
   &__main-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
   }
 
   &__description {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 1rem 0;
   }
 
