@@ -43,6 +43,7 @@
         </div>
         <div class="flex-one"></div>
       </section> -->
+
       <section class="card-table row">
         <div class="col-xs-12">
           <p class="card-table__title">Riwayat transkasi</p>
@@ -62,6 +63,10 @@
         </div>
       </section>
     </div>
+
+    <router-link to="/app/choose">
+      <div class="add-fab">+</div>
+    </router-link>
 
   </div>
 </template>
@@ -171,14 +176,12 @@ export default {
 
   &__revenue,
   &__items {
-    // border: 1px $grey-400 solid;
     background: $grey-900;
     color: white;
   }
 
   &__revenue {
     border-right-style: none;
-    // border-radius: 5px 0 0 5px;
     padding: 1.5rem;
   }
 
@@ -202,15 +205,18 @@ export default {
   margin-top: 4rem;
 
   &__title {
-    // color: $grey-400;
     font-size: 1.25rem;
     font-weight: 500;
   }
 
   &__card-item {
-    // border: 1px solid red;
     border-bottom: 1px $grey-100 solid;
     padding: 1.5rem 0;
+
+    &:last-of-type {
+      margin-bottom: 5rem;
+      border: none;
+    }
   }
 
   &__item-name {
@@ -239,6 +245,29 @@ export default {
     font-size: 1.5rem;
     font-weight: 700;
   }
+}
+
+.add-fab {
+  // positioning
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+
+  // fab css
+  width: $fab-size;
+  height: $fab-size;
+  border-radius: 50%;
+  background: $grey-900;
+
+  // content css
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+
+  // line height determines the width of a text content. The content
+  // then will be vertically centered. Super cool
+  line-height: $fab-size;
+
 }
 
 .table {
