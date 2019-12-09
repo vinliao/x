@@ -51,7 +51,12 @@
             v-for="item in tableData"
           >
             <p class="card-table__item-name">{{ item.name }}</p>
+            <div class="card-table__price-quantity">
+              <span class="card-table__price">{{ toRupiah(item.price) }} × </span>
+              <span class="card-table__quantity">{{ item.qty }} barang</span>
+            </div>
             <p class="card-table__marketplace-name">{{ item.marketplace }}</p>
+            <p class="card-table__subtotal-label">Total penjualan</p>
             <p class="card-table__subtotal">{{ calculateSubtotal(item.qty, item.price) }}</p>
           </div>
         </div>
@@ -62,7 +67,7 @@
 </template>
 
 <script>
-import GlobalNavbar from '@/components/GlobalNavbar'
+import GlobalNavbar from "@/components/GlobalNavbar";
 
 export default {
   components: {
@@ -213,13 +218,24 @@ export default {
     font-weight: 700;
   }
 
+  &__price-quantity {
+    margin-bottom: 0.5rem;
+  }
+
   &__marketplace-name {
     font-size: 0.75rem;
     color: $grey-400;
     margin-bottom: 1rem;
   }
 
+  &__subtotal-label {
+    color: $grey-400;
+    font-size: 0.75rem;
+    text-align: right;
+  }
+
   &__subtotal {
+    text-align: right;
     font-size: 1.5rem;
     font-weight: 700;
   }

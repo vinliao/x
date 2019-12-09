@@ -40,7 +40,7 @@ export default {
 
   // vertical padding is 0.75 rem because .container has
   // 0.75 rem margin on each side. Alignment, my friends.
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem $container-spacing/2;
 
   &__brand {
     font-size: 2rem;
