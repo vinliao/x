@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- navbar -->
+    <global-navbar :is-landing-page="true"></global-navbar>
 
     <div class="container">
       <section class="hero row">
@@ -61,9 +61,9 @@
             <p class="bottom-cta__main-text">
               Waktu anda berharga
             </p>
-            <p class="bottom-cta__description">
+            <h2 class="bottom-cta__description">
               Gunakan waktu anda untuk bernisnis <br> bukan rekap order
-            </p>
+            </h2>
             <router-link
               to="/app"
               class="bottom-cta__cta"
@@ -76,7 +76,11 @@
 </template>
 
 <script>
-export default {};
+import GlobalNavbar from "@/components/GlobalNavbar";
+
+export default {
+  components: { GlobalNavbar }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -151,7 +155,7 @@ export default {};
     flex-direction: column;
     // align-items: center;
 
-    @include respond(lg){
+    @include respond(lg) {
       border: none;
       padding: 0;
     }

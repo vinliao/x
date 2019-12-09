@@ -29,7 +29,7 @@
 
 @mixin button-cta {
   color: $grey-900;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 5px;
   background: $primary-400;
   text-decoration: none;
@@ -42,9 +42,10 @@
   }
 }
 
+// having primary and secondary button sounds cool
 @mixin button {
   color: white;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 5px;
   background: $grey-900;
   text-decoration: none;

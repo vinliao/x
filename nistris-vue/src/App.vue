@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:400,400i,500,700&display=swap');
 
 * {
   padding: 0;

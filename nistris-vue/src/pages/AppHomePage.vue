@@ -1,26 +1,21 @@
 <template>
   <div>
+    <global-navbar></global-navbar>
+
     <div class="container">
-      <section class="money-information flex">
-        <div class="flex-one"></div>
-        <div class="flex-two">
+
+      <section class="money-information row">
+        <div class="col-xs-12">
           <div class="money-information__revenue">
             <p class="money-information__description">Omzet anda hari ini</p>
             <p class="money-information__main">{{ calculateRevenue() }}</p>
           </div>
         </div>
-        <div class="flex-two">
-          <div class="money-information__items">
-            <p class="money-information__description">Banyak barang terjual</p>
-            <p class="money-information__main">{{ calculateItemsSold() }}</p>
-          </div>
-        </div>
-        <div class="flex-one"></div>
       </section>
     </div>
 
     <div class="container">
-      <section class="table flex">
+      <!-- <section class="table flex">
         <div class="flex-one"></div>
         <div class="flex-four">
           <router-link
@@ -38,7 +33,7 @@
 
             <tr v-for="item in tableData">
               <td>{{ item.marketplace }}</td>
-              <td>{{ item.itemName }}</td>
+              <td>{{ item.name }}</td>
               <td>{{ item.qty }}</td>
               <td>{{ toRupiah(item.price) }}</td>
               <td>{{ calculateSubtotal(item.qty, item.price) }}</td>
@@ -47,6 +42,19 @@
           </table>
         </div>
         <div class="flex-one"></div>
+      </section> -->
+      <section class="card-table row">
+        <div class="col-xs-12">
+          <p class="card-table__title">Riwayat transkasi</p>
+          <div
+            class="card-table__card-item"
+            v-for="item in tableData"
+          >
+            <p class="card-table__item-name">{{ item.name }}</p>
+            <p class="card-table__marketplace-name">{{ item.marketplace }}</p>
+            <p class="card-table__subtotal">{{ calculateSubtotal(item.qty, item.price) }}</p>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -54,7 +62,12 @@
 </template>
 
 <script>
+import GlobalNavbar from '@/components/GlobalNavbar'
+
 export default {
+  components: {
+    GlobalNavbar
+  },
   data() {
     return {
       revenue: 0,
@@ -62,31 +75,31 @@ export default {
       tableData: [
         {
           marketplace: "Tokopedia",
-          itemName: "Kipas angin",
+          name: "Kipas angin",
           qty: 1,
           price: 200000
         },
         {
           marketplace: "Bukalapak",
-          itemName: "Rice cooker",
+          name: "Rice cooker",
           qty: 1,
           price: 500000
         },
         {
           marketplace: "Shopee",
-          itemName: "Headset",
+          name: "Headset",
           qty: 2,
           price: 50000
         },
         {
           marketplace: "Lazada",
-          itemName: "Botol minum",
+          name: "Botol minum",
           qty: 5,
           price: 200000
         },
         {
           marketplace: "Tokopedia",
-          itemName: "Air mineral",
+          name: "Air mineral",
           qty: 20,
           price: 5000
         }
@@ -149,19 +162,19 @@ export default {
 
 <style lang="scss" scoped>
 .money-information {
-  margin-top: 5rem;
+  margin-top: 1rem;
 
   &__revenue,
   &__items {
-    border: 1px $grey-400 solid;
+    // border: 1px $grey-400 solid;
     background: $grey-900;
     color: white;
   }
 
   &__revenue {
     border-right-style: none;
-    border-radius: 5px 0 0 5px;
-    padding: 2rem;
+    // border-radius: 5px 0 0 5px;
+    padding: 1.5rem;
   }
 
   &__items {
@@ -171,12 +184,44 @@ export default {
 
   &__description {
     color: $grey-400;
+    margin-bottom: 0.5rem;
   }
 
   &__main {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+
+.card-table {
+  margin-top: 4rem;
+
+  &__title {
+    // color: $grey-400;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  &__card-item {
+    // border: 1px solid red;
+    border-bottom: 1px $grey-100 solid;
+    padding: 1.5rem 0;
+  }
+
+  &__item-name {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  &__marketplace-name {
+    font-size: 0.75rem;
+    color: $grey-400;
+    margin-bottom: 1rem;
+  }
+
+  &__subtotal {
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 }
 
