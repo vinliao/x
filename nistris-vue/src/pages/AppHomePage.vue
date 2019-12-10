@@ -19,7 +19,7 @@
         <div class="flex-one"></div>
         <div class="flex-four">
           <router-link
-            to="/app/choose"
+            to="/app/upload"
             class="table__add-button"
           >Add new</router-link>
           <table class="table__content">
@@ -64,7 +64,7 @@
       </section>
     </div>
 
-    <router-link to="/app/choose">
+    <router-link to="/app/upload">
       <div class="add-fab">+</div>
     </router-link>
 
@@ -257,10 +257,11 @@ export default {
   width: $fab-size;
   height: $fab-size;
   border-radius: 50%;
-  background: $grey-900;
+  background: $primary-500;
 
   // content css
   text-align: center;
+  // color: $grey-900;
   color: white;
   font-size: 2rem;
 

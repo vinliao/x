@@ -102,7 +102,7 @@ export default {
 
   &__title {
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__marketplace-images {
@@ -136,7 +136,7 @@ export default {
 
   &__title {
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__download-excel {
@@ -149,7 +149,6 @@ export default {
     @include button;
     display: block;
     text-align: center;
-    margin-top: 1rem;
   }
 }
 
