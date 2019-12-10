@@ -1,21 +1,10 @@
 <template>
-  <div class="container">
-    <section class="choose flex">
+  <div>
 
-      <!-- Be careful, nested flex ahead! -->
-      <div class="flex-one"></div>
-
-      <!-- card -->
-      <div class="flex-two choose__content flex">
-        <div class="flex-one"></div>
-
-        <!-- inside the card -->
-        <div class="flex-four">
-          <div class="choose__description flex">
-            <p class="choose__description-choose">Choose</p>
-            <p class="choose__description-upload choose__description--grey-out">Upload</p>
-          </div>
-
+    <div class="container">
+      <section class="choose row">
+        <div class="choose__content col-xs-12">
+          <p class="choose__title">Pilih marketplace anda</p>
           <!-- marketplace images -->
           <div class="choose__marketplace-images flex">
             <img
@@ -27,19 +16,31 @@
             >
 
           </div>
-
-          <!-- button -->
-          <router-link
-            to="upload"
-            class="choose__next-button"
-          >Next</router-link>
-
         </div>
+      </section>
+    </div>
 
-        <div class="flex-one"></div>
-      </div>
-      <div class="flex-one"></div>
-    </section>
+    <div class="section-separator" v-if="isInactive.indexOf(false) != -1"></div>
+
+    <div class="container">
+      <section class="upload row" v-if="isInactive.indexOf(false) != -1">
+        <div class="upload__content col-xs-12">
+          <p class="upload__title">Upload excel</p>
+
+          <!-- instruction is bad in usability! -->
+          <router-link
+            to="#"
+            class="upload__download-excel"
+          >Klik sini untuk download excel dari {{ getActiveMarketplace() }}</router-link>
+
+          <router-link
+            class="upload__upload-button"
+            to="/app"
+          >Upload</router-link>
+        </div>
+      </section>
+    </div>
+
   </div>
 </template>
 
@@ -87,7 +88,11 @@ export default {
     },
     getActiveMarketplace() {
       const activeIndex = this.isInactive.indexOf(false);
-      return marketplaceData[activeIndex].marketplaceName;
+      if (activeIndex === -1) {
+        return "none";
+      } else {
+        return this.marketplaceData[activeIndex].marketplaceName;
+      }
     }
   },
   computed: {}
@@ -96,31 +101,12 @@ export default {
 
 <style lang="scss" scoped>
 .choose {
-  @include center-flex;
+  margin: 2rem 0;
+  // @include center-flex;
 
-  &__content {
-    @include grey-border;
-    text-align: center;
-  }
-
-  &__description-space {
-    margin: 0 1rem;
-  }
-
-  &__description {
-    margin: 3rem 0 4rem 0;
-
-    &-choose,
-    &-upload {
-      width: 50%;
-      padding-bottom: 0.5rem;
-      border-bottom: 0.5px $grey-900 solid;
-    }
-
-    &--grey-out {
-      color: $grey-300;
-      border-bottom: 0.5px $grey-300 solid;
-    }
+  &__title {
+    font-weight: 500;
+    margin-bottom: 2rem;
   }
 
   &__marketplace-images {
@@ -142,13 +128,43 @@ export default {
   }
 
   &__next-button {
+    text-align: center;
     @include button;
     display: block;
     margin: 3rem 0;
   }
 }
 
+.upload {
+  margin-top: 2rem;
+
+  &__title {
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+  &__download-excel {
+    display: inline-block;
+    @include underline-link;
+    margin-bottom: 2rem;
+  }
+
+  &__upload-button {
+    @include button;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
 .inactive {
   filter: grayscale(100%);
+}
+
+.section-separator {
+  width: 100%;
+  height: 7px;
+  background: $grey-300;
+  margin-top: 2rem;
 }
 </style>
