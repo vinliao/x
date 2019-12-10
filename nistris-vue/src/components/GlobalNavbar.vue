@@ -43,9 +43,11 @@ export default {
   justify-content: space-between;
   align-items: center;
 
-  // vertical padding is 0.75 rem because .container has
+  // horizontal padding is 0.75 rem because .container has
   // 0.75 rem margin on each side. Alignment, my friends.
-  padding: 0.5rem $container-spacing/2;
+  padding: 0.75rem $container-spacing/2;
+
+  box-shadow: 0 2px 2px $grey-100;
 
   &__brand {
     font-size: 1.5rem;

@@ -3,46 +3,10 @@
     <global-navbar></global-navbar>
 
     <div class="container">
-
-      <section class="money-information row">
-        <div class="col-xs-12">
-          <div class="money-information__revenue">
-            <p class="money-information__description">Omzet anda hari ini</p>
-            <p class="money-information__main">{{ calculateRevenue() }}</p>
-          </div>
-        </div>
-      </section>
+      <money-information :revenue="calculateRevenue()"></money-information>
     </div>
 
     <div class="container">
-      <!-- <section class="table flex">
-        <div class="flex-one"></div>
-        <div class="flex-four">
-          <router-link
-            to="/app/upload"
-            class="table__add-button"
-          >Add new</router-link>
-          <table class="table__content">
-            <tr>
-              <th>Marketplace</th>
-              <th>Nama Barang</th>
-              <th>Qty</th>
-              <th>Price</th>
-              <th>Subtotal</th>
-            </tr>
-
-            <tr v-for="item in tableData">
-              <td>{{ item.marketplace }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.qty }}</td>
-              <td>{{ toRupiah(item.price) }}</td>
-              <td>{{ calculateSubtotal(item.qty, item.price) }}</td>
-            </tr>
-
-          </table>
-        </div>
-        <div class="flex-one"></div>
-      </section> -->
 
       <section class="card-table row">
         <div class="col-xs-12">
@@ -51,6 +15,7 @@
             class="card-table__card-item"
             v-for="item in tableData"
           >
+            <!-- make the card into a component, not the whole item -->
             <p class="card-table__item-name">{{ item.name }}</p>
             <div class="card-table__price-quantity">
               <span class="card-table__price">{{ toRupiah(item.price) }} × </span>
@@ -64,19 +29,21 @@
       </section>
     </div>
 
-    <router-link to="/app/upload">
-      <div class="add-fab">+</div>
-    </router-link>
+    <add-fab></add-fab>
 
   </div>
 </template>
 
 <script>
 import GlobalNavbar from "@/components/GlobalNavbar";
+import AddFab from "./AddFab";
+import MoneyInformation from "./MoneyInformation";
 
 export default {
   components: {
-    GlobalNavbar
+    GlobalNavbar,
+    AddFab,
+    MoneyInformation
   },
   data() {
     return {
@@ -171,36 +138,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.money-information {
-  margin-top: 1rem;
-
-  &__revenue,
-  &__items {
-    background: $grey-900;
-    color: white;
-  }
-
-  &__revenue {
-    border-right-style: none;
-    padding: 1.5rem;
-  }
-
-  &__items {
-    border-radius: 0 5px 5px 0;
-    padding: 2rem;
-  }
-
-  &__description {
-    color: $grey-400;
-    margin-bottom: 0.5rem;
-  }
-
-  &__main {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-}
-
 .card-table {
   margin-top: 4rem;
 
@@ -247,77 +184,4 @@ export default {
   }
 }
 
-.add-fab {
-  // positioning
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-
-  // fab css
-  width: $fab-size;
-  height: $fab-size;
-  border-radius: 50%;
-  background: $primary-500;
-
-  // content css
-  text-align: center;
-  // color: $grey-900;
-  color: white;
-  font-size: 2rem;
-
-  // line height determines the width of a text content. The content
-  // then will be vertically centered. Super cool
-  line-height: $fab-size;
-
-}
-
-.table {
-  margin: 5rem 0 2rem 0;
-
-  &__add-button {
-    @include button;
-    display: inline-block;
-    margin-bottom: 1rem;
-  }
-
-  &__content {
-    width: 100%;
-    border-collapse: collapse;
-    // @include grey-border;
-
-    th {
-      text-align: left;
-      padding: 1rem 1rem 0.75rem 1rem;
-      border-bottom: 2px $grey-400 solid;
-    }
-
-    td {
-      text-align: left;
-      padding: 0.75rem 1rem;
-      border-bottom: 0.5px $grey-200 solid;
-    }
-
-    // select the Qty, marketplace and subtotal
-    // then align right
-    td:nth-child(3),
-    th:nth-child(3),
-    td:nth-child(4),
-    th:nth-child(4),
-    td:nth-child(5),
-    th:nth-child(5) {
-      text-align: right;
-    }
-
-    // grey out marketplace and item name
-    td:nth-child(1),
-    td:nth-child(2) {
-      color: $grey-600;
-    }
-
-    // apply bottom margin to tr elements on the last tr row
-    // tr:last-of-type > td {
-    //   margin-bottom: 1rem;
-    // }
-  }
-}
 </style>

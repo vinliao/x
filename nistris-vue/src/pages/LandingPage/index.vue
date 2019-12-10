@@ -12,7 +12,7 @@
               class="hero__cta"
             >Coba Gratis</router-link>
             <img
-              src="../assets/hero-table.png"
+              src="@/assets/hero-table.png"
               alt="hero image"
               class="hero__image"
             >

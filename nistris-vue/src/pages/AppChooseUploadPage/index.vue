@@ -54,7 +54,7 @@ export default {
         {
           marketplaceName: "tokopedia",
           // to be completely honest, I don't understand why require here
-          src: require("../assets/tokopedia-logo.png")
+          src: require("@/assets/tokopedia-logo.png")
         },
         {
           marketplaceName: "shopee",
