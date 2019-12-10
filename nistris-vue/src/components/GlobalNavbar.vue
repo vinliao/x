@@ -1,6 +1,7 @@
 <template>
   <section class="navbar row">
-    <p class="navbar__brand">Nistris</p>
+    <p v-if="placeIndicator == undefined" class="navbar__brand">Nistris</p>
+    <p v-if="placeIndicator != undefined" class="navbar__place-indicator">{{ placeIndicator }}</p>
     <div class="navbar__items">
       <router-link
         v-if="!isLandingPage"
@@ -23,12 +24,16 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isLandingPage: false
-    };
-  },
-  props: ["isLandingPage"]
+  props: {
+    isLandingPage: {
+      type: Boolean,
+      default: false
+    },
+    placeIndicator: {
+      type: String,
+      default: undefined,
+    }
+  }
 };
 </script>
 
@@ -43,8 +48,13 @@ export default {
   padding: 0.5rem $container-spacing/2;
 
   &__brand {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: "Playfair Display", serif;
+  }
+
+  &__place-indicator {
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 
   &__login {

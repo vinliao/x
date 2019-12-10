@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <global-navbar place-indicator="Upload"></global-navbar>
     <div class="container">
       <section class="choose row">
         <div class="choose__content col-xs-12">
@@ -19,7 +19,10 @@
         </div>
       </section>
 
-      <section class="upload row" v-if="isInactive.indexOf(false) != -1">
+      <section
+        class="upload row"
+        v-if="isInactive.indexOf(false) != -1"
+      >
         <div class="upload__content col-xs-12">
           <p class="upload__title">Upload excel</p>
 
@@ -41,7 +44,9 @@
 </template>
 
 <script>
+import GlobalNavbar from "@/components/GlobalNavbar";
 export default {
+  components: { GlobalNavbar },
   data() {
     return {
       // start with everything inactive (greyed out)
