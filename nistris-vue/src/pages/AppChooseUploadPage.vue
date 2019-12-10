@@ -18,11 +18,7 @@
           </div>
         </div>
       </section>
-    </div>
 
-    <div class="section-separator" v-if="isInactive.indexOf(false) != -1"></div>
-
-    <div class="container">
       <section class="upload row" v-if="isInactive.indexOf(false) != -1">
         <div class="upload__content col-xs-12">
           <p class="upload__title">Upload excel</p>
@@ -106,7 +102,7 @@ export default {
 
   &__title {
     font-weight: 500;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   &__marketplace-images {
@@ -136,17 +132,17 @@ export default {
 }
 
 .upload {
-  margin-top: 2rem;
+  margin-top: 3rem;
 
   &__title {
     font-weight: 500;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   &__download-excel {
     display: inline-block;
     @include underline-link;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   &__upload-button {
