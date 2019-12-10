@@ -21,21 +21,25 @@
 
       <section
         class="upload row"
-        v-if="selectedMarketplace != ''"
       >
         <div class="upload__content col-xs-12">
           <p class="upload__title">Upload excel</p>
 
-          <!-- instruction is bad in usability! -->
+          <input
+            type="file"
+            name="excelInput"
+            class="upload__input-file"
+          >
           <router-link
             to="#"
-            class="upload__download-excel"
-          >Klik sini untuk download excel dari {{ selectedMarketplace }}</router-link>
-
+            class="upload__upload-help"
+          >Butuh bantuan?</router-link>
+          
           <router-link
             class="upload__upload-button"
             to="/app"
-          >Upload</router-link>
+          >Selesai</router-link>
+
         </div>
       </section>
     </div>
@@ -51,9 +55,7 @@ export default {
     return {
       selectedMarketplace: ""
     };
-  },
-  methods: {},
-  computed: {}
+  }
 };
 </script>
 
@@ -64,7 +66,7 @@ export default {
 
   &__title {
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &__next-button {
@@ -80,13 +82,17 @@ export default {
 
   &__title {
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
-  &__download-excel {
+  &__input-file {
+    margin-bottom: 0.5rem;
+  }
+
+  &__upload-help {
     display: inline-block;
     @include underline-link;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   &__upload-button {
