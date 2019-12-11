@@ -6,27 +6,37 @@
         <div class="choose__content col-xs-12">
           <p class="choose__title">Pilih marketplace anda</p>
 
-          <label class="choose__radio-label"><input
+          <label class="choose__radio-container"> Tokopedia
+            <input
               type="radio"
-              name="marketplace"
               value="tokopedia"
-              checked
-            > Tokopedia</label>
-          <label class="choose__radio-label"><input
+              name="marketplace"
+            >
+            <span class="choose__radio-circle"></span>
+          </label>
+          <label class="choose__radio-container"> Shopee
+            <input
+              type="radio"
+              value="shopee"
+              name="marketplace"
+            >
+            <span class="choose__radio-circle"></span>
+          </label>
+          <!-- <label class="choose__radio-label"><input
               type="radio"
               name="marketplace"
               value="shopee"
-            > Shopee</label>
+            >Shopee</label>
           <label class="choose__radio-label"><input
               type="radio"
               name="marketplace"
               value="bukalapak"
-            > Bukalapak</label>
+            >Bukalapak</label>
           <label class="choose__radio-label"><input
               type="radio"
               name="marketplace"
               value="lazada"
-            > Lazada</label>
+            >Lazada</label> -->
         </div>
       </section>
 
@@ -78,20 +88,52 @@ export default {
     margin-bottom: 1rem;
   }
 
-  &__radio-label {
+  // create block label
+  &__radio-container {
     display: block;
-    margin-bottom: 0.5rem;
+    position: relative;
     cursor: pointer;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
 
-    &:active {
-      background: white;
+    // hide the default radio
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      cursor: pointer;
+
+      // if radio button is checked (clicking label works too),
+      // then it will make the next element with class 
+      // choose__radio-circle (my created circle) then apply some css
+      // inside. This is black magic my friend.
+      &:checked ~ .choose__radio-circle {
+        border: 2px $grey-400 solid;
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0.5rem;
+          height: 0.5rem;
+          display: inline-block;
+          background: $grey-400;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
     }
   }
 
-  &__content {
-    input[type="radio"] {
-      outline: none;
-    }
+  &__radio-circle {
+    position: absolute;
+    height: 1.25rem;
+    width: 1.25rem;
+    border: 1px $grey-400 solid;
+    left: 0;
+    border-radius: 50%;
   }
 
   &__next-button {
