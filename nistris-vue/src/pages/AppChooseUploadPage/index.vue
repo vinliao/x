@@ -5,23 +5,32 @@
       <section class="choose row">
         <div class="choose__content col-xs-12">
           <p class="choose__title">Pilih marketplace anda</p>
-          <select v-model="selectedMarketplace">
-            <option
-              disabled
-              value=""
-              hidden
-            >Pilih satu</option>
-            <option value="Tokopedia">Tokopedia</option>
-            <option value="Shopee">Shopee</option>
-            <option value="Lazada">Lazada</option>
-            <option value="Bukalapak">Bukalapak</option>
-          </select>
+
+          <label class="choose__radio-label"><input
+              type="radio"
+              name="marketplace"
+              value="tokopedia"
+              checked
+            > Tokopedia</label>
+          <label class="choose__radio-label"><input
+              type="radio"
+              name="marketplace"
+              value="shopee"
+            > Shopee</label>
+          <label class="choose__radio-label"><input
+              type="radio"
+              name="marketplace"
+              value="bukalapak"
+            > Bukalapak</label>
+          <label class="choose__radio-label"><input
+              type="radio"
+              name="marketplace"
+              value="lazada"
+            > Lazada</label>
         </div>
       </section>
 
-      <section
-        class="upload row"
-      >
+      <section class="upload row">
         <div class="upload__content col-xs-12">
           <p class="upload__title">Upload excel</p>
 
@@ -34,7 +43,7 @@
             to="#"
             class="upload__upload-help"
           >Butuh bantuan?</router-link>
-          
+
           <router-link
             class="upload__upload-button"
             to="/app"
@@ -67,6 +76,22 @@ export default {
   &__title {
     font-weight: 500;
     margin-bottom: 1rem;
+  }
+
+  &__radio-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+
+    &:active {
+      background: white;
+    }
+  }
+
+  &__content {
+    input[type="radio"] {
+      outline: none;
+    }
   }
 
   &__next-button {
