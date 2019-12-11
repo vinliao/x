@@ -22,21 +22,22 @@
             >
             <span class="choose__radio-circle"></span>
           </label>
-          <!-- <label class="choose__radio-label"><input
+          <label class="choose__radio-container"> Bukalapak
+            <input
               type="radio"
-              name="marketplace"
-              value="shopee"
-            >Shopee</label>
-          <label class="choose__radio-label"><input
-              type="radio"
-              name="marketplace"
               value="bukalapak"
-            >Bukalapak</label>
-          <label class="choose__radio-label"><input
-              type="radio"
               name="marketplace"
+            >
+            <span class="choose__radio-circle"></span>
+          </label>
+          <label class="choose__radio-container"> Lazada
+            <input
+              type="radio"
               value="lazada"
-            >Lazada</label> -->
+              name="marketplace"
+            >
+            <span class="choose__radio-circle"></span>
+          </label>
         </div>
       </section>
 
@@ -93,7 +94,7 @@ export default {
     display: block;
     position: relative;
     cursor: pointer;
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     margin-bottom: 1rem;
 
     // hide the default radio
@@ -109,19 +110,21 @@ export default {
       // choose__radio-circle (my created circle) then apply some css
       // inside. This is black magic my friend.
       &:checked ~ .choose__radio-circle {
-        border: 2px $grey-400 solid;
+        border: 2px $grey-700 solid;
 
-        &::after {
+        &::before {
           content: '';
           position: absolute;
-          width: 0.5rem;
-          height: 0.5rem;
+          width: 0.75rem;
+          height: 0.75rem;
           display: inline-block;
-          background: $grey-400;
+          background: $grey-700;
           border-radius: 50%;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+          // for some reason the translate needs to be -55% to be perfectly
+          // centered. There must be something wrong here.
+          transform: translate(-50%, -55%);
         }
       }
     }
@@ -131,7 +134,7 @@ export default {
     position: absolute;
     height: 1.25rem;
     width: 1.25rem;
-    border: 1px $grey-400 solid;
+    border: 1px $grey-300 solid;
     left: 0;
     border-radius: 50%;
   }
@@ -154,6 +157,7 @@ export default {
 
   &__input-file {
     margin-bottom: 0.5rem;
+    display: block;
   }
 
   &__upload-help {
