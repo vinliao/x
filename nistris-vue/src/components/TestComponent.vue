@@ -1,28 +1,35 @@
 <template>
   <div>
-    <label class="add-fab">+
-      <input
-        type="checkbox"
-        style="display: none;"
-      >
-      <div class="modal">
-        <div class="modal__content">
-          <p class="modal__title">Pilih marketplace anda</p>
-          <label
-            @change="toggleModal"
-            class="modal__choice"
-            v-for="item in marketplaces"
-          >
-            <input
-              type="file"
-              style="display: none;"
-            >{{ item }}
-          </label>
+    <span
+      class="add-fab"
+      @click="showModal"
+    >+</span>
 
-        </div>
+    <div
+      class="modal"
+      :style="{display: modalDisplay}"
+    >
+      <div class="modal__content">
+        <p class="modal__title">Pilih marketplace anda</p>
+        <label
+          class="modal__choice"
+          v-for="item in marketplaces"
+        >
+          <input
+            type="file"
+            style="display: none;"
+          >{{ item }}
+        </label>
+
       </div>
-      <div class="overlay"></div>
-    </label>
+    </div>
+
+    <div
+      class="overlay"
+      @click="closeModal"
+      :style="{display: modalDisplay}"
+    ></div>
+
   </div>
 </template>
 
@@ -30,13 +37,16 @@
 export default {
   data() {
     return {
+      modalDisplay: "none",
       marketplaces: ["Tokopedia", "Shopee", "Bukalapak", "Lazada"]
     };
   },
   methods: {
-    toggleModal() {
-      const checkbox = document.querySelector('.add-fab input[type="checkbox"]');
-      checkbox.checked = !checkbox.checked
+    showModal() {
+      this.modalDisplay = "block";
+    },
+    closeModal() {
+      this.modalDisplay = "none";
     }
   }
 };
@@ -54,27 +64,17 @@ export default {
   height: $fab-size;
   border-radius: 50%;
   background: $primary-500;
+  cursor: pointer;
 
   // content css
   text-align: center;
-  // color: $grey-900;
   color: white;
   font-size: 2rem;
+  text-decoration: none;
 
   // line height determines the width of a text content. The content
   // then will be vertically centered. Super cool
   line-height: $fab-size;
-
-  // when checkbox checked, apply styles to modal
-  input[type="checkbox"]:checked {
-    & ~ .modal {
-      display: block;
-    }
-
-    & ~ .overlay {
-      display: block;
-    }
-  }
 }
 
 .overlay {
@@ -84,8 +84,8 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background: $grey-900;
-  opacity: 0.7;
+  background: $grey-200;
+  opacity: 0.3;
   height: 100vh;
   width: 100vw;
 
@@ -104,7 +104,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background: hsl(0, 0%, 90%);
+  background: white;
   border-radius: 1rem 1rem 0 0;
 
   &__title {
@@ -119,7 +119,12 @@ export default {
     outline: none;
     text-decoration: none;
     color: #333;
-    // border: 0.5px #ccc solid;
+    transition: 300ms;
+    cursor: pointer;
+
+    &:hover {
+      background: hsl(0, 0%, 95%);
+    }
   }
 }
 </style>
