@@ -10,7 +10,6 @@
     </div>
 
     <div class="container">
-
       <section class="card-table row">
         <div class="col-xs-12">
           <p class="card-table__title">Riwayat transkasi</p>
@@ -18,15 +17,13 @@
             class="card-table__card-item"
             v-for="item in tableData"
           >
-            <!-- make the card into a component, not the whole item -->
-            <p class="card-table__item-name">{{ item.name }}</p>
-            <div class="card-table__price-quantity">
-              <span class="card-table__price">{{ toRupiah(item.price) }} × </span>
-              <span class="card-table__quantity">{{ item.qty }} barang</span>
-            </div>
-            <p class="card-table__marketplace-name">{{ item.marketplace }}</p>
-            <p class="card-table__subtotal-label">Total penjualan</p>
-            <p class="card-table__subtotal">{{ calculateSubtotal(item.qty, item.price) }}</p>
+            <card-table-item
+              :name="item.name"
+              :price="toRupiah(item.price)"
+              :qty="item.qty"
+              :marketplace="item.marketplace"
+              :subtotal="calculateSubtotal(item.qty, item.price)"
+            ></card-table-item>
           </div>
         </div>
         <add-fab></add-fab>
@@ -37,36 +34,7 @@
       <section class="table row">
         <div class="col-12">
 
-          <div
-            class="table__add-button"
-            @click="toggleDropdown"
-          >
-            <span>Add new</span>
-
-            <div
-              class="table__dropdown-content"
-              :style="{display: dropdownContentDisplay}"
-            >
-
-              <label
-                class="table__dropdown-item"
-                v-for="item in marketplaces"
-              >
-                <input
-                  type="file"
-                  style="display: none;"
-                  @change="closeDropdown"
-                >{{ item }}
-              </label>
-            </div>
-
-            <!-- clicking overlay will click table__add-button
-            which will toggle the dropdown -->
-            <div
-              class="table__dropdown-overlay"
-              :style="{display: dropdownContentDisplay}"
-            ></div>
-          </div>
+          <add-excel-button></add-excel-button>
 
           <table class="table__content">
             <tr>
@@ -97,14 +65,17 @@
 import GlobalNavbar from "@/components/GlobalNavbar";
 import AddFab from "./AddFab";
 import MoneyInformation from "./MoneyInformation";
-import RevenueTable from "./RevenueTable";
+import CardTable from "./CardTable";
+import CardTableItem from "./CardTableItem";
+import AddExcelButton from "./AddExcelButton";
 
 export default {
   components: {
     GlobalNavbar,
     AddFab,
     MoneyInformation,
-    RevenueTable
+    CardTableItem,
+    AddExcelButton
   },
   data() {
     return {
