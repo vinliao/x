@@ -18,6 +18,7 @@
           <input
             type="file"
             style="display: none;"
+            @change="closeModal"
           >{{ item }}
         </label>
 

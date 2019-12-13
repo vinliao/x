@@ -35,11 +35,32 @@
 
     <div class="container">
       <section class="table row">
-        <div class="">
-          <router-link
-            to="/app/upload"
+        <div class="col-12">
+
+          <div
             class="table__add-button"
-          >Add new</router-link>
+            @click="toggleDropdown"
+          >
+            <span>Add new</span>
+
+            <div
+              class="table__dropdown-content"
+              :style="{display: dropdownContentDisplay}"
+            >
+
+              <label
+                class="table__dropdown-item"
+                v-for="item in marketplaces"
+              >
+                <input
+                  type="file"
+                  style="display: none;"
+                  @change="closeDropdown"
+                >{{ item }}
+              </label>
+            </div>
+          </div>
+
           <table class="table__content">
             <tr>
               <th>Marketplace</th>
@@ -80,8 +101,10 @@ export default {
   },
   data() {
     return {
+      dropdownContentDisplay: "none",
       revenue: 0,
       itemsSold: 0,
+      marketplaces: ["tokopedia", "shopee", "lazada", "bukalapak"],
       tableData: [
         {
           marketplace: "Tokopedia",
@@ -165,6 +188,19 @@ export default {
 
       // sum those quantity
       return quantities.reduce(this.sumReducer);
+    },
+    toggleDropdown() {
+      if (this.dropdownContentDisplay == "none") {
+        this.dropdownContentDisplay = "block";
+      } else {
+        this.dropdownContentDisplay = "none";
+      }
+    },
+    openDropdown() {
+      this.dropdownContentDisplay = "block";
+    },
+    closeDropdown() {
+      this.dropdownContentDisplay = "none";
     }
   }
 };
@@ -174,7 +210,7 @@ export default {
 .table {
   display: none;
 
-  @include respond(md){
+  @include respond(md) {
     display: block;
   }
 
@@ -183,7 +219,32 @@ export default {
   &__add-button {
     @include button;
     display: inline-block;
+    cursor: pointer;
     margin-bottom: 1rem;
+    position: relative;
+  }
+
+  &__dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    color: $grey-900;
+    padding: 0.5rem 0;
+  }
+
+  &__dropdown-item {
+    display: block;
+    padding: 0.5rem 1rem;
+    outline: none;
+    text-decoration: none;
+    color: #333;
+    transition: 300ms;
+    cursor: pointer;
+
+    &:hover {
+      background: hsl(0, 0%, 95%);
+    }
   }
 
   &__content {
