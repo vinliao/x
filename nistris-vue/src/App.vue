@@ -31,9 +31,9 @@ html {
     font-size: 112.5%; // 18px per 1 rem
   }
 
-  @include respond(lg){
-    font-size: 125%; // 20px per 1 rem
-  }
+  // @include respond(lg){
+  //   font-size: 125%; // 20px per 1 rem
+  // }
 }
 
 #app {
