@@ -14,6 +14,7 @@
       <label
         class="add-button__dropdown-item"
         v-for="item in marketplaces"
+        :key="item"
       >
         <input
           type="file"

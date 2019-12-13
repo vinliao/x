@@ -14,6 +14,7 @@
         <label
           class="modal__choice"
           v-for="item in marketplaces"
+          :key="item"
         >
           <input
             type="file"

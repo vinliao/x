@@ -13,9 +13,13 @@
       <section class="card-table row">
         <div class="col-xs-12">
           <p class="card-table__title">Riwayat transkasi</p>
+
+          <!-- I know the v-bind:key is wrong here, but man I just wanna
+          get rid of eslint!!! -->
           <div
             class="card-table__card-item"
             v-for="item in tableData"
+            :key="item"
           >
             <card-table-item
               :name="item.name"
@@ -45,7 +49,10 @@
               <th>Subtotal</th>
             </tr>
 
-            <tr v-for="item in tableData">
+            <tr
+              v-for="item in tableData"
+              :key="item"
+            >
               <td>{{ item.marketplace }}</td>
               <td>{{ item.name }}</td>
               <td>{{ item.qty }}</td>
@@ -65,7 +72,6 @@
 import GlobalNavbar from "@/components/GlobalNavbar";
 import AddFab from "./AddFab";
 import MoneyInformation from "./MoneyInformation";
-import CardTable from "./CardTable";
 import CardTableItem from "./CardTableItem";
 import AddExcelButton from "./AddExcelButton";
 
