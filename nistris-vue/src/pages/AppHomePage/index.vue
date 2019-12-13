@@ -269,9 +269,7 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    // background: black;
-
-    // z-index: 1;
+    cursor: default;
   }
 
   &__content {
