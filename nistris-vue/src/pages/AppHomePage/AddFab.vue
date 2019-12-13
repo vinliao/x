@@ -45,11 +45,9 @@ export default {
   methods: {
     showModal() {
       this.modalDisplay = "block";
-      console.log(this.modalDisplay)
     },
     closeModal() {
       this.modalDisplay = "none";
-      console.log(this.modalDisplay)
     }
   }
 };
