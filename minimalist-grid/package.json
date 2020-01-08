@@ -1,6 +1,6 @@
 {
   "name": "minimalist-grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Minimal bootstrap style grid system",
   "main": "main.scss",
   "style": "css/minimalist-grid.min.css",
