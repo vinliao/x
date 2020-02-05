@@ -7,12 +7,12 @@ do
   if [ $? -ne 0 ]
   then
 
-    protonvpn c -r
+    protonvpn c -f
     # if first connect isn't succesful
     # then connect again
     while [ $? -ne 0 ];
     do
-        protonvpn c -r
+        protonvpn c -f
     done
   fi
 done
