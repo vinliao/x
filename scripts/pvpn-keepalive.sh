@@ -3,13 +3,13 @@
 while true;
 do
   echo "Checking status..."
-  ping -c1 protonvpn.com >/dev/null 2>&1
+  protonvpn status | grep Connected >/dev/null 2>&1
 
-  # if ping isn't successful
+  # if vpn status isn't connected
   if [ $? -ne 0 ]
   then
     echo
-    echo "===PING FAILED==="
+    echo "===VPN DISCONNECTED==="
     echo "Reconnecting to vpn..."
     echo
     protonvpn c -f >/dev/null
@@ -22,7 +22,7 @@ do
     done
     protonvpn status
   fi
-  echo "Your internet is fine"
+  echo "You are connected"
   echo
   sleep 5
 done
