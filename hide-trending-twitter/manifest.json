@@ -1,12 +1,12 @@
 {
     "manifest_version": 2,
-    "name": "hideee",
-    "version": "1.0",
+    "name": "Trending Hashtag Hider",
+    "version": "0.1",
   
-    "description": "hide stuff on twitter",
+    "description": "Hide the annoying and unnecessary trending hashtag on twitter",
   
     "icons": {
-      "48": "icons/border-48.png"
+      "48": "icons/48.png"
     },
   
     "content_scripts": [
