@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "hideee",
+    "version": "1.0",
+  
+    "description": "hide stuff on twitter",
+  
+    "icons": {
+      "48": "icons/border-48.png"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.twitter.com/*"],
+        "js": ["hide.js"]
+      }
+    ]
+  
+  }
