@@ -1,22 +1,28 @@
 const chopper = require('./chopper.js');
 const credentials = require('./credentials.js')
-const twit = require('twit');
+const Twitter = require('twitter-lite')
 
 const tweets = chopper();
 
-console.log(credentials);
-
-const T = new twit({
+const client = new Twitter({
   consumer_key: credentials.consumer_key,
   consumer_secret: credentials.consumer_secret,
-  access_token: credentials.access_token,
+  access_token_key: credentials.access_token,
   access_token_secret: credentials.access_token_secret,
 })
 
-T.post('statuses/update', { status: tweets[0] }, (err, data, response) => {
-  if (err) {
-    console.error(err)
+// this is a copy pasted code, maybe read it in the future
+// ... maybe, or maybe not. LOL!
+async function tweetThread(thread) {
+  let lastTweetID = "";
+  for (const status of thread) {
+    const tweet = await client.post("statuses/update", {
+      status: status,
+      in_reply_to_status_id: lastTweetID,
+      auto_populate_reply_metadata: true
+    });
+    lastTweetID = tweet.id_str;
   }
+}
 
-  console.log('tweets sent successfully')
-})
+tweetThread(tweets).catch(console.error);
