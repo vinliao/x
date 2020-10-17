@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 
 const Twitter = require('twitter-lite');
@@ -30,3 +32,5 @@ if (argv.separate) {
   // this is the default behavior
   sender.sendAsThread(client, tweets);
 }
+
+console.log('Tweets sent.')
