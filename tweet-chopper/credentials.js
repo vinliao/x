@@ -1,5 +1,3 @@
-// read credentials.json and return it as object
-
 const fs = require('fs')
 try {
   const rawCredentials = fs.readFileSync('credentials.json', 'utf8');

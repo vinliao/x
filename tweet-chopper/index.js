@@ -1,8 +1,11 @@
-const chopper = require('./chopper.js');
-const credentials = require('./credentials.js')
-const Twitter = require('twitter-lite')
+const Twitter = require('twitter-lite');
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const argv = yargs(hideBin(process.argv)).argv
 
-const tweets = chopper();
+const chopper = require('./chopper.js');
+const sender = require('./sender.js');
+const credentials = require('./credentials.js');
 
 const client = new Twitter({
   consumer_key: credentials.consumer_key,
@@ -11,16 +14,16 @@ const client = new Twitter({
   access_token_secret: credentials.access_token_secret,
 })
 
-const sendTweets = async () => {
-  let lastTweetId = '';
-  for (let i = 0; i < tweets.length; i++) {
-    const tweet = await client.post('statuses/update', {
-      status: tweets[i],
-      in_reply_to_status_id: lastTweetId,
-      auto_populate_reply_metadata: true
-    })
-    lastTweetId = tweet.id_str;
-  }
-}
+// get tweets from .txt
+const tweets = chopper();
 
-sendTweets().catch((err) => console.error(err));
+// first argument (the non double-dash one)
+// use this to input filename as argument
+console.log(argv._[0]);
+
+if(argv.separate){
+  sender.sendAsIndividualTweets(client, tweets);
+} else {
+  // this is the default behavior
+  sender.sendAsThread(client, tweets);
+}
