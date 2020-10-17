@@ -1,8 +1,19 @@
-module.exports = () => {
+const { Z_FILTERED } = require('zlib');
+
+module.exports = (textPath) => {
   const fs = require('fs');
+  const path = require('path');
   var textArr = [];
   try {
-    var text = fs.readFileSync('./sample.txt', 'utf8');
+    const absTextPath = path.join(__dirname, textPath);
+    
+    // check file exist
+    if(!fs.existsSync(absTextPath)){
+      console.error('File does not exist!');
+      return;
+    }
+
+    var text = fs.readFileSync(absTextPath, 'utf8');
 
     // add '---' at the end of text if there is none
     // this is used for slicing
@@ -15,7 +26,6 @@ module.exports = () => {
     // instead of automatic checking, use --- instead as a symbol for new tweet
     // after the tweet has been appeneded to the list, cut it out from the text
 
-    // while there is still tweet
     while (text.indexOf('---') != -1) {
       currIndex = text.indexOf('---');
       if (currIndex > 240) {
@@ -26,7 +36,7 @@ module.exports = () => {
       text = text.slice(currIndex + 3);
     }
   } catch {
-    console.error('There is an error');
+    console.error('There is error in chopping the tweets!');
   }
   return textArr;
 }

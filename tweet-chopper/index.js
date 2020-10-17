@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const Twitter = require('twitter-lite');
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
@@ -14,14 +16,15 @@ const client = new Twitter({
   access_token_secret: credentials.access_token_secret,
 })
 
-// get tweets from .txt
-const tweets = chopper();
+if (!argv._[0]) {
+  console.error('Must supply file name.');
+  return 1;
+}
 
-// first argument (the non double-dash one)
-// use this to input filename as argument
-console.log(argv._[0]);
+const fileName = argv._[0];
+const tweets = chopper(fileName);
 
-if(argv.separate){
+if (argv.separate) {
   sender.sendAsIndividualTweets(client, tweets);
 } else {
   // this is the default behavior
