@@ -1,0 +1,1 @@
+This readme will be used to take notes on cryptography... if I have notes to take
