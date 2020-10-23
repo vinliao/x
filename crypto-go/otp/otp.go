@@ -34,17 +34,6 @@ func generateKey(arrayBytes []byte) []byte {
 	return keyArray
 }
 
-func byteArrToBin(arrayBytes []byte) []int {
-	binaryIntArr := make([]int, len(arrayBytes))
-
-	for i := 0; i < len(arrayBytes); i++ {
-		binaryOfByte := fmt.Sprintf("%b", arrayBytes[i])
-		binaryIntArr[i], _ = strconv.Atoi(binaryOfByte)
-	}
-
-	return binaryIntArr
-}
-
 func encrypt(message, key []byte) []byte {
 	cipherArr := make([]byte, len(message))
 	for i := 0; i < len(message); i++ {
