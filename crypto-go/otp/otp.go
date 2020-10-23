@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"time"
 )
 
 func generateKey(arrayBytes []byte) []int {
@@ -15,8 +16,11 @@ func generateKey(arrayBytes []byte) []int {
 
 		for j := 0; j < len(charBinary); j++ {
 
+			// TODO: this generator creates the same password every time
+
 			// same as `while(!len(charBinary) == len(randomBin)`
 			for {
+				rand.Seed(time.Now().UnixNano())
 				randomByte := rand.Intn(255)
 				randomBin := fmt.Sprintf("%b", randomByte)
 				if len(charBinary) == len(randomBin) {
@@ -64,18 +68,21 @@ func decrypt(cipher, key []int) {
 }
 
 func main() {
-	byteString := []byte("Very secret!")
+	byteString := []byte("Very secret!!")
 	binString := byteArrToBin(byteString)
 
 	fmt.Println(byteString)
 	fmt.Println(binString)
 	fmt.Println(binaryToByte(binString))
+	fmt.Println(string(binaryToByte(binString)))
 
-	// key := generateKey(byteString)
+	secretKey := generateKey(byteString)
+	fmt.Println(string(binaryToByte(secretKey)))
 
 	// fmt.Println(binString)
 	// fmt.Println(key)
 
 	// fmt.Println(byteString)
 	// fmt.Println(binaryToByte(binString))
+
 }
