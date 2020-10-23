@@ -6,22 +6,6 @@ import (
 	"strconv"
 )
 
-func getBinaryLength(arrayBytes []byte) int {
-	counter := 0
-	for i := 0; i < len(arrayBytes); i++ {
-		// currentByte is still in ascii of the characters
-		// currentBin is in binary form
-		currentByte := arrayBytes[i]
-		currentBin := fmt.Sprintf("%b", currentByte)
-
-		for j := 0; j < len(currentBin); j++ {
-			counter++
-		}
-	}
-
-	return counter
-}
-
 func generateKey(arrayBytes []byte) []int {
 	totalChar := len(arrayBytes)
 	keyArray := make([]int, totalChar)
@@ -46,9 +30,52 @@ func generateKey(arrayBytes []byte) []int {
 	return keyArray
 }
 
-func main() {
-	byteString := []byte("What the fuck?")
+func byteArrToBin(arrayBytes []byte) []int {
+	binaryIntArr := make([]int, len(arrayBytes))
 
-	fmt.Printf("%b\n", byteString)
-	fmt.Println(generateKey(byteString))
+	for i := 0; i < len(arrayBytes); i++ {
+		binaryOfByte := fmt.Sprintf("%b", arrayBytes[i])
+		binaryIntArr[i], _ = strconv.Atoi(binaryOfByte)
+	}
+
+	return binaryIntArr
+}
+
+func binaryToByte(binArr []int) []byte {
+	byteArr := make([]byte, len(binArr))
+	for i := 0; i < len(binArr); i++ {
+		// apparently you can't just use `string(binArr[i])`
+		// it will conver the whole int to ascii
+		stringBin := strconv.Itoa(binArr[i])
+		parsedByte, _ := strconv.ParseInt(stringBin, 2, 8)
+		byteArr[i] = byte(parsedByte)
+
+	}
+
+	return byteArr
+}
+
+func encrypt(message, key []int) {
+
+}
+
+func decrypt(cipher, key []int) {
+
+}
+
+func main() {
+	byteString := []byte("Very secret!")
+	binString := byteArrToBin(byteString)
+
+	fmt.Println(byteString)
+	fmt.Println(binString)
+	fmt.Println(binaryToByte(binString))
+
+	// key := generateKey(byteString)
+
+	// fmt.Println(binString)
+	// fmt.Println(key)
+
+	// fmt.Println(byteString)
+	// fmt.Println(binaryToByte(binString))
 }
