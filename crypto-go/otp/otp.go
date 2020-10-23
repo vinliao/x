@@ -22,7 +22,6 @@ func generateKey(arrayBytes []byte) []byte {
 				randomByte := rand.Intn(255)
 				randomBin := fmt.Sprintf("%b", randomByte)
 				if len(charBinary) == len(randomBin) {
-					// keyArray[i], _ = strconv.Atoi(randomBin)
 					randomBinInt, _ := strconv.Atoi(randomBin)
 					keyArray[i] = byte(randomBinInt)
 					break
@@ -61,4 +60,7 @@ func main() {
 
 	message := decrypt(cipher, secretKey)
 	fmt.Println(string(message))
+
+	// haha I thought I need to play with binary, but using byte/uint8 is enough
+	// for everything.
 }
