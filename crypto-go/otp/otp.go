@@ -7,9 +7,9 @@ import (
 	"time"
 )
 
-func generateKey(arrayBytes []byte) []int {
+func generateKey(arrayBytes []byte) []byte {
 	totalChar := len(arrayBytes)
-	keyArray := make([]int, totalChar)
+	keyArray := make([]byte, totalChar)
 
 	for i := 0; i < len(keyArray); i++ {
 		charBinary := fmt.Sprintf("%b", arrayBytes[i])
@@ -22,7 +22,9 @@ func generateKey(arrayBytes []byte) []int {
 				randomByte := rand.Intn(255)
 				randomBin := fmt.Sprintf("%b", randomByte)
 				if len(charBinary) == len(randomBin) {
-					keyArray[i], _ = strconv.Atoi(randomBin)
+					// keyArray[i], _ = strconv.Atoi(randomBin)
+					randomBinInt, _ := strconv.Atoi(randomBin)
+					keyArray[i] = byte(randomBinInt)
 					break
 				}
 			}
@@ -41,20 +43,6 @@ func byteArrToBin(arrayBytes []byte) []int {
 	}
 
 	return binaryIntArr
-}
-
-func binaryToByte(binArr []int) []byte {
-	byteArr := make([]byte, len(binArr))
-	for i := 0; i < len(binArr); i++ {
-		// apparently you can't just use `string(binArr[i])`
-		// it will conver the whole int to ascii
-		stringBin := strconv.Itoa(binArr[i])
-		parsedByte, _ := strconv.ParseInt(stringBin, 2, 8)
-		byteArr[i] = byte(parsedByte)
-
-	}
-
-	return byteArr
 }
 
 func encrypt(message, key []byte) []byte {
@@ -77,9 +65,10 @@ func decrypt(cipher, key []byte) []byte {
 
 func main() {
 	byteString := []byte("Very secret!!")
-	secretKey := binaryToByte(generateKey(byteString))
+	secretKey := generateKey(byteString)
+
 	cipher := encrypt(byteString, secretKey)
-	fmt.Println(cipher)
+	fmt.Println(string(cipher))
 
 	message := decrypt(cipher, secretKey)
 	fmt.Println(string(message))
