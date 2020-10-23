@@ -16,8 +16,6 @@ func generateKey(arrayBytes []byte) []int {
 
 		for j := 0; j < len(charBinary); j++ {
 
-			// TODO: this generator creates the same password every time
-
 			// same as `while(!len(charBinary) == len(randomBin)`
 			for {
 				rand.Seed(time.Now().UnixNano())
@@ -59,30 +57,30 @@ func binaryToByte(binArr []int) []byte {
 	return byteArr
 }
 
-func encrypt(message, key []int) {
+func encrypt(message, key []byte) []byte {
+	cipherArr := make([]byte, len(message))
+	for i := 0; i < len(message); i++ {
+		cipherArr[i] = message[i] ^ key[i]
+	}
 
+	return cipherArr
 }
 
-func decrypt(cipher, key []int) {
+func decrypt(cipher, key []byte) []byte {
+	messageArr := make([]byte, len(cipher))
+	for i := 0; i < len(cipher); i++ {
+		messageArr[i] = cipher[i] ^ key[i]
+	}
 
+	return messageArr
 }
 
 func main() {
 	byteString := []byte("Very secret!!")
-	binString := byteArrToBin(byteString)
+	secretKey := binaryToByte(generateKey(byteString))
+	cipher := encrypt(byteString, secretKey)
+	fmt.Println(cipher)
 
-	fmt.Println(byteString)
-	fmt.Println(binString)
-	fmt.Println(binaryToByte(binString))
-	fmt.Println(string(binaryToByte(binString)))
-
-	secretKey := generateKey(byteString)
-	fmt.Println(string(binaryToByte(secretKey)))
-
-	// fmt.Println(binString)
-	// fmt.Println(key)
-
-	// fmt.Println(byteString)
-	// fmt.Println(binaryToByte(binString))
-
+	message := decrypt(cipher, secretKey)
+	fmt.Println(string(message))
 }
