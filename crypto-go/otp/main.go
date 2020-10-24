@@ -7,9 +7,10 @@ import (
 	"time"
 )
 
-func generateKey(arrayBytes []byte) []byte {
+func generateKey(arrayBytes []byte, seed int64) []byte {
 	totalChar := len(arrayBytes)
 	keyArray := make([]byte, totalChar)
+	rand.Seed(seed)
 
 	for i := 0; i < len(keyArray); i++ {
 		charBinary := fmt.Sprintf("%b", arrayBytes[i])
@@ -18,7 +19,6 @@ func generateKey(arrayBytes []byte) []byte {
 
 			// same as `while(!len(charBinary) == len(randomBin)`
 			for {
-				rand.Seed(time.Now().UnixNano())
 				randomByte := rand.Intn(255)
 				randomBin := fmt.Sprintf("%b", randomByte)
 				if len(charBinary) == len(randomBin) {
@@ -53,7 +53,17 @@ func decrypt(cipher, key []byte) []byte {
 
 func main() {
 	byteString := []byte("Very secret!!")
-	secretKey := generateKey(byteString)
+	seed := time.Now().UnixNano()
+	secretKey := generateKey(byteString, seed)
+
+	fmt.Println(secretKey)
+
+	// the cool thing is... this seed now can become the "secret key,"
+	// because from this seed, the secret key can be derived out of it
+
+	// the problem I have now is this secretKey isn't secure because it has
+	// the length of the original data. And the person who has the
+	// cipher and the message can figure out the secret key (by xor).
 
 	cipher := encrypt(byteString, secretKey)
 	fmt.Println(string(cipher))
@@ -63,4 +73,14 @@ func main() {
 
 	// haha I thought I need to play with binary, but using byte/uint8 is enough
 	// for everything.
+
+	// thoughts on stream cipher: with stream cipher, the key isn't the key itself,
+	// but the seed that is used to generate the key. There must be a way to create this
+
+	// oh, so this is basically a stream cipher with "unprocessed"/long key
+
+	// time to make the block one, I guess. I'll start with some simple ones.
+
+	// instead of using the key itself as the key, how can I use a "shorter" key?
+
 }
