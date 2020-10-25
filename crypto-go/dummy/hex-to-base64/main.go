@@ -8,7 +8,11 @@ import (
 )
 
 // an attempt to write code that turns hex into base64 encoding
-//just for understanding (and little bit of fun, I guess...)
+// just for understanding (and little bit of fun, I guess...)
+
+// A little bit of warning: this code is not efficient at all
+// if somebody decides (for whatever reason) to use it, do it on
+// your own risk
 
 var base64Map = map[string]string{
 	"110000": "w",
@@ -190,8 +194,6 @@ func threeBytesToBase64(byteString []byte) (string, error) {
 		return "", errors.New("Length of bytes to base64 must be three")
 	}
 
-	// TODO: check padding stuff
-
 	base64String := ""
 	binaryString := ""
 	totalPadding := 0
@@ -203,8 +205,6 @@ func threeBytesToBase64(byteString []byte) (string, error) {
 	} else if byteString[2] == uint8(0) {
 		totalPadding++
 	}
-
-	fmt.Println("padding:", totalPadding)
 
 	// byte to binary. If length < 8, pad it to make it 8
 	for i := 0; i < len(byteString); i++ {
@@ -244,6 +244,42 @@ func threeBytesToBase64(byteString []byte) (string, error) {
 	return base64String, nil
 }
 
+func fourBase64ToBytes(base64String string) []byte {
+	totalPadding := 0
+	byteString := make([]byte, 3)
+	bitString := ""
+
+	base64MapReverse := map[string]string{}
+	base64MapReverse["="] = "000000" // for padding purposes
+
+	for key, value := range base64Map {
+		base64MapReverse[value] = key
+	}
+
+	for i := 0; i < len(base64String); i++ {
+		if string(base64String[i]) == "=" {
+			totalPadding++
+		}
+
+		currentBits := base64MapReverse[string(base64String[i])]
+		bitString += currentBits
+
+	}
+
+	// this is 3 because the end byte string length is 3
+	for i := 0; i < 3; i++ {
+		start := i * 8
+		end := start + 8
+
+		oneBitString := bitString[start:end]
+		parsedByte, _ := strconv.ParseInt(oneBitString, 2, 8)
+		byteString[i] = uint8(parsedByte)
+	}
+
+	// "cut" the bytestring if there is totalPadding
+	return byteString[:3-totalPadding]
+}
+
 func base64Encode(byteString []byte) string {
 	base64String := ""
 	count := len(byteString) / 3
@@ -260,14 +296,7 @@ func base64Encode(byteString []byte) string {
 		excessByte := len(byteString) % 3
 		lengthNeeded := 3 - excessByte
 		lastChunk := byteString[len(byteString)-excessByte : len(byteString)]
-		fmt.Println("last chunk is", lastChunk)
 		padding := make([]byte, lengthNeeded)
-
-		fmt.Printf("%T\n", lastChunk)
-		fmt.Printf("%T\n", padding)
-
-		fmt.Println(lastChunk)
-		fmt.Println(padding)
 
 		// the triple dot is a "variadic" or something like that
 		// not sure what it is, but it's needed for it to work...
@@ -279,17 +308,24 @@ func base64Encode(byteString []byte) string {
 	return base64String
 }
 
+func base64Decode(base64String string) []byte {
+	totalByte := len(base64String) / 4 * 3
+	byteString := make([]byte, totalByte)
+
+	for i := 0; i < len(base64String)/4; i++ {
+		start := i * 4
+		end := start + 4
+
+		threeBytes := fourBase64ToBytes(base64String[start:end])
+		byteString = append(byteString, threeBytes...)
+	}
+
+	return byteString
+}
+
 func main() {
-	byteString := []byte("heyaaaf")
-	// fmt.Println(hexEncode(byteString))
-	// hexString := hexEncode(byteString)
-	// fmt.Println(string(hexDecode(hexString)))
-
-	// fmt.Println(threeCharsToBase64("ads"))
-
-	fmt.Println(base64Encode(byteString))
-
-	// parsedBinary, _ := strconv.ParseInt("59", 2, 0)
-	// fmt.Println(parsedBinary)
-
+	hexString := "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
+	base64String := "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
+	byteString := hexDecode(hexString)
+	fmt.Println(base64Encode(byteString) == base64String) // true
 }
