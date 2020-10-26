@@ -75,25 +75,26 @@ func challenge3(hexString string) string {
 
 // figure out a single-char key. 60 chars are encrypted.
 // (this is the same with challenge3, it just has hundrends of strings to test)
-func challenge4(text string) {
+func challenge4(text string) string {
 	// remove "\n" from text
 	text = strings.ReplaceAll(text, "\n", "")
 
+	// {input: total-non-gibberish}
+	// this map can be used to figure things out down the road
 	resultMap := map[string]int{}
 
-	// not quite sure why it's -59 instead of -60,
-	// but it seems correct from what I've observed
 	for i := 0; i < len(text)-59; i++ {
 		start := i
 		end := start + 60
-		tempHexString := text[start:end]
+		hexString := text[start:end]
 		totalNonGibberish := 0
+		key := challenge3(hexString)
+		byteString, _ := hex.DecodeString(hexString)
 
 		// calculate the non-gibberish, given the "most likely" key from challenge3()
 		// then store it in resultMap
-		singleCharKey := challenge3(tempHexString)
-		for j := 0; j < len(tempHexString); j++ {
-			tempByte := tempHexString[j] ^ singleCharKey[0]
+		for j := 0; j < len(byteString); j++ {
+			tempByte := byteString[j] ^ key[0]
 			// 65 to 90 is A-Z
 			// 97 to 122 is a-z
 			// 32 is space
@@ -102,26 +103,31 @@ func challenge4(text string) {
 			}
 		}
 
-		resultMap[tempHexString] = totalNonGibberish
+		resultMap[hexString] = totalNonGibberish
 	}
 
-	currentHighestValue := 0
-	highestKeyValue := ""
+	// figure out what input has the highest non-gibberish value
+	currentHighestNonGibberish := 0
+	currentInput := ""
 	for k, v := range resultMap {
-		if v > currentHighestValue {
-			currentHighestValue = v
-			highestKeyValue = k
+		if v > currentHighestNonGibberish {
+			currentHighestNonGibberish = v
+			currentInput = k
 		}
 	}
 
-	fmt.Println(highestKeyValue, challenge3(highestKeyValue))
-	key := challenge3(highestKeyValue)
-	message := ""
-	for i := 0; i < len(highestKeyValue); i++ {
-		message += string(uint8(highestKeyValue[i]) ^ key[0])
+	// get the key of that input, then decrypt it with the single-character key
+	fmt.Printf("most probable 60 char input: %s\n", currentInput)
+	fmt.Printf("most probable key: %s\n", challenge3(currentInput))
+	fmt.Printf("total non-gibberish chars: %d\n", currentHighestNonGibberish)
+
+	msgByteString, _ := hex.DecodeString(currentInput)
+	bestKey := challenge3(currentInput)
+	for i := 0; i < len(msgByteString); i++ {
+		msgByteString[i] = msgByteString[i] ^ bestKey[0]
 	}
 
-	fmt.Println(message)
+	return string(msgByteString)
 }
 
 func main() {
@@ -150,6 +156,5 @@ func main() {
 	// character key. Find it out.
 	relativePath := "./cryptopal/set-1/challenge4.txt"
 	text, _ := ioutil.ReadFile(relativePath)
-	challenge4(string(text))
-	// !!! Not done yet !!!
+	fmt.Println(challenge4(string(text))) // it's correct, but it's one character misaligned though
 }
