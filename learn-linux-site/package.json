@@ -1,0 +1,19 @@
+{
+  "name": "learn-cli-vuepress",
+  "version": "0.0.1",
+  "description": "cryptopals but for cli and linux",
+  "main": "index.js",
+  "authors": {
+    "name": "Vincent Liao",
+    "email": "vincent.liao@protonmail.com"
+  },
+  "repository": "/learn-cli-vuepress",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
