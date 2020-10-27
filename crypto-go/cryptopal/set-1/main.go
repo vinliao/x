@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
 	"io/ioutil"
+	"math"
 	"strings"
 )
 
@@ -27,21 +29,29 @@ func challenge2(hexString1, hexString2 string) string {
 	return hex.EncodeToString(resultByteString)
 }
 
+// helper function to get ascii chars as array
+func getASCIIArr() []byte {
+	totalASCIIChar := 126 - 32 + 1
+	asciiArr := make([]byte, totalASCIIChar) // try ascii of 32 (space) until 126 (tilde) for key
+	for i := 0; i < totalASCIIChar; i++ {
+		asciiArr[i] = uint8(32 + i)
+	}
+
+	return asciiArr
+}
+
 // takes cipher string, and spits out a single ascii character
 // that is most likely to be the key
 func challenge3(hexString string) string {
-	totalASCIIChar := 126 - 32 + 1
 	byteString, _ := hex.DecodeString(hexString)
-	asciiArr := make([]byte, totalASCIIChar) // try ascii of 32 (space) until 126 (tilde) for key
+
+	asciiArr := getASCIIArr()
 
 	// resultMap is the total non-gibberish characters found in the message
 	// after having decrypted with that one-character key
 	resultMap := map[string]int{}
 
 	// fill the asciiArr from 32 to 126
-	for i := 0; i < totalASCIIChar; i++ {
-		asciiArr[i] = uint8(32 + i)
-	}
 
 	// figure out the single-character ascii key
 	for i := 0; i < len(asciiArr); i++ {
@@ -130,6 +140,82 @@ func challenge4(text string) string {
 	return string(msgByteString)
 }
 
+// implement repeating-key xor encryption/decryption
+func challenge5(plainText, key string) string {
+	byteString := make([]byte, len(plainText))
+
+	for i := 0; i < len(plainText); i++ {
+		// i = 0, key[0]
+		// i = 1, key[1]
+		// i = 2, key[2]
+		// i = 3, key[0]
+		// i = 4, key[1]
+		// etc
+
+		singleCharKey := key[i%len(key)]
+		byteString[i] = plainText[i] ^ singleCharKey
+		// fmt.Printf("xor-ing %s with %s\n", string(plainText[i]), string(singleCharKey))
+	}
+
+	// the purpose of encoding to hex is to make it easily readable
+	// all the '"@\|!/ and whitespaces are turned into two hex digits
+	return hex.EncodeToString(byteString)
+}
+
+// figure out the repeating-key of the input cipher
+func challenge6(rawBase64 string) {
+	keyLengthGuessStart := 3
+	keyLengthGuessEnd := 3
+	asciiArr := getASCIIArr()
+	lastASCIIDigit := asciiArr[len(asciiArr)-1]
+	// textCipher, _ := base64.StdEncoding.DecodeString(rawBase64)
+
+	// loop over probable key length
+	for i := keyLengthGuessStart; i < keyLengthGuessEnd+1; i++ {
+		// let's assume this key length is 3 to make it simpler
+		key := make([]byte, i)
+
+		// set initial value to of key
+		for j := 0; j < len(key); j++ {
+			key[j] = asciiArr[0]
+		}
+
+		// create all the combination of the repeating key
+		totalKeyCombination := math.Pow(float64(len(asciiArr)), float64(len(key)))
+		// fmt.Println(totalKeyCombination)
+		for j := 0; j < int(totalKeyCombination); j++ {
+
+			// if the first digit is not maxed out, then increment it
+			if key[len(key)-1] != lastASCIIDigit {
+				key[len(key)-1] = asciiArr[j%len(asciiArr)]
+			} else {
+				// // problems only appear when the first digit is maxed out.
+				// // find a way to implement this in any key length!
+				key[len(key)-1] = asciiArr[0]
+
+				// // check whether the previous value is also maxed out.
+				// prevIndexValue := bytes.IndexByte(asciiArr, key[len(key)-2])
+				// key[len(key)-2] = asciiArr[prevIndexValue+1]
+
+				// check whether the previous is maxed out digit
+				prevDigit := 2
+				for {
+					if key[len(key)-prevDigit] == lastASCIIDigit {
+						key[len(key)-prevDigit] = asciiArr[0]
+						prevDigit++
+					} else {
+						// key[len(key)-prevDigit]++
+						digitValue := bytes.IndexByte(asciiArr, key[len(key)-prevDigit])
+						key[len(key)-prevDigit] = asciiArr[digitValue+1]
+						break
+					}
+				}
+			}
+			fmt.Println(key)
+		}
+	}
+}
+
 func main() {
 	// // ===== Challenge 1 ======
 	// // turn hex to base64
@@ -151,10 +237,27 @@ func main() {
 	// mostLikelyKey := challenge3(hexString)
 	// fmt.Println(mostLikelyKey) // "X" is the key (I've verified it). Too lazy to write code to verify
 
-	// ===== Challenge 4 =====
-	// 60 string of chars in this file has been encrypted by a single
-	// character key. Find it out.
-	relativePath := "./cryptopal/set-1/challenge4.txt"
+	// // ===== Challenge 4 =====
+	// // 60 string of chars in this file has been encrypted by a single
+	// // character key. Find it out.
+	// relativePath := "./cryptopal/set-1/challenge4.txt"
+	// text, _ := ioutil.ReadFile(relativePath)
+	// fmt.Println(challenge4(string(text)))
+	// // the result is technically one character left-misaligned, but the algorithm worked as intended,
+
+	// // ===== Challenge 5 =====
+	// // Implement repeating character xor with key "ICE"
+	// plainText := "Burning 'em, if you ain't quick and"
+	// plainText2 := "I go crazy when I hear a cymbal"
+	// key := "ICE"
+
+	// fmt.Println(challenge5(plainText, key))
+	// fmt.Println(challenge5(plainText2, key))
+
+	// ===== Challenge 6 =====
+	// given the base64 string in challenge6.txt, which has been xor'd with a repeating-key,
+	// figure out the key, then decrypt it.
+	relativePath := "./cryptopal/set-1/challenge6.txt"
 	text, _ := ioutil.ReadFile(relativePath)
-	fmt.Println(challenge4(string(text))) // it's correct, but it's one character misaligned though
+	challenge6(string(text))
 }
