@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: cryptopals but for cli and linux
+tagline: skyrocket your terminal (and linux) skills
 actionText: Let's go →
 actionLink: /learn/
 # features:

@@ -13,7 +13,10 @@ Scouring all over the internet to find information, writing code, getting errors
 
 This site attemps to provide those kind of puzzles about linux instead of shoving information down your throat.
 
-There is no rule. You can watch tutorials and scour the internet as much as you like. But the more you get your hand dirty, try stuff, and discover things by your own (hopefully after some errors and mistakes), the more you'll learn.
+## What are the rules?
+There is no rule. 
+
+You can watch tutorials and scour the internet as much as you like. But the more you get your hand dirty, try stuff, and discover things by your own (hopefully after some errors and mistakes), the more you'll learn.
 
 ## What are the prerequisite?
 You have access to a linux machine and its terminal. That's it.

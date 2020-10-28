@@ -1,13 +1,13 @@
 {
-  "name": "learn-cli-vuepress",
+  "name": "purple-penguin",
   "version": "0.0.1",
-  "description": "cryptopals but for cli and linux",
+  "description": "Skyrocket your terminal skills",
   "main": "index.js",
   "authors": {
     "name": "Vincent Liao",
     "email": "vincent.liao@protonmail.com"
   },
-  "repository": "/learn-cli-vuepress",
+  "repository": "/purple-penguin",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src"
