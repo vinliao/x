@@ -11,18 +11,11 @@ It's contains (hard) cryptography puzzles; it doesn't tell me "how to do" things
 
 Scouring all over the internet to find information, writing code, getting errors, trying this and that way of doing things, getting errors (again), and finally getting it right. It seems like this is the most effective way to learn.
 
-This site attemps to provide those kind of puzzles on linux.
+This site attemps to provide those kind of puzzles about linux instead of shoving information down your throat.
 
-## About me
-No, I'm not a linux or command-line expert. I know some things about it and would like to make it into puzzles.
+There is no rule. You can watch tutorials and scour the internet as much as you like. But the more you get your hand dirty, try stuff, and discover things by your own (hopefully after some errors and mistakes), the more you'll learn.
 
-This entire thing is free and open-sourced. Contributions are welcomed.
+## What are the prerequisite?
+You have access to a linux machine and its terminal. That's it.
 
-## About the puzzles
-There is only one rule: there is no rule.
-
-You can use anything you want. The more you try things out, the more you'll learn.
-
-Instructions will be provided; minimal explanation.
-
-Let's go.
+You can use any distro you want, any text editor you want, any shell you want. 
