@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "snowpack": "snowpack dev"
   },
   "author": "vinliao",
   "license": "ISC",

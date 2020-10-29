@@ -1,4 +1,4 @@
-// import { isString } from 'lodash'
+import _ from 'lodash'
 import foo from './foo.js'
 
 console.log(_.isString("Hey??"))
