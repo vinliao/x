@@ -141,8 +141,9 @@ func challenge4(text string) string {
 }
 
 // implement repeating-key xor encryption/decryption
-func challenge5(plainText, key string) string {
+func challenge5(plainText, key []byte) ([]byte, int) {
 	byteString := make([]byte, len(plainText))
+	totalNonGibberish := 0
 
 	for i := 0; i < len(plainText); i++ {
 		// i = 0, key[0]
@@ -154,26 +155,32 @@ func challenge5(plainText, key string) string {
 
 		singleCharKey := key[i%len(key)]
 		byteString[i] = plainText[i] ^ singleCharKey
-		// fmt.Printf("xor-ing %s with %s\n", string(plainText[i]), string(singleCharKey))
+		if (byteString[i] >= 65 && byteString[i] <= 90) || (byteString[i] >= 97 && byteString[i] <= 122) || byteString[i] == 32 {
+			totalNonGibberish++
+		}
 	}
 
 	// the purpose of encoding to hex is to make it easily readable
 	// all the '"@\|!/ and whitespaces are turned into two hex digits
-	return hex.EncodeToString(byteString)
+	// return hex.EncodeToString(byteString)
+
+	return byteString, totalNonGibberish
 }
 
 // figure out the repeating-key of the input cipher
 func challenge6(rawBase64 string) {
-	keyLengthGuessStart := 3
+	keyLengthGuessStart := 2
 	keyLengthGuessEnd := 3
 	asciiArr := getASCIIArr()
 	lastASCIIDigit := asciiArr[len(asciiArr)-1]
-	// textCipher, _ := base64.StdEncoding.DecodeString(rawBase64)
+	textCipher, _ := base64.StdEncoding.DecodeString(rawBase64)
+	resultMap := map[string]int{} // {key_value: non-gibberish}
 
 	// loop over probable key length
 	for i := keyLengthGuessStart; i < keyLengthGuessEnd+1; i++ {
 		// let's assume this key length is 3 to make it simpler
 		key := make([]byte, i)
+		fmt.Println("Currently working on key length:", i)
 
 		// set initial value to of key
 		for j := 0; j < len(key); j++ {
@@ -182,22 +189,18 @@ func challenge6(rawBase64 string) {
 
 		// create all the combination of the repeating key
 		totalKeyCombination := math.Pow(float64(len(asciiArr)), float64(len(key)))
-		// fmt.Println(totalKeyCombination)
 		for j := 0; j < int(totalKeyCombination); j++ {
 
 			// if the first digit is not maxed out, then increment it
 			if key[len(key)-1] != lastASCIIDigit {
 				key[len(key)-1] = asciiArr[j%len(asciiArr)]
+
 			} else {
-				// // problems only appear when the first digit is maxed out.
-				// // find a way to implement this in any key length!
 				key[len(key)-1] = asciiArr[0]
 
-				// // check whether the previous value is also maxed out.
-				// prevIndexValue := bytes.IndexByte(asciiArr, key[len(key)-2])
-				// key[len(key)-2] = asciiArr[prevIndexValue+1]
-
 				// check whether the previous is maxed out digit
+				// and create the necessary changes if digit is maxed out.
+				// e.g., 199 -> 190 -> 100 -> 200
 				prevDigit := 2
 				for {
 					if key[len(key)-prevDigit] == lastASCIIDigit {
@@ -211,9 +214,35 @@ func challenge6(rawBase64 string) {
 					}
 				}
 			}
-			fmt.Println(key)
+
+			// fmt.Println(key)
+
+			// uh... looks like I have to create the whole nonGibberishChars again...
+			// {"key_value": int(nonGibberishChar)}
+			_, totalNonGibberish := challenge5(textCipher, key)
+			resultMap[string(key)] = totalNonGibberish
 		}
 	}
+
+	fmt.Println(resultMap)
+
+	// return the resultMap key with the most value
+	// the key with highest value is most likelely to be the correct key
+	currentBestKey := ""
+	currentHighestNonGibberish := 0
+	for k, v := range resultMap {
+		if v > currentHighestNonGibberish {
+			currentHighestNonGibberish = v
+			currentBestKey = k
+		}
+	}
+
+	decryptedMessage, _ := challenge5(textCipher, []byte(currentBestKey))
+
+	fmt.Printf("current best key: %s\n", currentBestKey)
+	fmt.Printf("total non-gibberish: %d\n", currentHighestNonGibberish)
+	fmt.Printf("decrypted message: %s\n", decryptedMessage)
+
 }
 
 func main() {
@@ -257,6 +286,9 @@ func main() {
 	// ===== Challenge 6 =====
 	// given the base64 string in challenge6.txt, which has been xor'd with a repeating-key,
 	// figure out the key, then decrypt it.
+	// it seems like I have to find the key length first. But how do I even know which key length
+	// is "true" when I know nothing about the key? A key of length 2 makes the raw ciphertext with
+	// has a pattern when grouped in 2 bytes, but not 3
 	relativePath := "./cryptopal/set-1/challenge6.txt"
 	text, _ := ioutil.ReadFile(relativePath)
 	challenge6(string(text))
