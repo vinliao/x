@@ -1,0 +1,22 @@
+{
+  "name": "js-module-bundle",
+  "version": "0.0.1",
+  "description": "trying things out with module bundlers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "rollup": "rollup -c"
+  },
+  "author": "vinliao",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "rollup": "^2.32.1",
+    "webpack": "^5.3.1",
+    "webpack-cli": "^4.1.0"
+  }
+}
