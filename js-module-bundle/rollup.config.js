@@ -1,7 +1,7 @@
 export default {
-  input: 'src/index.js',
+  input: 'public/index.js',
   output: {
-    file: 'dist/rollup.js',
+    file: 'public/rollup.js',
     format: 'iife'
   },
 };
