@@ -1,0 +1,13 @@
+{
+  "name": "blog-design",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "sass": "node-sass ./site/style.scss ./site/style.css --watch",
+    "sass:build": "node-sass ./site/style.scss ./site/style.css"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
