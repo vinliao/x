@@ -1,10 +1,11 @@
 <script>
-  import Nav from './Nav.svelte'
+  import Nav from "./Nav.svelte";
 </script>
 
 <style>
-
 </style>
 
-<Nav/>
-<p>this is about page</p>
+<div class="container">
+  <Nav />
+  <p>this is about page</p>
+</div>

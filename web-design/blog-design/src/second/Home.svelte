@@ -7,10 +7,6 @@
   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
   $text-color: #333;
   .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding-top: 1rem;
-
     :global(p, span, h1, h2, h3, a) {
       color: $text-color;
       font-family: "Lato", sans-serif;

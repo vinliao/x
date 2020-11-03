@@ -33,7 +33,7 @@
     <div class="content">
       <span class="content-date"> 17-02-2006 </span>
       <br />
-      <span class="content-title"> {title} </span>
+        <a href="/post" class="content-title"> {title} </a>
       <br />
     </div>
   {/each}

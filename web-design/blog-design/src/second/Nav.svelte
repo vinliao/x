@@ -17,7 +17,7 @@
       display: flex;
       align-items: center;
 
-      span {
+      a {
         padding-left: 1rem;
       }
     }
@@ -27,11 +27,9 @@
 </style>
 
 <div class="navbar">
-  <span class="navbar-title">
-    hello
-  </span>
+  <a class="navbar-title" href="/">Title</a>
   <div class="navbar-links">
-    <span>about</span>
-    <span>other</span>
+    <a href="/about">about</a>
+    <a href="/">other</a>
   </div>
 </div>
