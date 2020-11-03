@@ -5,3 +5,8 @@ Here's what I want to build:
 - Dark mode
 - Serif font (it looks cool)
 - A place to separate my personal blog from tech blog. Maybe use categories. Not sure. (The question now is... do I even need a tech blog?)
+
+Fonts to try out:
+- Literata
+- Garamond
+- Baskerville
