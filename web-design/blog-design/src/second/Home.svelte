@@ -9,6 +9,7 @@
   .container {
     max-width: 720px;
     margin: 0 auto;
+    padding-top: 1rem;
 
     :global(p, span, h1, h2, h3, a) {
       color: $text-color;
