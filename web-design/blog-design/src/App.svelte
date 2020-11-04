@@ -1,5 +1,5 @@
 <script>
-  import Site from "./second/Home.svelte";
+  import Site from "./second/Route.svelte";
 </script>
 
 <Site />

@@ -1,8 +1,9 @@
 <script>
+  // this is like a middleware that routes to components
   import router from "page";
-  import Home from "./Home.svelte";
-  import About from "./About.svelte";
-  import Post from './Post.svelte'
+  import Home from "./pages/Home.svelte";
+  import About from "./pages/About.svelte";
+  import Post from './pages/Post.svelte'
 
   let current = Home;
 
