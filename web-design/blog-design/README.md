@@ -10,3 +10,9 @@ Fonts to try out:
 - Literata
 - Garamond
 - Baskerville
+
+Features to have:
+- Dark mode (toggle maybe)
+- Display next set of posts in home
+- Next and previous post in bottom
+- Search?
