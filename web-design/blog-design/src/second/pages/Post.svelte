@@ -2,20 +2,26 @@
   import Nav from "../components/Nav.svelte";
 </script>
 
-<style>
-  .post-content {
+<style lang="scss">
+  @import "../../sass/variables";
+
+  .post-title {
     font-size: 5rem;
-    color: #111111;
+    color: $text-color-darker;
     font-weight: 700;
     margin: 0;
     padding-bottom: 3rem;
+  }
+
+  .post-content {
+    color: $text-color-lighter;
   }
 </style>
 
 <Nav />
 <div class="container">
-  <h1 class="post-content">A very cool post title</h1>
-  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+  <h1 class="post-title">A very cool post title</h1>
+  <span class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
     quidem necessitatibus ducimus voluptate accusamus enim labore libero fuga
     facere eius quia suscipit, ab itaque cum odit delectus ratione sequi rem
     odio distinctio aperiam earum! Assumenda illo sequi perferendis temporibus

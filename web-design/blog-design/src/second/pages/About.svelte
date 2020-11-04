@@ -2,20 +2,26 @@
   import Nav from "../components/Nav.svelte";
 </script>
 
-<style>
+<style lang="scss">
+  @import "../../sass/variables";
+
   .about-title {
     font-size: 5rem;
-    color: #111111;
+    color: $text-color-darker;
     font-weight: 700;
     margin: 0;
     padding-bottom: 3rem;
+  }
+
+  .about-content {
+    color: $text-color-lighter;
   }
 </style>
 
 <Nav />
 <div class="container">
   <h1 class="about-title">About page</h1>
-  <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim in, iure
+  <span class="about-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim in, iure
     consectetur mollitia accusantium pariatur ad modi vero odio. Sed, earum
     perspiciatis consectetur qui totam consequuntur recusandae in ullam ipsum
     exercitationem odio minus necessitatibus. Facilis pariatur deleniti illum

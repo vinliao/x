@@ -1,5 +1,4 @@
-$max-width: 720px;
-$text-color: #333333;
+@import "../src/sass/variables";
 
 .container {
   max-width: $max-width;
@@ -21,6 +20,7 @@ a {
 }
 
 body {
+  background-color: $background-color;
   color: $text-color;
   font-family: 'Literata', serif;
   font-weight: 400;

@@ -2,6 +2,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../sass/variables";
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -18,7 +20,7 @@
       align-items: center;
 
       a {
-        color: #888888;
+        color: $text-color-lightest;
         padding-left: 2rem;
       }
     }

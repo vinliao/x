@@ -1,0 +1,20 @@
+// edit this to toggle dark mode
+$dark-mode: false;
+
+$max-width: 720px;
+
+$text-color: #333;
+$text-color-lighter: #555;
+$text-color-lightest: #888;
+$text-color-darker: #000;
+$background-color: #fff;
+
+@if $dark-mode {
+  // all these vars aren't pretty yet!
+
+  $text-color: #fafafa;
+  $text-color-lighter: rgb(180, 180, 180);
+  $text-color-lightest: rgb(204, 204, 204);
+  $text-color-darker: #fff;
+  $background-color: #222;
+}

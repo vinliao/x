@@ -10,17 +10,19 @@
 </script>
 
 <style lang="scss">
+  @import "../../sass/variables";
+  
   .content {
     padding-bottom: 10rem;
 
     &-title {
       font-size: 5rem;
-      color: #111111;
+      color: $text-color-darker;
       font-weight: 700;
     }
 
     &-date {
-      color: #888888;
+      color: $text-color-lightest;
       font-weight: 200;
     }
   }

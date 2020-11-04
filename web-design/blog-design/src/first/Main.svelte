@@ -12,7 +12,7 @@
 <style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
   $max-width: 720px;
-  $text-color: #555555;
+  $light-text: #555555;
 
   // set colors
   // h1,
@@ -24,7 +24,7 @@
   // p,
   // span,
   // a {
-  //   color: $text-color;
+  //   color: $light-text;
   //   font-family: "Playfair Display", serif;
   // }
 
