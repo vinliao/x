@@ -12,10 +12,13 @@ a {
   text-decoration: none;
   color: #333333;
 }
+a:hover {
+  text-decoration: underline;
+}
 
 body {
   color: #333333;
-  font-family: 'Literata', serif;
+  font-family: "Literata", serif;
   font-weight: 400;
   font-size: 2.5rem;
 }

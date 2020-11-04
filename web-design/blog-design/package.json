@@ -4,7 +4,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --single"
+    "start": "sirv public --single",
+    "sass": "sass ./public/global.scss ./public/global.css --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "page": "^1.11.6",
+    "rollup-plugin-scss": "^2.6.1",
     "sirv-cli": "^1.0.0"
   }
 }
