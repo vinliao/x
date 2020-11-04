@@ -3,10 +3,18 @@
 </script>
 
 <style>
+  .about-title {
+    font-size: 5rem;
+    color: #111111;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 3rem;
+  }
 </style>
 
+<Nav />
 <div class="container">
-  <Nav />
+  <h1 class="about-title">About page</h1>
   <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim in, iure
     consectetur mollitia accusantium pariatur ad modi vero odio. Sed, earum
     perspiciatis consectetur qui totam consequuntur recusandae in ullam ipsum

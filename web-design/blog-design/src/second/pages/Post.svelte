@@ -3,10 +3,18 @@
 </script>
 
 <style>
+  .post-content {
+    font-size: 5rem;
+    color: #111111;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 3rem;
+  }
 </style>
 
+<Nav />
 <div class="container">
-  <Nav />
+  <h1 class="post-content">A very cool post title</h1>
   <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
     quidem necessitatibus ducimus voluptate accusamus enim labore libero fuga
     facere eius quia suscipit, ab itaque cum odit delectus ratione sequi rem

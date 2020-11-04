@@ -10,11 +10,12 @@ html {
 
 a {
   text-decoration: none;
+  color: #333333;
 }
 
 body {
   color: #333333;
-  font-family: "Lato", sans-serif;
+  font-family: 'Literata', serif;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }

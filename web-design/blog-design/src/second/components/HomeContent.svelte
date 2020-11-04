@@ -1,26 +1,27 @@
 <script>
   let titles = [
-    "my very first post",
-    "hello world, life is good",
-    "what are you talking about bro?",
-    "this theme is ultra minimal",
-    "what you talkin' bout?",
+    "My very first post",
+    "Hello world, life is good",
+    "What are you talking about bro?",
+    "This theme is ultra minimal",
+    "What you talkin' bout?",
+    "Trying out this new site",
   ];
 </script>
 
 <style lang="scss">
   .content {
-    padding-bottom: 8rem;
+    padding-bottom: 10rem;
 
     &-title {
-      font-size: 2.5rem;
+      font-size: 5rem;
       color: #111111;
       font-weight: 700;
     }
 
     &-date {
-      color: #aaaaaa;
-      font-weight: 300;
+      color: #888888;
+      font-weight: 200;
     }
   }
 </style>

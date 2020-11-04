@@ -5,15 +5,12 @@
   .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0 8rem 0;
+    padding: 2rem 3rem 5rem 3rem;
 
     &-title {
-      font-family: "Playfair Display", serif;
+      font-family: 'Source Code Pro', monospace;
       font-size: 4rem;
-
-      // I'm not sure why, but if I don't put any color here,
-      // it will be overwritten by purple. Yes. Purple.
-      color: #333333;
+      font-weight: 300;
     }
 
     &-links {
@@ -21,15 +18,15 @@
       align-items: center;
 
       a {
+        color: #888888;
         padding-left: 2rem;
-        color: #333333;
       }
     }
   }
 </style>
 
 <div class="navbar">
-  <a class="navbar-title" href="/">Title</a>
+  <a class="navbar-title" href="/">blog title</a>
   <div class="navbar-links">
     <a href="/about">about</a>
     <a href="/">other</a>
