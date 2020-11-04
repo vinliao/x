@@ -10,15 +10,15 @@ html {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #cccccc;
 }
 a:hover {
   text-decoration: underline;
 }
 
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #333333;
+  color: #cccccc;
   font-family: "Literata", serif;
   font-weight: 400;
   font-size: 2.5rem;

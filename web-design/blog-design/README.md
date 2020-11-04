@@ -13,6 +13,6 @@ Fonts to try out:
 
 Features to have:
 - Dark mode (toggle maybe)
-- Display next set of posts in home
-- Next and previous post in bottom
+- Next and previous post in bottom of post
 - Search?
+- "Load more post" link in the bottom.

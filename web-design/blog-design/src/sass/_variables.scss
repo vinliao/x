@@ -1,20 +1,27 @@
 // edit this to toggle dark mode
-$dark-mode: false;
-
+$dark-mode: true;
 $max-width: 720px;
 
-$text-color: #333;
-$text-color-lighter: #555;
-$text-color-lightest: #888;
-$text-color-darker: #000;
-$background-color: #fff;
+// as a baseline: hsl(0, 0, 20) is #333;
+
+$text-color: hsl(0, 0, 20);
+$background-color: hsl(0, 0, 100);
+$text-color-darker: hsl(0, 0, 10);
+$text-color-lighter: hsl(0, 0, 30);
+$text-color-lightest: hsl(0, 0, 40);
 
 @if $dark-mode {
   // all these vars aren't pretty yet!
 
-  $text-color: #fafafa;
-  $text-color-lighter: rgb(180, 180, 180);
-  $text-color-lightest: rgb(204, 204, 204);
-  $text-color-darker: #fff;
-  $background-color: #222;
+  // $text-color: #fafafa;
+  // $text-color-lighter: rgb(180, 180, 180);
+  // $text-color-lightest: rgb(204, 204, 204);
+  // $text-color-darker: #fff;
+  // $background-color: #222;
+
+  $text-color: hsl(0, 0, 80);
+  $background-color: hsl(0, 0, 20);
+  $text-color-darker: hsl(0, 0, 90);
+  $text-color-lighter: hsl(0, 0, 70);
+  $text-color-lightest: hsl(0, 0, 60);
 }
