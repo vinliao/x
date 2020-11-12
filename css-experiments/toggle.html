@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <label>
+    <input type="checkbox">
+    <span class="check"></span>
+  </label>
+  
+
+  <style>
+    body {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .check::after {
+      content: '' ;
+      background: hsl(270, 50%, 70%);
+      width: 100px;
+      height: 50px;
+    }
+
+    input[type="checkbox"] {
+      /* visibility: hidden; */
+    }
+
+    input[type="checkbox"]:checked ~ label {
+      background: red;
+    }
+    
+  </style>
+</body>
+</html>
