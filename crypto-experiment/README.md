@@ -1,0 +1,5 @@
+## Notes on cryptography
+- The purpose of encryption is secure communication. And encryption is only a small part of crypto.
+- As far as I've looked, everything seems to operate using bytestring.
+- Base64 makes bytestring and binary human readable (and easily copiable). But readability != understandability. Turning binary gibberish into letters human can read by converting it to base64 is what the `--armor` option is on gpg.
+- As I toy with these things, I realized that using go is not the best option. I code slower and my experiment cycle is just so slow because I have to manage all the small details. In javascript, I can move fast, break things, and run lots of experiment quickly. Huge advantage over something like go. (I think go is more suited for production level of crypto, but not experimentation).
