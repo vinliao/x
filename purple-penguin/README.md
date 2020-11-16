@@ -1,5 +1,7 @@
 # Notes
 
+**This project is discontinued**
+
 Questions to myself:
 - What are the things that needs to be included?
 - What is the arrival point for those who take this challenge?
