@@ -1,11 +1,9 @@
-# anything node modules two directories deep
-*/*/node_modules
-*/node_modules
+# all node modules
+**/node_modules
 
-# block all credentials
-*/credentials.json
-*/*/credentials.json
+# all credentials
+**/credentials.json
 
 # block large json file
-kapil-gupta-tweets/preprocess/data/parsed.json
-kapil-gupta-tweets/preprocess/data/raw.jsonl
+kapilguptamd-tweets/preprocess/data/parsed.json
+kapilguptamd-tweets/preprocess/data/raw.jsonl
