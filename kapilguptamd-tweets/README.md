@@ -32,3 +32,8 @@ what I want:
 
 ## Q
 - Is there something wrong with opening and re-opening the db connected for every query?
+
+## Conclusion
+This is not something I truly want. Why bother continue building it? I thought I wanted this thing, but not really. Toying with all these things taught me a thing or two though, so that's that.
+
+But man, I don't even want this stupid app. I can do everything on twitter search. Why bother doing this? This is something nobody wants---even myself!
