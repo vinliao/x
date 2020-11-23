@@ -1,3 +1,0 @@
-Hello there from cli app
----
-sending as thread

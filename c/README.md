@@ -1,0 +1,4 @@
+## Notes
+- I'm coming from a higher-level language, and C is such a different language. I have to care so much about the memory. It's a completely different way of seeing and coding.
+- One of the cool thing of C is it compiles down to binary/assembly, and it can be run almost everywhere without much hassle.
+- I just realized that a function is like a container for logic and variables. Struct is also another container but for data structures. Class are just like struct with function. A "module" is a container for programs. Everything is containerized in a way, it's just that the container that we are conceptually familiar is docker.
