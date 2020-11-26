@@ -3,7 +3,3 @@
 
 # all credentials
 **/credentials.json
-
-# block large json file
-kapilguptamd-tweets/preprocess/data/parsed.json
-kapilguptamd-tweets/preprocess/data/raw.jsonl
