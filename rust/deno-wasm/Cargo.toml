@@ -1,0 +1,10 @@
+[package]
+name = "deno-wasm"
+version = "0.1.0"
+authors = ["Vincent Liao <vincent.liao@protonmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]

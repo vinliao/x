@@ -3,3 +3,7 @@
 
 # all credentials
 **/credentials.json
+
+# all generated rust files
+**/target/
+**/Cargo.lock
