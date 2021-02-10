@@ -1,0 +1,11 @@
+p {
+  background: blue;
+}
+
+a {
+  text-decoration: none;
+}
+
+::placeholder {
+  color: gray;
+}
