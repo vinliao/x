@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .upper {
+    display: flex;
+  }
+
+  .part1 {
+    height: 40vh;
+    width: 40vh;
+    border: 3px solid black;
+    background: #d6b300;
+  }
+
+  .part2 {
+    height: 40vh;
+    width: 40vh;
+    border: 3px solid black;
+  }
+
+  .lower {
+    display: flex;
+  }
+
+  .part3 {
+    height: 40vh;
+    width: 40vh;
+    border: 3px solid black;
+    background: #d6b300;
+  }
+
+  .part4 {
+    height: 40vh;
+    width: 40vh;
+    border: 3px solid black;
+    background: pink;
+  }
+
+  .head1 {
+    position: relative;
+    background: tan;
+    width: 120px;
+    height: 120px;
+    top: 30px;
+    left: 20px;
+    border-radius: 50%;
+    background: #d77b02;
+  }
+
+  .jacket1 {
+    position: relative;
+    background: #db4101;
+    width: 200px;
+    height: 200px;
+    top: 30px;
+    left: 30px;
+    border-radius: 20px;
+  }
+
+  .eye1 {
+    position: absolute;
+    background: #333;
+    width: 10px;
+    height: 10px;
+    top: 80px;
+    left: 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1;
+  }
+
+  .hand1 {
+    position: absolute;
+    z-index: 1;
+    top: 200px;
+    left: 120px;
+  }
+
+  .head3 {
+    position: relative;
+    background: tan;
+    width: 120px;
+    height: 120px;
+    top: 30px;
+    left: 80px;
+    border-radius: 50%;
+    background: #d77b02;
+  }
+
+  .jacket3 {
+    position: relative;
+    background: #db4101;
+    width: 200px;
+    height: 200px;
+    top: 30px;
+    left: 60px;
+    border-radius: 20px;
+  }
+
+  .eye3-left {
+    position: absolute;
+    background: #333;
+    width: 10px;
+    height: 10px;
+    top: 480px;
+    left: 130px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1;
+  }
+
+  .eye3-right {
+    position: absolute;
+    background: #333;
+    width: 10px;
+    height: 10px;
+    top: 480px;
+    left: 180px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1;
+  }
+
+  .hand3 {
+    position: absolute;
+    z-index: 1;
+    top: 600px;
+    left: 180px;
+  }
+
+  .text {
+    font-size: 2rem;
+  }
+
+  .part2-text {
+    padding-left: 20px;
+    padding-top: 50px;
+  }
+
+  .part4-text {
+    padding-left: 20px;
+    padding-top: 50px;
+  }
+
+  .part4-text2 {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding-left: 50px;
+    padding-top: 20px;
+  }
+
+</style>
+
+<body>
+
+  <div class="upper">
+    <div class="part1">
+      <div class="head1"></div>
+      <div class="jacket1"></div>
+      <div class="eye1"></div>
+      <img class="hand1" src="./drake-2.png" alt="drake hand">
+    </div>
+
+    <div class="part2">
+      <p class="text part2-text">made with mematic</p>
+    </div>
+  </div>
+
+  <div class="lower">
+    <div class="part3">
+      <div class="head3"></div>
+      <div class="jacket3"></div>
+      <div class="eye3-left"></div>
+      <div class="eye3-right"></div>
+      <img class="hand3" src="./drake-1.png" alt="drake hand 2">
+    </div>
+
+    <div class="part4">
+      <p class="text part4-text">made with</p>
+      <p class="text part4-text2">CSS</p>
+    </div>
+  </div>
+</body>
+
+</html>
